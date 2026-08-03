@@ -1,0 +1,34 @@
+MediaInfo JotaSoft78 – Analizador de Códecs Multimedia
+
+MediaInfo JotaSoft78 es una aplicación para dispositivos con Windows desarrollada para identificar y analizar en detalle la composición interna de archivos de vídeo, ofreciendo al usuario información técnica precisa sin necesidad de herramientas externas. Su interfaz intuitiva permite procesar archivos de forma directa, ya sea mediante selección manual o arrastrando el contenido sobre la ventana.
+
+Características Técnicas y Funcionales
+
+Entrada de Archivos Simplificada: Soporte para arrastrar y soltar (drag & drop) o selección mediante explorador, compatible con los formatos .mkv, .avi y .mp4.
+Análisis de Vídeo: Identificación automática del códec empleado (H.264, H.265/HEVC, Xvid, DivX, VP9, AV1, entre otros) junto con la resolución del archivo y su clasificación (SD, HD, Full HD, 2K, 4K).
+Análisis de Audio: Detección de todas las pistas de audio presentes, mostrando códec, número de canales y disposición (estéreo, 5.1, etc.), así como el idioma de cada pista.
+Análisis de Subtítulos: Listado completo de las pistas de subtítulos incluidas, con su formato (SRT, ASS, PGS, VOBSUB, entre otros), idioma y marcadores especiales (forzado, predeterminado).
+Panel de Resultados: Incorpora una consola de salida que presenta de forma estructurada y legible toda la información extraída del archivo analizado.
+Integración con el Explorador de Windows: La aplicación puede añadirse al menú contextual (clic derecho) de archivos .mkv, .avi y .mp4 mediante un archivo de registro (.reg), permitiendo lanzar el análisis directamente desde el Explorador sin necesidad de abrir la aplicación manualmente. Basta con adaptar la ruta del ejecutable a la ubicación de instalación e importar el siguiente contenido:
+
+Windows Registry Editor Version 5.00
+
+; ============================================================================
+; Añade "Mediainfo JotaSoft78" al menú contextual (clic derecho) de
+; archivos .mkv, .avi y .mp4
+; ============================================================================
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\shell\JotaSoft78MediaInfo]
+@="Mediainfo JotaSoft78"
+"Icon"="C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe,0"
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\shell\JotaSoft78MediaInfo\command]
+@="\"C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe\" \"%1\""
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.avi\shell\JotaSoft78MediaInfo]
+@="Mediainfo JotaSoft78"
+"Icon"="C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe,0"
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.avi\shell\JotaSoft78MediaInfo\command]
+@="\"C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe\" \"%1\""
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\shell\JotaSoft78MediaInfo]
+@="Mediainfo JotaSoft78"
+"Icon"="C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe,0"
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\shell\JotaSoft78MediaInfo\command]
+@="\"C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe\" \"%1\""

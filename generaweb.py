@@ -1,0 +1,330 @@
+import os
+import html
+
+# Configuración de carpetas
+PLATAFORMAS = ["windows", "android"]
+HTML_OUTPUT = "index.html"
+
+# Definir iconos para las plataformas
+ICONOS = {
+    "windows": "🖥️",
+    "android": "📱"
+}
+
+def buscar_aplicaciones():
+    apps = { "windows": [], "android": [] }
+    
+    for plataforma in PLATAFORMAS:
+        if not os.path.exists(plataforma):
+            continue
+            
+        for nombre_app in os.listdir(plataforma):
+            ruta_app = os.path.join(plataforma, nombre_app)
+            
+            if os.path.isdir(ruta_app):
+                # Buscar archivos clave
+                descripcion = "Sin descripción disponible."
+                ruta_txt = os.path.join(ruta_app, "descripcion.txt")
+                if os.path.exists(ruta_txt):
+                    with open(ruta_txt, "r", encoding="utf-8") as f:
+                        descripcion = f.read().strip()
+                
+                # Buscar archivo de la app (.exe, .apk, .zip, .msi, etc.)
+                archivo_app = "#"
+                for archivo in os.listdir(ruta_app):
+                    if archivo.lower().endswith((".exe", ".apk", ".zip", ".msi", ".rar")):
+                        archivo_url_encoded = archivo.replace(" ", "%20")
+                        archivo_app = f"{plataforma}/{nombre_app}/{archivo_url_encoded}"
+                        break
+                
+                # Buscar captura
+                captura = f"{plataforma}/{nombre_app}/captura.jpg"
+                if not os.path.exists(captura):
+                    captura = ""
+                
+                apps[plataforma].append({
+                    "nombre": nombre_app,
+                    "descripcion": descripcion,
+                    "archivo": archivo_app,
+                    "captura": captura
+                })
+                
+    return apps
+
+def generar_html(apps):
+    estilo_css = """
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #131b2e;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --body-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--body-font);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 5rem 2rem 3rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg-color) 70%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 0.75rem 0;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            width: 100%;
+        }
+
+        .platform-section {
+            margin-bottom: 4rem;
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .platform-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-primary);
+            letter-spacing: 0.5px;
+        }
+        
+        .platform-icon {
+            font-size: 2rem;
+        }
+
+        .apps-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Tarjeta horizontal refinada */
+        .app-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .app-card:hover {
+            border-color: rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Contenedor de imagen adaptativo para que tanto horizontales como verticales queden bien */
+        .card-image-container {
+            width: 340px;
+            min-width: 340px;
+            background-color: #05070b;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 1rem;
+        }
+
+        .card-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Muestra la imagen completa sin recortarla ni deformarla */
+            border-radius: 6px;
+        }
+        
+        .card-image-container.no-image::before {
+            content: '📸';
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .card-body {
+            padding: 2.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            color: #ffffff;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent);
+            color: white;
+            text-align: center;
+            padding: 0.85rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s ease;
+            align-self: flex-start;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .app-card {
+                flex-direction: column;
+            }
+            .card-image-container {
+                width: 100%;
+                min-width: 100%;
+                height: 240px;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .card-body {
+                padding: 1.5rem;
+            }
+            header h1 { font-size: 2.25rem; }
+            .download-btn { width: 100%; }
+        }
+    """
+
+    html_content = f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JotaSoft78 | Repositorio de Software</title>
+    <style>{estilo_css}</style>
+</head>
+<body>
+
+    <header>
+        <h1>JotaSoft78</h1>
+        <p>Repositorio oficial de aplicaciones para Windows y Android.</p>
+    </header>
+
+    <main class="main-container">
+"""
+
+    for plataforma in PLATAFORMAS:
+        if apps[plataforma]:
+            html_content += f"""
+        <section class="platform-section">
+            <div class="platform-header">
+                <span class="platform-icon">{ICONOS.get(plataforma, '')}</span>
+                <h2>{plataforma.upper()}</h2>
+            </div>
+            
+            <div class="apps-grid">
+"""
+            for app in apps[plataforma]:
+                img_tag = f'<img src="{html.escape(app["captura"])}" alt="Captura de {html.escape(app["nombre"])}" loading="lazy">'
+                img_wrapper_class = "card-image-container"
+                if not app["captura"]:
+                    img_tag = ""
+                    img_wrapper_class += " no-image"
+
+                # Texto personalizado para el botón con el nombre de la app y la plataforma
+                texto_boton = f"Descargar {app['nombre']} ({plataforma.capitalize()})"
+
+                html_content += f"""
+                <article class="app-card">
+                    <div class="{img_wrapper_class}">
+                        {img_tag}
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title">{html.escape(app["nombre"])}</h3>
+                            <div class="card-description">{html.escape(app["descripcion"])}</div>
+                        </div>
+                        <a href="{html.escape(app["archivo"])}" class="download-btn" download>
+                            {html.escape(texto_boton)}
+                        </a>
+                    </div>
+                </article>
+"""
+            html_content += "            </div>\n        </section>\n"
+
+    html_content += """
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JotaSoft78 - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+"""
+
+    with open(HTML_OUTPUT, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"¡Archivo {HTML_OUTPUT} generado con éxito!")
+
+if __name__ == "__main__":
+    app_data = buscar_aplicaciones()
+    generar_html(app_data)
