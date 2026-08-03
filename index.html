@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JotaSoft78 - Repositorio de Aplicaciones</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(to bottom, #1e293b, var(--bg-color));
+            border-bottom: 1px solid #334155;
+        }
+        header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.5rem;
+            color: #ffffff;
+        }
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        h2.section-title {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #334155;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        .card-img-container {
+            width: 100%;
+            height: 180px;
+            background-color: #0f172a;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            margin: 0 0 0.75rem 0;
+            font-size: 1.25rem;
+            color: #ffffff;
+        }
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            white-space: pre-line;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            border-top: 1px solid #334155;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Repositorio de Aplicaciones</h1>
+        <p>Software y herramientas para Windows y Android</p>
+    </header>
+
+    <div class="container">
+<h2 class="section-title">🖥️ Windows</h2>
+<div class="grid">
+
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="" alt="YT Downloader" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">YT Downloader</h3>
+                    <p class="card-desc">Sin descripción disponible.</p>
+                    <a href="windows/YT Downloader/YT Downloader_windows.rar" class="btn" download>Descargar</a>
+                </div>
+            </div>
+            </div>
+<h2 class="section-title">📱 Android</h2>
+<div class="grid">
+
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="android/YT Downloader/captura.jpg" alt="YT Downloader" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">YT Downloader</h3>
+                    <p class="card-desc">YT Downloader – Gestor de Descargas Multimedia
+YT Downloader es una aplicación para dispositivos Android desarrollada para optimizar la adquisición y gestión de contenido multimedia de forma rápida y eficiente. Su interfaz intuitiva permite procesar enlaces de manera directa, ofreciendo flexibilidad según las necesidades de almacenamiento y reproducción del usuario.
+
+Características Técnicas y Funcionales
+Entrada de Enlaces Simplificada: Campo de texto optimizado para la inserción rápida de URLs multimedia.
+
+Selección de Formato y Calidad:
+
+Modo Vídeo: Descarga en la máxima resolución y calidad disponible, preservando la pista de audio original.
+
+Modo Audio (MP3): Extracción independiente del flujo de audio para su exportación a formato comprimido estándar.
+
+Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real que muestra el estado operativo (&quot;Listo para descargar&quot;) y un historial de registros (logs) para el seguimiento detallado de los procesos activos.</p>
+                    <a href="android/YT Downloader/YT Downloader.rar" class="btn" download>Descargar</a>
+                </div>
+            </div>
+            </div>
+
+    </div>
+
+    <footer>
+        <p>Actualizado automáticamente mediante script de Python.</p>
+    </footer>
+
+</body>
+</html>
