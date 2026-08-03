@@ -1,0 +1,13 @@
+YT Downloader – Gestor de Descargas Multimedia
+YT Downloader es una aplicación para dispositivos con Windows desarrollada para optimizar la adquisición y gestión de contenido multimedia de forma rápida y eficiente. Su interfaz intuitiva permite procesar enlaces de manera directa, ofreciendo flexibilidad según las necesidades de almacenamiento y reproducción del usuario.
+
+Características Técnicas y Funcionales
+Entrada de Enlaces Simplificada: Campo de texto optimizado para la inserción rápida de URLs multimedia.
+
+Selección de Formato y Calidad:
+
+Modo Vídeo: Descarga en la máxima resolución y calidad disponible, preservando la pista de audio original.
+
+Modo Audio (MP3): Extracción independiente del flujo de audio para su exportación a formato comprimido estándar.
+
+Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real que muestra el estado operativo ("Listo para descargar") y un historial de registros (logs) para el seguimiento detallado de los procesos activos.
