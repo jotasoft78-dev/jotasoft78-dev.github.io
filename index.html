@@ -53,7 +53,7 @@
         }
 
         .main-container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 3rem 2rem;
             width: 100%;
@@ -83,16 +83,15 @@
             font-size: 2rem;
         }
 
-        /* Contenedor de aplicaciones en formato limpio y centrado */
         .apps-grid {
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        /* Tarjeta de aplicación estilo horizontal corporativo */
+        /* Tarjeta horizontal refinada */
         .app-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -109,35 +108,34 @@
             transform: translateY(-2px);
         }
 
-        /* Contenedor de la imagen optimizado para capturas verticales */
+        /* Contenedor de imagen adaptativo para que tanto horizontales como verticales queden bien */
         .card-image-container {
-            width: 280px;
-            min-width: 280px;
-            background-color: #080c14;
+            width: 340px;
+            min-width: 340px;
+            background-color: #05070b;
             border-right: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            position: relative;
+            padding: 1rem;
         }
 
         .card-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Llena el espacio limpiamente sin deformar */
-            object-position: top center;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Muestra la imagen completa sin recortarla ni deformarla */
+            border-radius: 6px;
         }
         
         .card-image-container.no-image::before {
             content: '📸';
-            font-size: 2.5rem;
+            font-size: 3rem;
             opacity: 0.3;
         }
 
-        /* Cuerpo de la tarjeta */
         .card-body {
-            padding: 2rem;
+            padding: 2.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -147,7 +145,7 @@
         .card-title {
             font-size: 1.5rem;
             font-weight: 700;
-            margin: 0 0 0.75rem 0;
+            margin: 0 0 1rem 0;
             color: #ffffff;
         }
 
@@ -156,7 +154,7 @@
             font-size: 0.95rem;
             margin-bottom: 2rem;
             line-height: 1.6;
-            white-space: pre-line; /* Respeta los saltos de línea si los hay */
+            white-space: pre-line;
         }
 
         .download-btn {
@@ -166,8 +164,8 @@
             background-color: var(--accent);
             color: white;
             text-align: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
+            padding: 0.85rem 1.5rem;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
@@ -188,16 +186,19 @@
             font-size: 0.85rem;
         }
 
-        /* Adaptabilidad para móviles */
         @media (max-width: 768px) {
             .app-card {
                 flex-direction: column;
             }
             .card-image-container {
                 width: 100%;
-                height: 220px;
+                min-width: 100%;
+                height: 240px;
                 border-right: none;
                 border-bottom: 1px solid var(--border-color);
+            }
+            .card-body {
+                padding: 1.5rem;
             }
             header h1 { font-size: 2.25rem; }
             .download-btn { width: 100%; }
@@ -222,8 +223,8 @@
             <div class="apps-grid">
 
                 <article class="app-card">
-                    <div class="card-image-container no-image">
-                        
+                    <div class="card-image-container">
+                        <img src="windows/YT Downloader/captura.jpg" alt="Captura de YT Downloader" loading="lazy">
                     </div>
                     <div class="card-body">
                         <div>
@@ -243,7 +244,7 @@ Modo Audio (MP3): Extracción independiente del flujo de audio para su exportaci
 Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real que muestra el estado operativo (&quot;Listo para descargar&quot;) y un historial de registros (logs) para el seguimiento detallado de los procesos activos.</div>
                         </div>
                         <a href="windows/YT Downloader/YT%20Downloader_windows.rar" class="download-btn" download>
-                            Descargar Windows
+                            Descargar YT Downloader (Windows)
                         </a>
                     </div>
                 </article>
@@ -280,7 +281,7 @@ Modo Audio (MP3): Extracción independiente del flujo de audio para su exportaci
 Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real que muestra el estado operativo (&quot;Listo para descargar&quot;) y un historial de registros (logs) para el seguimiento detallado de los procesos activos.</div>
                         </div>
                         <a href="android/YT Downloader/YT%20Downloader.rar" class="download-btn" download>
-                            Descargar Android
+                            Descargar YT Downloader (Android)
                         </a>
                     </div>
                 </article>
