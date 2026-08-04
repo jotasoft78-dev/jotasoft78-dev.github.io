@@ -1,0 +1,7 @@
+GbEmu es un emulador de Game Boy clásica escrito desde cero en C, usando SDL2 para el renderizado, la entrada y el sonido. Emula fielmente el hardware original: CPU SM83, bancos de memoria MBC1, la PPU completa (incluyendo OAM DMA), temporizador, sistema de interrupciones y las 4 canales del APU con secuenciador de frames.
+
+Características principales:
+Renderizado a 4x de escala con la paleta verde clásica de la Game Boy.
+Soporte de mando/gamepad además de teclado.
+Guardado y carga de partidas (savestates).
+Selector de ROM integrado, con arrastrar-y-soltar de archivos .gb.

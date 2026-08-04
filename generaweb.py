@@ -628,7 +628,7 @@ def generar_html(apps):
             <!--PUBLICIDAD-->
 		        <iframe
             title="Publicidad"
-            src="https://tiny-paste.com/ad-banner.html"
+            src="iframe.html"
             width="728"
             height="90"
             style="border:0; overflow:hidden;"
@@ -663,6 +663,9 @@ def generar_html(apps):
                     img_wrapper_class += " no-image"
 
                 texto_boton = f"Descargar {app['nombre']} ({plataforma.capitalize()})"
+                
+                # Evento de analíticas integrado para el contador de descargas
+                onclick_analytics = f"gtag('event', 'download', {{'app_name': '{app['nombre']}', 'platform': '{plataforma}'}});"
 
                 html_content += f"""
                 <article class="app-card">
@@ -674,7 +677,7 @@ def generar_html(apps):
                             <h3 class="card-title">{html.escape(app["nombre"])}</h3>
                             <div class="card-description">{app["descripcion"]}</div>
                         </div>
-                        <a href="{html.escape(app["archivo"])}" class="download-btn" download>
+                        <a href="{html.escape(app["archivo"])}" class="download-btn" download onclick="{onclick_analytics}">
                             {html.escape(texto_boton)}
                         </a>
                     </div>
@@ -701,7 +704,7 @@ def generar_html(apps):
 
     with open(HTML_OUTPUT, "w", encoding="utf-8") as f:
         f.write(html_content)
-    print(f"¡Archivo {HTML_OUTPUT} generado con éxito, con el sistema anti-adblock integrado!")
+    print(f"¡Archivo {HTML_OUTPUT} generado con éxito, con el sistema anti-adblock y contador de descargas integrado!")
 
 if __name__ == "__main__":
     app_data = buscar_aplicaciones()
