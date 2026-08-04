@@ -361,6 +361,100 @@ def generar_html(apps):
             to { transform: scale(1); opacity: 1; }
         }
 
+        /* Estilos para el popup de adblock */
+        #adblock-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+
+        #adblock-popup {
+            background: #1a1a1a;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            border: 2px solid #ff6600;
+            text-align: center;
+            color: white;
+        }
+
+        .adblock-header {
+            background: #ff6600;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .adblock-content {
+            padding: 30px;
+        }
+
+        .adblock-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ff6600;
+        }
+
+        .adblock-message {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .adblock-button {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-weight: bold;
+        }
+
+        .adblock-button:hover {
+            background: #e65c00;
+            transform: translateY(-2px);
+        }
+
+        .adblock-instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background: #2a2a2a;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .adblock-instructions h3 {
+            margin-top: 0;
+            color: #ff6600;
+        }
+
+        /* Ocultar contenido cuando se detecta adblock */
+        body.adblock-detected header,
+        body.adblock-detected .main-container,
+        body.adblock-detected footer {
+            display: none !important;
+        }
+
+        /* Mostrar el popup cuando se detecta adblock */
+        body.adblock-detected #adblock-overlay {
+            display: flex !important;
+        }
+
         footer {
             text-align: center;
             padding: 3rem 2rem;
@@ -418,6 +512,61 @@ def generar_html(apps):
                 cerrarModal();
             }
         }
+
+        // Función para detectar AdBlock
+        function detectAdBlock() {
+          return new Promise((resolve) => {
+            fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', {
+              method: 'HEAD',
+              mode: 'no-cors',
+              cache: 'no-store'
+            }).catch(() => {
+              resolve(true);
+            });
+            
+            setTimeout(() => {
+              const ad = document.createElement('div');
+              ad.innerHTML = '&nbsp;';
+              ad.className = 'ad-container adsbox advertisement ad-banner ad-unit';
+              ad.style.position = 'absolute';
+              ad.style.left = '-9999px';
+              ad.style.top = '-9999px';
+              ad.style.height = '1px';
+              ad.style.width = '1px';
+              document.body.appendChild(ad);
+              
+              setTimeout(() => {
+                const isBlocked = ad.offsetHeight === 0 || 
+                                  ad.offsetWidth === 0 || 
+                                  getComputedStyle(ad).display === 'none' ||
+                                  getComputedStyle(ad).visibility === 'hidden' ||
+                                  ad.offsetParent === null;
+                
+                document.body.removeChild(ad);
+                resolve(isBlocked);
+              }, 100);
+            }, 100);
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          detectAdBlock().then((isBlocked) => {
+            if (isBlocked) {
+              document.body.classList.add('adblock-detected');
+              
+              document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+              });
+            }
+          });
+          
+          var reloadBtn = document.getElementById('reload-button');
+          if (reloadBtn) {
+            reloadBtn.addEventListener('click', function() {
+              location.reload(true);
+            });
+          }
+        });
     """
 
     html_content = f"""<!DOCTYPE html>
@@ -437,22 +586,49 @@ def generar_html(apps):
     <meta property="og:type" content="website">
     
     <style>{estilo_css}</style>
+    
 </head>
 <body>
+
+    <!-- Popup de adblock -->
+    <div id="adblock-overlay">
+        <div id="adblock-popup">
+            <div class="adblock-header">
+                <h2>AdBlocker Detected</h2>
+            </div>
+            <div class="adblock-content">
+                <div class="adblock-icon">⚠️</div>
+                <div class="adblock-message">
+                    <p>We have detected that you are using an adblocker. Our service is funded through advertisements.</p>
+                    <p>Please disable your adblocker to access JotaSoft78.</p>
+                </div>
+                <button class="adblock-button" id="reload-button">I've disabled AdBlocker</button>
+                
+                <div class="adblock-instructions">
+                    <h3>How to disable adblocker:</h3>
+                    <p>1. Click on the adblocker icon in your browser</p>
+                    <p>2. Select "Pause on this site" or similar option</p>
+                    <p>3. Refresh the page to continue</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header>
         <h1>JotaSoft78</h1>
         <div class="header-banner">
-            <script>
-              atOptions = {{
-                'key' : '6a664ad904fced454dd60f2485ceeb10',
-                'format' : 'iframe',
-                'height' : 90,
-                'width' : 728,
-                'params' : {{}}
-              }};
-            </script>
-            <script src="https://inputoppose.com/6a664ad904fced454dd60f2485ceeb10/invoke.js"></script>
+            <!--PUBLICIDAD-->
+		        <iframe
+            title="Publicidad"
+            src="https://tiny-paste.com/ad-banner.html"
+            width="728"
+            height="90"
+            style="border:0; overflow:hidden;"
+            scrolling="no"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
+        </iframe>
         </div>
         <p>Repositorio oficial de aplicaciones para Windows y Android.</p>
     </header>
@@ -517,7 +693,7 @@ def generar_html(apps):
 
     with open(HTML_OUTPUT, "w", encoding="utf-8") as f:
         f.write(html_content)
-    print(f"¡Archivo {HTML_OUTPUT} generado correctamente con el banner en el header!")
+    print(f"¡Archivo {HTML_OUTPUT} generado con éxito, con el sistema anti-adblock integrado!")
 
 if __name__ == "__main__":
     app_data = buscar_aplicaciones()
