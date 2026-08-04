@@ -1,0 +1,12 @@
+IPTV Pro
+Reproductor de listas M3U/M3U8 para Android. Carga tu lista de canales desde una URL o un archivo local, organiza el contenido por categorías, guarda tus canales favoritos y reproduce con controles de siguiente/anterior directamente desde la app. Pensado para quienes ya cuentan con una suscripción IPTV o listas propias y quieren un cliente simple, rápido y sin complicaciones para verla en el móvil o en Android TV.
+
+Características:
+Carga de listas M3U/M3U8 por enlace o archivo
+Organización automática por categorías
+Buscador de canales
+Favoritos
+Reproducción en segundo plano con notificación
+Compatible con Android TV (Leanback)
+
+Nota: la app no incluye canales ni contenido propio; el usuario debe aportar su propia lista M3U de una fuente con los derechos correspondientes
