@@ -20,7 +20,7 @@ exacto que necesitas trazar en la botella.
 
 ## Cómo se usa
 1. Mide el diámetro de la boquilla de tu cortadora de filamento (mm)
-2. Indica el espesor de pared que quieres lograr (mm)
+2. Indica el espesor de pared de la botella que vas a utilizar (mm)
 3. Pulsa "Calcular ancho" y obtén el corte exacto
 
 ## Tecnologías
