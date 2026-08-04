@@ -1,5 +1,6 @@
 import os
 import html
+import re
 
 # Configuración de carpetas
 PLATAFORMAS = ["windows", "android"]
@@ -11,40 +12,78 @@ ICONOS = {
     "android": "📱"
 }
 
+def limpiar_conflictos_git(texto):
+    """Elimina los marcadores de conflicto de Git si estuvieran presentes por error en los txt."""
+    texto = re.sub(r'<<<<<<< HEAD.*?\n', '', texto)
+    texto = re.sub(r'\|\|\|\|\|\|\|.*?(\r?\n)', '', texto, flags=re.DOTALL)
+    texto = re.sub(r'=======\s*', '', texto)
+    texto = re.sub(r'>>>>>>>\s*[a-zA-Z0-9_.-]+.*?\n', '', texto)
+    return texto
+
+def procesar_bbcode(texto):
+    """Convierte etiquetas [spoiler]texto[/spoiler] en un acordeón HTML interactivo."""
+    texto = limpiar_conflictos_git(texto)
+    
+    def replacer(match):
+        contenido_spoiler = match.group(1)
+        contenido_escapado = html.escape(contenido_spoiler).replace('\n', '<br>')
+        return f'''
+            <div class="spoiler-container">
+                <button type="button" class="spoiler-btn" onclick="toggleSpoiler(this)">Ver contenido oculto (.reg)</button>
+                <div class="spoiler-content">{contenido_escapado}</div>
+            </div>
+        '''
+    
+    patron = re.compile(r'\[spoiler\](.*?)\[/spoiler\]', re.DOTALL | re.IGNORECASE)
+    
+    partes = []
+    ultimo_indice = 0
+    
+    for match in patron.finditer(texto):
+        texto_normal = texto[ultimo_indice:match.start()]
+        partes.append(html.escape(texto_normal).replace('\n', '<br>'))
+        partes.append(replacer(match))
+        ultimo_indice = match.end()
+        
+    texto_normal = texto[ultimo_indice:]
+    partes.append(html.escape(texto_normal).replace('\n', '<br>'))
+    
+    return "".join(partes)
+
 def buscar_aplicaciones():
     apps = { "windows": [], "android": [] }
     
     for plataforma in PLATAFORMAS:
-        if not os.path.exists(plataforma):
+        ruta_plat = os.path.join(os.getcwd(), plataforma)
+        if not os.path.exists(ruta_plat):
             continue
             
-        for nombre_app in os.listdir(plataforma):
-            ruta_app = os.path.join(plataforma, nombre_app)
+        for nombre_app in os.listdir(ruta_plat):
+            ruta_app = os.path.join(ruta_plat, nombre_app)
             
             if os.path.isdir(ruta_app):
-                # Buscar archivos clave
-                descripcion = "Sin descripción disponible."
+                descripcion_raw = "Sin descripción disponible."
                 ruta_txt = os.path.join(ruta_app, "descripcion.txt")
                 if os.path.exists(ruta_txt):
                     with open(ruta_txt, "r", encoding="utf-8") as f:
-                        descripcion = f.read().strip()
+                        descripcion_raw = f.read().strip()
                 
-                # Buscar archivo de la app (.exe, .apk, .zip, .msi, etc.)
+                descripcion_html = procesar_bbcode(descripcion_raw)
+                
                 archivo_app = "#"
                 for archivo in os.listdir(ruta_app):
-                    if archivo.lower().endswith((".exe", ".apk", ".zip", ".msi", ".rar")):
+                    if archivo.lower().endswith((".exe", ".apk", ".zip", ".msi", ".rar", ".reg")):
                         archivo_url_encoded = archivo.replace(" ", "%20")
                         archivo_app = f"{plataforma}/{nombre_app}/{archivo_url_encoded}"
                         break
                 
-                # Buscar captura
                 captura = f"{plataforma}/{nombre_app}/captura.jpg"
-                if not os.path.exists(captura):
+                if not os.path.exists(os.path.join(os.getcwd(), captura)):
                     captura = ""
                 
                 apps[plataforma].append({
                     "nombre": nombre_app,
-                    "descripcion": descripcion,
+                    "descripcion": descripcion_html,
                     "archivo": archivo_app,
                     "captura": captura
                 })
@@ -101,7 +140,7 @@ def generar_html(apps):
         }
 
         .main-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 3rem 2rem;
             width: 100%;
@@ -134,12 +173,11 @@ def generar_html(apps):
         .apps-grid {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            max-width: 900px;
+            gap: 2.5rem;
+            max-width: 950px;
             margin: 0 auto;
         }
 
-        /* Tarjeta horizontal refinada */
         .app-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -156,24 +194,30 @@ def generar_html(apps):
             transform: translateY(-2px);
         }
 
-        /* Contenedor de imagen adaptativo para que tanto horizontales como verticales queden bien */
         .card-image-container {
-            width: 340px;
-            min-width: 340px;
+            width: 320px;
+            min-width: 320px;
             background-color: #05070b;
             border-right: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding: 1rem;
+            padding: 1.5rem;
         }
 
         .card-image-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Muestra la imagen completa sin recortarla ni deformarla */
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
             border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .card-image-container img:hover {
+            opacity: 0.85;
         }
         
         .card-image-container.no-image::before {
@@ -188,10 +232,13 @@ def generar_html(apps):
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow: hidden;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             margin: 0 0 1rem 0;
             color: #ffffff;
@@ -202,7 +249,57 @@ def generar_html(apps):
             font-size: 0.95rem;
             margin-bottom: 2rem;
             line-height: 1.6;
-            white-space: pre-line;
+        }
+
+        .spoiler-container {
+            margin: 1.25rem 0;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .spoiler-btn {
+            background-color: #1e293b;
+            color: var(--text-primary);
+            border: none;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.2s;
+        }
+
+        .spoiler-btn::after {
+            content: '▼';
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+
+        .spoiler-btn.active::after {
+            transform: rotate(180deg);
+        }
+
+        .spoiler-btn:hover {
+            background-color: #334155;
+        }
+
+        .spoiler-content {
+            display: none;
+            padding: 1rem;
+            background-color: #080c14;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 250px;
+            overflow-y: auto;
+            border-top: 1px solid var(--border-color);
         }
 
         .download-btn {
@@ -225,6 +322,36 @@ def generar_html(apps):
             background-color: var(--accent-hover);
         }
 
+        /* Estilos de la Ventana Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            animation: modalScale 0.2s ease-in-out;
+        }
+
+        @keyframes modalScale {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
         footer {
             text-align: center;
             padding: 3rem 2rem;
@@ -241,7 +368,7 @@ def generar_html(apps):
             .card-image-container {
                 width: 100%;
                 min-width: 100%;
-                height: 240px;
+                height: 260px;
                 border-right: none;
                 border-bottom: 1px solid var(--border-color);
             }
@@ -253,12 +380,53 @@ def generar_html(apps):
         }
     """
 
+    script_js = """
+        function toggleSpoiler(btn) {
+            btn.classList.toggle('active');
+            var content = btn.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+
+        function abrirModal(imgSrc) {
+            var modal = document.getElementById('imageModal');
+            var modalImg = document.getElementById('modalImage');
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+        }
+
+        function cerrarModal() {
+            var modal = document.getElementById('imageModal');
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                cerrarModal();
+            }
+        }
+    """
+
     html_content = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JotaSoft78 | Repositorio de Software</title>
+    
+    <!-- Metaetiquetas SEO y Open Graph -->
+    <title>JotaSoft78 | Repositorio Oficial de Software</title>
+    <meta name="description" content="Repositorio oficial de aplicaciones para Windows y Android desarrolladas por JotaSoft78. Descarga herramientas y utilidades optimizadas.">
+    <meta name="keywords" content="JotaSoft78, software, aplicaciones, windows, android, descargas, utilidades">
+    <meta name="author" content="JotaSoft78">
+    
+    <meta property="og:title" content="JotaSoft78 | Repositorio de Software">
+    <meta property="og:description" content="Descarga utilidades y aplicaciones para Windows y Android de forma rápida y segura.">
+    <meta property="og:type" content="website">
+    
     <style>{estilo_css}</style>
 </head>
 <body>
@@ -283,13 +451,12 @@ def generar_html(apps):
             <div class="apps-grid">
 """
             for app in apps[plataforma]:
-                img_tag = f'<img src="{html.escape(app["captura"])}" alt="Captura de {html.escape(app["nombre"])}" loading="lazy">'
+                img_tag = f'<img src="{html.escape(app["captura"])}" alt="Captura de {html.escape(app["nombre"])}" loading="lazy" onclick="abrirModal(this.src)">'
                 img_wrapper_class = "card-image-container"
                 if not app["captura"]:
                     img_tag = ""
                     img_wrapper_class += " no-image"
 
-                # Texto personalizado para el botón con el nombre de la app y la plataforma
                 texto_boton = f"Descargar {app['nombre']} ({plataforma.capitalize()})"
 
                 html_content += f"""
@@ -300,7 +467,7 @@ def generar_html(apps):
                     <div class="card-body">
                         <div>
                             <h3 class="card-title">{html.escape(app["nombre"])}</h3>
-                            <div class="card-description">{html.escape(app["descripcion"])}</div>
+                            <div class="card-description">{app["descripcion"]}</div>
                         </div>
                         <a href="{html.escape(app["archivo"])}" class="download-btn" download>
                             {html.escape(texto_boton)}
@@ -310,20 +477,26 @@ def generar_html(apps):
 """
             html_content += "            </div>\n        </section>\n"
 
-    html_content += """
+    html_content += f"""
     </main>
+
+    <!-- Ventana Modal para las imágenes -->
+    <div id="imageModal" class="image-modal" onclick="cerrarModal()">
+        <img class="modal-content" id="modalImage">
+    </div>
 
     <footer>
         <p>&copy; 2026 JotaSoft78 - Todos los derechos reservados.</p>
     </footer>
 
+    <script>{script_js}</script>
 </body>
 </html>
 """
 
     with open(HTML_OUTPUT, "w", encoding="utf-8") as f:
         f.write(html_content)
-    print(f"¡Archivo {HTML_OUTPUT} generado con éxito!")
+    print(f"¡Archivo {HTML_OUTPUT} generado con éxito, optimizado para SEO y con soporte modal!")
 
 if __name__ == "__main__":
     app_data = buscar_aplicaciones()

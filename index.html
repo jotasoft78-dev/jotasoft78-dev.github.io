@@ -1,10 +1,19 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JotaSoft78 | Repositorio de Software</title>
+    
+    <!-- Metaetiquetas SEO y Open Graph -->
+    <title>JotaSoft78 | Repositorio Oficial de Software</title>
+    <meta name="description" content="Repositorio oficial de aplicaciones para Windows y Android desarrolladas por JotaSoft78. Descarga herramientas y utilidades optimizadas.">
+    <meta name="keywords" content="JotaSoft78, software, aplicaciones, windows, android, descargas, utilidades">
+    <meta name="author" content="JotaSoft78">
+    
+    <meta property="og:title" content="JotaSoft78 | Repositorio de Software">
+    <meta property="og:description" content="Descarga utilidades y aplicaciones para Windows y Android de forma rápida y segura.">
+    <meta property="og:type" content="website">
+    
     <style>
         :root {
             --bg-color: #0b0f19;
@@ -54,7 +63,7 @@
         }
 
         .main-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 3rem 2rem;
             width: 100%;
@@ -87,12 +96,11 @@
         .apps-grid {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            max-width: 900px;
+            gap: 2.5rem;
+            max-width: 950px;
             margin: 0 auto;
         }
 
-        /* Tarjeta horizontal refinada */
         .app-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -109,24 +117,30 @@
             transform: translateY(-2px);
         }
 
-        /* Contenedor de imagen adaptativo para que tanto horizontales como verticales queden bien */
         .card-image-container {
-            width: 340px;
-            min-width: 340px;
+            width: 320px;
+            min-width: 320px;
             background-color: #05070b;
             border-right: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding: 1rem;
+            padding: 1.5rem;
         }
 
         .card-image-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Muestra la imagen completa sin recortarla ni deformarla */
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
             border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .card-image-container img:hover {
+            opacity: 0.85;
         }
         
         .card-image-container.no-image::before {
@@ -141,310 +155,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow: hidden;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 0 1rem 0;
-            color: #ffffff;
-        }
-
-        .card-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            white-space: pre-line;
-        }
-
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--accent);
-            color: white;
-            text-align: center;
-            padding: 0.85rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: background-color 0.2s ease;
-            align-self: flex-start;
-        }
-
-        .download-btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
-            margin-top: auto;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            .app-card {
-                flex-direction: column;
-            }
-            .card-image-container {
-                width: 100%;
-                min-width: 100%;
-                height: 240px;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-            }
-            .card-body {
-                padding: 1.5rem;
-            }
-            header h1 { font-size: 2.25rem; }
-            .download-btn { width: 100%; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>JotaSoft78</h1>
-        <p>Repositorio oficial de aplicaciones para Windows y Android.</p>
-    </header>
-
-    <main class="main-container">
-
-        <section class="platform-section">
-            <div class="platform-header">
-                <span class="platform-icon">🖥️</span>
-                <h2>WINDOWS</h2>
-            </div>
-            
-            <div class="apps-grid">
-
-                <article class="app-card">
-                    <div class="card-image-container">
-                        <img src="windows/YT Downloader/captura.jpg" alt="Captura de YT Downloader" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h3 class="card-title">YT Downloader</h3>
-                            <div class="card-description">YT Downloader – Gestor de Descargas Multimedia
-YT Downloader es una aplicación para dispositivos con Windows desarrollada para optimizar la adquisición y gestión de contenido multimedia de forma rápida y eficiente. Su interfaz intuitiva permite procesar enlaces de manera directa, ofreciendo flexibilidad según las necesidades de almacenamiento y reproducción del usuario.
-
-Características Técnicas y Funcionales
-Entrada de Enlaces Simplificada: Campo de texto optimizado para la inserción rápida de URLs multimedia.
-
-Selección de Formato y Calidad:
-
-Modo Vídeo: Descarga en la máxima resolución y calidad disponible, preservando la pista de audio original.
-
-Modo Audio (MP3): Extracción independiente del flujo de audio para su exportación a formato comprimido estándar.
-
-Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real que muestra el estado operativo (&quot;Listo para descargar&quot;) y un historial de registros (logs) para el seguimiento detallado de los procesos activos.</div>
-                        </div>
-                        <a href="windows/YT Downloader/YT%20Downloader_windows.rar" class="download-btn" download>
-                            Descargar YT Downloader (Windows)
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="platform-section">
-            <div class="platform-header">
-                <span class="platform-icon">📱</span>
-                <h2>ANDROID</h2>
-            </div>
-            
-            <div class="apps-grid">
-
-                <article class="app-card">
-                    <div class="card-image-container">
-                        <img src="android/YT Downloader/captura.jpg" alt="Captura de YT Downloader" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h3 class="card-title">YT Downloader</h3>
-                            <div class="card-description">YT Downloader – Gestor de Descargas Multimedia
-YT Downloader es una aplicación para dispositivos Android desarrollada para optimizar la adquisición y gestión de contenido multimedia de forma rápida y eficiente. Su interfaz intuitiva permite procesar enlaces de manera directa, ofreciendo flexibilidad según las necesidades de almacenamiento y reproducción del usuario.
-
-Características Técnicas y Funcionales
-Entrada de Enlaces Simplificada: Campo de texto optimizado para la inserción rápida de URLs multimedia.
-
-Selección de Formato y Calidad:
-
-Modo Vídeo: Descarga en la máxima resolución y calidad disponible, preservando la pista de audio original.
-
-Modo Audio (MP3): Extracción independiente del flujo de audio para su exportación a formato comprimido estándar.
-
-Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real que muestra el estado operativo (&quot;Listo para descargar&quot;) y un historial de registros (logs) para el seguimiento detallado de los procesos activos.</div>
-                        </div>
-                        <a href="android/YT Downloader/YT%20Downloader.rar" class="download-btn" download>
-                            Descargar YT Downloader (Android)
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 JotaSoft78 - Todos los derechos reservados.</p>
-    </footer>
-
-</body>
-</html>
-=======
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JotaSoft78 | Repositorio de Software</title>
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --card-bg: #131b2e;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --body-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: var(--body-font);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            padding: 5rem 2rem 3rem 2rem;
-            text-align: center;
-            background: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg-color) 70%);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        header h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin: 0 0 0.75rem 0;
-            color: #ffffff;
-            letter-spacing: -0.5px;
-        }
-
-        header p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .main-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            width: 100%;
-        }
-
-        .platform-section {
-            margin-bottom: 4rem;
-        }
-
-        .platform-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .platform-header h2 {
             font-size: 1.75rem;
             font-weight: 700;
-            margin: 0;
-            color: var(--text-primary);
-            letter-spacing: 0.5px;
-        }
-        
-        .platform-icon {
-            font-size: 2rem;
-        }
-
-        .apps-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Tarjeta horizontal refinada */
-        .app-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: row;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-            transition: border-color 0.2s ease, transform 0.2s ease;
-        }
-
-        .app-card:hover {
-            border-color: rgba(37, 99, 235, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* Contenedor de imagen adaptativo para que tanto horizontales como verticales queden bien */
-        .card-image-container {
-            width: 340px;
-            min-width: 340px;
-            background-color: #05070b;
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding: 1rem;
-        }
-
-        .card-image-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Muestra la imagen completa sin recortarla ni deformarla */
-            border-radius: 6px;
-        }
-        
-        .card-image-container.no-image::before {
-            content: '📸';
-            font-size: 3rem;
-            opacity: 0.3;
-        }
-
-        .card-body {
-            padding: 2.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
             margin: 0 0 1rem 0;
             color: #ffffff;
         }
@@ -454,7 +172,57 @@ Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real 
             font-size: 0.95rem;
             margin-bottom: 2rem;
             line-height: 1.6;
-            white-space: pre-line;
+        }
+
+        .spoiler-container {
+            margin: 1.25rem 0;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .spoiler-btn {
+            background-color: #1e293b;
+            color: var(--text-primary);
+            border: none;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.2s;
+        }
+
+        .spoiler-btn::after {
+            content: '▼';
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+
+        .spoiler-btn.active::after {
+            transform: rotate(180deg);
+        }
+
+        .spoiler-btn:hover {
+            background-color: #334155;
+        }
+
+        .spoiler-content {
+            display: none;
+            padding: 1rem;
+            background-color: #080c14;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 250px;
+            overflow-y: auto;
+            border-top: 1px solid var(--border-color);
         }
 
         .download-btn {
@@ -477,6 +245,36 @@ Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real 
             background-color: var(--accent-hover);
         }
 
+        /* Estilos de la Ventana Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            animation: modalScale 0.2s ease-in-out;
+        }
+
+        @keyframes modalScale {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
         footer {
             text-align: center;
             padding: 3rem 2rem;
@@ -493,7 +291,7 @@ Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real 
             .card-image-container {
                 width: 100%;
                 min-width: 100%;
-                height: 240px;
+                height: 260px;
                 border-right: none;
                 border-bottom: 1px solid var(--border-color);
             }
@@ -520,49 +318,21 @@ Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real 
                 <h2>WINDOWS</h2>
             </div>
             
-            <div class="apps-grid">
+            <div class="apps-grid"> 
 
                 <article class="app-card">
                     <div class="card-image-container">
-                        <img src="windows/mediainfo jotasoft78/captura.jpg" alt="Captura de mediainfo jotasoft78" loading="lazy">
+                        <img src="windows/mediainfo jotasoft78/captura.jpg" alt="Captura de mediainfo jotasoft78" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
                     <div class="card-body">
                         <div>
                             <h3 class="card-title">mediainfo jotasoft78</h3>
-                            <div class="card-description">MediaInfo JotaSoft78 – Analizador de Códecs Multimedia
-
-MediaInfo JotaSoft78 es una aplicación para dispositivos con Windows desarrollada para identificar y analizar en detalle la composición interna de archivos de vídeo, ofreciendo al usuario información técnica precisa sin necesidad de herramientas externas. Su interfaz intuitiva permite procesar archivos de forma directa, ya sea mediante selección manual o arrastrando el contenido sobre la ventana.
-
-Características Técnicas y Funcionales
-
-Entrada de Archivos Simplificada: Soporte para arrastrar y soltar (drag &amp; drop) o selección mediante explorador, compatible con los formatos .mkv, .avi y .mp4.
-Análisis de Vídeo: Identificación automática del códec empleado (H.264, H.265/HEVC, Xvid, DivX, VP9, AV1, entre otros) junto con la resolución del archivo y su clasificación (SD, HD, Full HD, 2K, 4K).
-Análisis de Audio: Detección de todas las pistas de audio presentes, mostrando códec, número de canales y disposición (estéreo, 5.1, etc.), así como el idioma de cada pista.
-Análisis de Subtítulos: Listado completo de las pistas de subtítulos incluidas, con su formato (SRT, ASS, PGS, VOBSUB, entre otros), idioma y marcadores especiales (forzado, predeterminado).
-Panel de Resultados: Incorpora una consola de salida que presenta de forma estructurada y legible toda la información extraída del archivo analizado.
-Integración con el Explorador de Windows: La aplicación puede añadirse al menú contextual (clic derecho) de archivos .mkv, .avi y .mp4 mediante un archivo de registro (.reg), permitiendo lanzar el análisis directamente desde el Explorador sin necesidad de abrir la aplicación manualmente. Basta con adaptar la ruta del ejecutable a la ubicación de instalación e importar el siguiente contenido:
-
-Windows Registry Editor Version 5.00
-
-; ============================================================================
-; Añade &quot;Mediainfo JotaSoft78&quot; al menú contextual (clic derecho) de
-; archivos .mkv, .avi y .mp4
-; ============================================================================
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\shell\JotaSoft78MediaInfo]
-@=&quot;Mediainfo JotaSoft78&quot;
-&quot;Icon&quot;=&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe,0&quot;
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\shell\JotaSoft78MediaInfo\command]
-@=&quot;\&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe\&quot; \&quot;%1\&quot;&quot;
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.avi\shell\JotaSoft78MediaInfo]
-@=&quot;Mediainfo JotaSoft78&quot;
-&quot;Icon&quot;=&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe,0&quot;
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.avi\shell\JotaSoft78MediaInfo\command]
-@=&quot;\&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe\&quot; \&quot;%1\&quot;&quot;
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\shell\JotaSoft78MediaInfo]
-@=&quot;Mediainfo JotaSoft78&quot;
-&quot;Icon&quot;=&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe,0&quot;
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\shell\JotaSoft78MediaInfo\command]
-@=&quot;\&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe\&quot; \&quot;%1\&quot;&quot;</div>
+                            <div class="card-description">MediaInfo JotaSoft78 – Analizador de Códecs Multimedia<br><br>MediaInfo JotaSoft78 es una aplicación para dispositivos con Windows desarrollada para identificar y analizar en detalle la composición interna de archivos de vídeo, ofreciendo al usuario información técnica precisa sin necesidad de herramientas externas. Su interfaz intuitiva permite procesar archivos de forma directa, ya sea mediante selección manual o arrastrando el contenido sobre la ventana.<br><br>Características Técnicas y Funcionales<br><br>Entrada de Archivos Simplificada: Soporte para arrastrar y soltar (drag &amp; drop) o selección mediante explorador, compatible con los formatos .mkv, .avi y .mp4.<br>Análisis de Vídeo: Identificación automática del códec empleado (H.264, H.265/HEVC, Xvid, DivX, VP9, AV1, entre otros) junto con la resolución del archivo y su clasificación (SD, HD, Full HD, 2K, 4K).<br>Análisis de Audio: Detección de todas las pistas de audio presentes, mostrando códec, número de canales y disposición (estéreo, 5.1, etc.), así como el idioma de cada pista.<br>Análisis de Subtítulos: Listado completo de las pistas de subtítulos incluidas, con su formato (SRT, ASS, PGS, VOBSUB, entre otros), idioma y marcadores especiales (forzado, predeterminado).<br>Panel de Resultados: Incorpora una consola de salida que presenta de forma estructurada y legible toda la información extraída del archivo analizado.<br>Integración con el Explorador de Windows: La aplicación puede añadirse al menú contextual (clic derecho) de archivos .mkv, .avi y .mp4 mediante un archivo de registro (.reg), permitiendo lanzar el análisis directamente desde el Explorador sin necesidad de abrir la aplicación manualmente. Basta con adaptar la ruta del ejecutable a la ubicación de instalación e importar el siguiente contenido:<br>
+            <div class="spoiler-container">
+                <button type="button" class="spoiler-btn" onclick="toggleSpoiler(this)">Ver contenido oculto (.reg)</button>
+                <div class="spoiler-content"><br>Windows Registry Editor Version 5.00<br><br>; ======<br>; Añade &quot;Mediainfo JotaSoft78&quot; al menú contextual (clic derecho) de<br>; archivos .mkv, .avi y .mp4<br>; ======<br>[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\shell\JotaSoft78MediaInfo]<br>@=&quot;Mediainfo JotaSoft78&quot;<br>&quot;Icon&quot;=&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe,0&quot;<br>[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\shell\JotaSoft78MediaInfo\command]<br>@=&quot;\&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe\&quot; \&quot;%1\&quot;&quot;<br>[HKEY_CLASSES_ROOT\SystemFileAssociations\.avi\shell\JotaSoft78MediaInfo]<br>@=&quot;Mediainfo JotaSoft78&quot;<br>&quot;Icon&quot;=&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe,0&quot;<br>[HKEY_CLASSES_ROOT\SystemFileAssociations\.avi\shell\JotaSoft78MediaInfo\command]<br>@=&quot;\&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe\&quot; \&quot;%1\&quot;&quot;<br>[HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\shell\JotaSoft78MediaInfo]<br>@=&quot;Mediainfo JotaSoft78&quot;<br>&quot;Icon&quot;=&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe,0&quot;<br>[HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\shell\JotaSoft78MediaInfo\command]<br>@=&quot;\&quot;C:\\Ruta\\A\\Tu\\Carpeta\\mediainfo jotasoft78.exe\&quot; \&quot;%1\&quot;&quot;</div>
+            </div>
+        </div>
                         </div>
                         <a href="windows/mediainfo jotasoft78/mediainfo%20jotasoft78.rar" class="download-btn" download>
                             Descargar mediainfo jotasoft78 (Windows)
@@ -572,24 +342,12 @@ Windows Registry Editor Version 5.00
 
                 <article class="app-card">
                     <div class="card-image-container">
-                        <img src="windows/YT Downloader/captura.jpg" alt="Captura de YT Downloader" loading="lazy">
+                        <img src="windows/YT Downloader/captura.jpg" alt="Captura de YT Downloader" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
                     <div class="card-body">
                         <div>
                             <h3 class="card-title">YT Downloader</h3>
-                            <div class="card-description">YT Downloader – Gestor de Descargas Multimedia
-YT Downloader es una aplicación para dispositivos con Windows desarrollada para optimizar la adquisición y gestión de contenido multimedia de forma rápida y eficiente. Su interfaz intuitiva permite procesar enlaces de manera directa, ofreciendo flexibilidad según las necesidades de almacenamiento y reproducción del usuario.
-
-Características Técnicas y Funcionales
-Entrada de Enlaces Simplificada: Campo de texto optimizado para la inserción rápida de URLs multimedia.
-
-Selección de Formato y Calidad:
-
-Modo Vídeo: Descarga en la máxima resolución y calidad disponible, preservando la pista de audio original.
-
-Modo Audio (MP3): Extracción independiente del flujo de audio para su exportación a formato comprimido estándar.
-
-Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real que muestra el estado operativo (&quot;Listo para descargar&quot;) y un historial de registros (logs) para el seguimiento detallado de los procesos activos.</div>
+                            <div class="card-description">YT Downloader – Gestor de Descargas Multimedia<br>YT Downloader es una aplicación para dispositivos con Windows desarrollada para optimizar la adquisición y gestión de contenido multimedia de forma rápida y eficiente. Su interfaz intuitiva permite procesar enlaces de manera directa, ofreciendo flexibilidad según las necesidades de almacenamiento y reproducción del usuario.<br><br>Características Técnicas y Funcionales<br>Entrada de Enlaces Simplificada: Campo de texto optimizado para la inserción rápida de URLs multimedia.<br><br>Selección de Formato y Calidad:<br><br>Modo Vídeo: Descarga en la máxima resolución y calidad disponible, preservando la pista de audio original.<br><br>Modo Audio (MP3): Extracción independiente del flujo de audio para su exportación a formato comprimido estándar.<br><br>YT Downloader – Gestor de Descargas Multimedia<br>YT Downloader es una aplicación para dispositivos con Windows desarrollada para optimizar la adquisición y gestión de contenido multimedia de forma rápida y eficiente. Su interfaz intuitiva permite procesar enlaces de manera directa, ofreciendo flexibilidad según las necesidades de almacenamiento y reproducción del usuario.<br><br>Características Técnicas y Funcionales<br>Entrada de Enlaces Simplificada: Campo de texto optimizado para la inserción rápida de URLs multimedia.<br><br>Selección de Formato y Calidad:<br><br>Modo Vídeo: Descarga en la máxima resolución y calidad disponible, preservando la pista de audio original.<br><br>Modo Audio (MP3): Extracción independiente del flujo de audio para su exportación a formato comprimido estándar.<br><br>Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real que muestra el estado operativo (&quot;Listo para descargar&quot;) y un historial de registros (logs) para el seguimiento detallado de los procesos activos.</div>
                         </div>
                         <a href="windows/YT Downloader/YT%20Downloader_windows.rar" class="download-btn" download>
                             Descargar YT Downloader (Windows)
@@ -609,24 +367,27 @@ Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real 
 
                 <article class="app-card">
                     <div class="card-image-container">
-                        <img src="android/YT Downloader/captura.jpg" alt="Captura de YT Downloader" loading="lazy">
+                        <img src="android/Calculadora modulo de engranaje/captura.jpg" alt="Captura de Calculadora modulo de engranaje" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title">Calculadora modulo de engranaje</h3>
+                            <div class="card-description">Calculadora del Módulo de Engranaje es una herramienta sencilla y directa para calcular el módulo de un engranaje a partir de sus parámetros básicos, sin complicaciones ni menús innecesarios.<br><br>Ideal para estudiantes, técnicos, aficionados a la mecánica o cualquiera que necesite un cálculo rápido sin tener que hacerlo a mano o buscar la fórmula cada vez.<br><br>Características:<br>✔ Cálculo instantáneo del módulo del engranaje<br>✔ Interfaz simple y sin distracciones<br>✔ Funciona sin necesidad de conexión para el cálculo en sí<br>✔ App ligera, arranca rápido y no ocupa apenas espacio<br><br>Perfecta para tenerla siempre a mano en el taller, la obra o el aula.</div>
+                        </div>
+                        <a href="android/Calculadora modulo de engranaje/Calculadora%20modulo%20de%20engranaje.rar" class="download-btn" download>
+                            Descargar Calculadora modulo de engranaje (Android)
+                        </a>
+                    </div>
+                </article>
+
+                <article class="app-card">
+                    <div class="card-image-container">
+                        <img src="android/YT Downloader/captura.jpg" alt="Captura de YT Downloader" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
                     <div class="card-body">
                         <div>
                             <h3 class="card-title">YT Downloader</h3>
-                            <div class="card-description">YT Downloader – Gestor de Descargas Multimedia
-YT Downloader es una aplicación para dispositivos Android desarrollada para optimizar la adquisición y gestión de contenido multimedia de forma rápida y eficiente. Su interfaz intuitiva permite procesar enlaces de manera directa, ofreciendo flexibilidad según las necesidades de almacenamiento y reproducción del usuario.
-
-Características Técnicas y Funcionales
-Entrada de Enlaces Simplificada: Campo de texto optimizado para la inserción rápida de URLs multimedia.
-
-Selección de Formato y Calidad:
-
-Modo Vídeo: Descarga en la máxima resolución y calidad disponible, preservando la pista de audio original.
-
-Modo Audio (MP3): Extracción independiente del flujo de audio para su exportación a formato comprimido estándar.
-
-Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real que muestra el estado operativo (&quot;Listo para descargar&quot;) y un historial de registros (logs) para el seguimiento detallado de los procesos activos.</div>
+                            <div class="card-description">YT Downloader – Gestor de Descargas Multimedia<br>YT Downloader es una aplicación para dispositivos Android desarrollada para optimizar la adquisición y gestión de contenido multimedia de forma rápida y eficiente. Su interfaz intuitiva permite procesar enlaces de manera directa, ofreciendo flexibilidad según las necesidades de almacenamiento y reproducción del usuario.<br><br>Características Técnicas y Funcionales<br>Entrada de Enlaces Simplificada: Campo de texto optimizado para la inserción rápida de URLs multimedia.<br><br>Selección de Formato y Calidad:<br><br>Modo Vídeo: Descarga en la máxima resolución y calidad disponible, preservando la pista de audio original.<br><br>Modo Audio (MP3): Extracción independiente del flujo de audio para su exportación a formato comprimido estándar.<br><br>Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real que muestra el estado operativo (&quot;Listo para descargar&quot;) y un historial de registros (logs) para el seguimiento detallado de los procesos activos.</div>
                         </div>
                         <a href="android/YT Downloader/YT%20Downloader.rar" class="download-btn" download>
                             Descargar YT Downloader (Android)
@@ -638,10 +399,44 @@ Consola de Estado y Registro: Incorpora un panel de supervisión en tiempo real 
 
     </main>
 
+    <!-- Ventana Modal para las imágenes -->
+    <div id="imageModal" class="image-modal" onclick="cerrarModal()">
+        <img class="modal-content" id="modalImage">
+    </div>
+
     <footer>
         <p>&copy; 2026 JotaSoft78 - Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        function toggleSpoiler(btn) {
+            btn.classList.toggle('active');
+            var content = btn.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+
+        function abrirModal(imgSrc) {
+            var modal = document.getElementById('imageModal');
+            var modalImg = document.getElementById('modalImage');
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+        }
+
+        function cerrarModal() {
+            var modal = document.getElementById('imageModal');
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                cerrarModal();
+            }
+        }
+    </script>
 </body>
 </html>
->>>>>>> 3c526f6 (Descripción de los cambios realizados)

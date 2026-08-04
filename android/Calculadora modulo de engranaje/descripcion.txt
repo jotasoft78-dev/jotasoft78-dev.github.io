@@ -1,0 +1,11 @@
+Calculadora del Módulo de Engranaje es una herramienta sencilla y directa para calcular el módulo de un engranaje a partir de sus parámetros básicos, sin complicaciones ni menús innecesarios.
+
+Ideal para estudiantes, técnicos, aficionados a la mecánica o cualquiera que necesite un cálculo rápido sin tener que hacerlo a mano o buscar la fórmula cada vez.
+
+Características:
+✔ Cálculo instantáneo del módulo del engranaje
+✔ Interfaz simple y sin distracciones
+✔ Funciona sin necesidad de conexión para el cálculo en sí
+✔ App ligera, arranca rápido y no ocupa apenas espacio
+
+Perfecta para tenerla siempre a mano en el taller, la obra o el aula.
