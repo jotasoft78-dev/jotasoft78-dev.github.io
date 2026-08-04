@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Index of /</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #FF0033;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.8;
+        }
+        .overlay {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border: 1px solid #FF0033;
+            box-shadow: 0 0 20px rgba(255, 0, 51, 0.5);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #FF0033;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        pre {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .cursor {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <div class="overlay">
+        <h1>ALERTA: ACCESO NO AUTORIZADO</h1>
+        <pre id="terminal"></pre>
+    </div>
+
+    <script>
+        // Efecto Matrix en VERDE
+        const canvas = document.getElementById("matrix");
+        const ctx = canvas.getContext("2d");
+
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        const characters = "0123456789@#$%^&*()_+-=[]{}|;:',.<>/?";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#00FF41"; // <- Matriz en verde clásico
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+
+        window.addEventListener("resize", () => {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+        });
+
+        // Efecto de escritura en ROJO para las letras
+        const lines = [
+            "Iniciando protocolo de intrusión...",
+            "Conectando con la IP del visitante...",
+            "Extrayendo cookies, tokens y caché...",
+            "Bypasseando cortafuegos y cifrado SSL...",
+            "Accediendo a la tabla de particiones...",
+            "¡ADVERTENCIA: Sistema comprometido!",
+            "Volcando datos personales a servidor externo...",
+            "Tranquilo, es una broma... o tal vez no :)"
+        ];
+
+        let lineIndex = 0;
+        let charIndex = 0;
+        const terminal = document.getElementById("terminal");
+
+        function typeWriter() {
+            if (lineIndex < lines.length) {
+                if (charIndex === 0 && lineIndex > 0) {
+                    terminal.innerHTML += "\n";
+                }
+                if (charIndex < lines[lineIndex].length) {
+                    terminal.innerHTML += lines[lineIndex].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, 30);
+                } else {
+                    charIndex = 0;
+                    lineIndex++;
+                    setTimeout(typeWriter, 600);
+                }
+            } else {
+                terminal.innerHTML += '<span class="cursor">_</span>';
+            }
+        }
+
+        setTimeout(typeWriter, 800);
+    </script>
+
+</body>
+</html>
