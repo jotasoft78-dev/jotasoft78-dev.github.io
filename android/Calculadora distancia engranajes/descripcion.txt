@@ -1,0 +1,14 @@
+Calculadora de Distancias entre Engranajes ⚙️
+Encaja tus engranajes a la primera.
+
+Calcula al instante la distancia entre centros que necesitas para montar dos engranajes correctamente. Introduce el número de dientes de cada engranaje, el módulo y el ángulo de la hélice (déjalo en 0 si son engranajes rectos), y obtén la medida exacta en milímetros.
+
+¿Por qué usarla?
+Calcular a mano la distancia entre centros es fácil de errar, sobre todo con engranajes helicoidales donde el ángulo cambia el resultado. Esta calculadora hace el cálculo por ti en segundos, evitando montajes mal ajustados o holguras incorrectas.
+
+Características:
+
+⚡ Cálculo instantáneo y preciso
+🔧 Compatible con engranajes rectos y helicoidales
+🌙 Soporte para modo oscuro
+📱 Interfaz simple, sin distracciones
