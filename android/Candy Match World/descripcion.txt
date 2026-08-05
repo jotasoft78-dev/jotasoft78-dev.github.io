@@ -1,0 +1,11 @@
+Candy Match World 🍬
+Combina caramelos, supera niveles y desbloquea power-ups en este adictivo juego de puzzle. Desliza para intercambiar caramelos, forma grupos de 3 o más del mismo color y cumple los objetivos de cada nivel antes de quedarte sin movimientos.
+
+Características:
+🎯 Objetivos por color en cada nivel, con dificultad creciente
+💣 Power-ups especiales: Bomba, Cambio y Rayo para desatascar el tablero
+🍭 Caramelos especiais y combos explosivos
+💾 Guarda tu progreso automáticamente para retomar donde lo dejaste
+🌈 Diseño colorido y divertido, pensado para partidas rápidas
+
+Encadena combos, planifica tus movimientos y conviértete en el maestro de los caramelos.
