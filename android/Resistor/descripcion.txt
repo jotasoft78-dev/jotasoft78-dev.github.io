@@ -1,0 +1,14 @@
+Resistor — Calculadora de Código de Colores ⚡
+
+Identifica el valor de cualquier resistencia en segundos. Selecciona los colores de las bandas y obtén al instante la resistencia en ohmios junto con su tolerancia, sin tener que memorizar el código de colores.
+
+¿Por qué usarla?
+El código de colores de las resistencias es fácil de olvidar y fácil de confundir. Esta app te evita errores de lectura: eliges las bandas visualmente y la calculadora hace la conversión por ti al instante.
+
+Características:
+🎨 Selección visual de bandas de color
+⚡ Cálculo instantáneo de resistencia y tolerancia
+🔧 Pensado para electrónica, reparación y estudio
+📱 Interfaz simple, sin distracciones
+
+Del código de colores al valor exacto, sin memorizar nada.
