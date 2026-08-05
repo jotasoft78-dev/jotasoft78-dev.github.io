@@ -1,0 +1,14 @@
+Calculadora de Magnitudes Eléctricas ⚡
+
+Calcula voltaje, corriente, resistencia y potencia al instante aplicando la Ley de Ohm. Introduce cualquiera de los valores que conozcas y obtén automáticamente los demás, sin fórmulas que recordar ni cálculos a mano.
+
+¿Por qué usarla?
+Ya sea que estés estudiando electrónica, reparando un circuito o diseñando un proyecto, esta calculadora te ahorra tiempo despejando la Ley de Ohm por ti. Solo introduce lo que sabes y ella se encarga del resto.
+
+Características:
+⚡ Calcula voltaje, corriente, resistencia y potencia
+🔢 Solo necesitas introducir 2 valores conocidos
+🧹 Botón de limpieza rápida para nuevos cálculos
+📱 Interfaz simple, sin distracciones
+
+De la Ley de Ohm a la respuesta, en un segundo.
