@@ -233,6 +233,25 @@
             font-size: 2rem;
         }
 
+        .platform-count-badge {
+            background-color: rgba(37, 99, 235, 0.15);
+            color: #93c5fd;
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.2rem 0.75rem;
+            border-radius: 999px;
+            letter-spacing: normal;
+        }
+
+        .nav-btn-count {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            padding: 0.1rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
         .apps-grid {
             display: flex;
             flex-direction: column;
@@ -597,14 +616,14 @@
             sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
         </iframe>
         </div>
-        <p>Repositorio oficial de aplicaciones para Windows y Android.</p>
+        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>18</strong> aplicaciones disponibles.</p>
     </header>
 
     <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
     <nav class="nav-controls">
         <div class="nav-buttons">
-            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows</a>
-            <a href="#android" class="nav-btn"><span>📱</span> Android</a>
+            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">6</span></a>
+            <a href="#android" class="nav-btn"><span>📱</span> Android <span class="nav-btn-count">12</span></a>
         </div>
         <div class="search-container">
             <span class="search-icon">🔍</span>
@@ -619,6 +638,7 @@
             <div class="platform-header">
                 <span class="platform-icon">🖥️</span>
                 <h2>WINDOWS</h2>
+                <span class="platform-count-badge">6 aplicaciones</span>
             </div>
             
             <div class="apps-grid">
@@ -724,6 +744,7 @@
             <div class="platform-header">
                 <span class="platform-icon">📱</span>
                 <h2>ANDROID</h2>
+                <span class="platform-count-badge">12 aplicaciones</span>
             </div>
             
             <div class="apps-grid">
