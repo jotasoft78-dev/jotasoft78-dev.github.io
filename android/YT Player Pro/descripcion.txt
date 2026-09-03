@@ -1,0 +1,23 @@
+🎬 YT Player Pro
+Reproduce YouTube a tu manera — rápido, limpio y sin distracciones.
+
+YT Player Pro es un reproductor de YouTube ligero para Android, pensado para ir directo al grano: buscas, le das al play, y listo.
+
+✨ Características
+🔍 Búsqueda instantánea
+Escribe lo que quieras ver y tócalo para reproducirlo al momento — sin anuncios de YouTube de por medio.
+
+🎧 Reproducción en segundo plano
+Sigue sonando aunque minimices la app, cambies a otra o apagues la pantalla. Notificación con controles de play/pausa incluida.
+
+📱 Pantalla completa automática
+Gira el móvil a horizontal mientras hay un vídeo en marcha y pasa a pantalla completa al instante. Vuelve a vertical para salir.
+
+🎯 Recomendaciones
+Al terminar (o mientras ves) un vídeo, te sugerimos otros relacionados para seguir descubriendo contenido sin volver a buscar.
+
+📤 Compartir en un toque
+Manda el enlace por Telegram, WhatsApp o la app que prefieras — o cópialo directo al portapapeles.
+
+⚡ Streaming real
+Nada se descarga ni se guarda en tu dispositivo: todo se reproduce en directo.
