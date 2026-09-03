@@ -71,6 +71,137 @@
             margin: 0 auto;
         }
 
+        /* Estilos del Menú de Navegación y Buscador Desplegable Global */
+        .nav-controls {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background-color: #1e293b;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s, border-color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn:hover {
+            background-color: #334155;
+            border-color: rgba(37, 99, 235, 0.4);
+        }
+
+        .search-container {
+            position: relative;
+            flex-grow: 1;
+            max-width: 350px;
+        }
+
+        .search-input {
+            width: 100%;
+            background-color: #131b2e;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Recuadro desplegable de resultados del buscador */
+        .search-results-dropdown {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            right: 0;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            z-index: 200;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-result-item {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-item:hover {
+            background-color: #1e293b;
+        }
+
+        .search-result-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .search-result-plat {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .search-no-results {
+            padding: 1rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
         .main-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -119,6 +250,7 @@
             flex-direction: row;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
             transition: border-color 0.2s ease, transform 0.2s ease;
+            scroll-margin-top: 100px;
         }
 
         .app-card:hover {
@@ -368,6 +500,7 @@
 
         /* Ocultar contenido cuando se detecta adblock */
         body.adblock-detected header,
+        body.adblock-detected .nav-controls,
         body.adblock-detected .main-container,
         body.adblock-detected footer {
             display: none !important;
@@ -403,6 +536,13 @@
             }
             header h1 { font-size: 2.25rem; }
             .download-btn { width: 100%; }
+            .nav-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-container {
+                max-width: 100%;
+            }
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -460,9 +600,22 @@
         <p>Repositorio oficial de aplicaciones para Windows y Android.</p>
     </header>
 
+    <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
+    <nav class="nav-controls">
+        <div class="nav-buttons">
+            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows</a>
+            <a href="#android" class="nav-btn"><span>📱</span> Android</a>
+        </div>
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar aplicaciones en todo el contenido..." autocomplete="off">
+            <div id="searchResultsDropdown" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
     <main class="main-container">
 
-        <section class="platform-section">
+        <section id="windows" class="platform-section">
             <div class="platform-header">
                 <span class="platform-icon">🖥️</span>
                 <h2>WINDOWS</h2>
@@ -470,7 +623,7 @@
             
             <div class="apps-grid">
 
-                <article class="app-card">
+                <article class="app-card" id="app-1" data-platform="windows">
                     <div class="card-image-container">
                         <img src="windows/GbEmu/captura.jpg" alt="Captura de GbEmu" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -485,7 +638,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-2" data-platform="windows">
                     <div class="card-image-container">
                         <img src="windows/MediaInfo JotaSoft78/captura.jpg" alt="Captura de MediaInfo JotaSoft78" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -505,7 +658,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-3" data-platform="windows">
                     <div class="card-image-container">
                         <img src="windows/YTDownloader/captura.jpg" alt="Captura de YTDownloader" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -522,7 +675,7 @@
             </div>
         </section>
 
-        <section class="platform-section">
+        <section id="android" class="platform-section">
             <div class="platform-header">
                 <span class="platform-icon">📱</span>
                 <h2>ANDROID</h2>
@@ -530,7 +683,7 @@
             
             <div class="apps-grid">
 
-                <article class="app-card">
+                <article class="app-card" id="app-4" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/Calculadora de magnitudes electricas/captura.jpg" alt="Captura de Calculadora de magnitudes electricas" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -545,7 +698,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-5" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/Calculadora distancia engranajes/captura.jpg" alt="Captura de Calculadora distancia engranajes" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -560,7 +713,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-6" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/Calculadora modulo de engranaje/captura.jpg" alt="Captura de Calculadora modulo de engranaje" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -575,7 +728,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-7" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/Candy Match World/captura.jpg" alt="Captura de Candy Match World" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -590,7 +743,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-8" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/IPTV Pro/captura.jpg" alt="Captura de IPTV Pro" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -605,7 +758,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-9" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/PetCalculator/captura.jpg" alt="Captura de PetCalculator" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -620,7 +773,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-10" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/QrScanner/captura.jpg" alt="Captura de QrScanner" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -635,7 +788,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-11" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/Recetas Mambo/captura.jpg" alt="Captura de Recetas Mambo" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -650,7 +803,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-12" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/Resistor/captura.jpg" alt="Captura de Resistor" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -665,7 +818,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-13" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/Sudoku Pro/captura.jpg" alt="Captura de Sudoku Pro" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -680,7 +833,7 @@
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" id="app-14" data-platform="android">
                     <div class="card-image-container">
                         <img src="android/YT Downloader/captura.jpg" alt="Captura de YT Downloader" loading="lazy" onclick="abrirModal(this.src)">
                     </div>
@@ -691,6 +844,21 @@
                         </div>
                         <a href="android/YT Downloader/YT%20Downloader.apk" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'YT Downloader', 'platform': 'android'});">
                             Descargar YT Downloader (Android)
+                        </a>
+                    </div>
+                </article>
+
+                <article class="app-card" id="app-15" data-platform="android">
+                    <div class="card-image-container">
+                        <img src="android/YT Player Pro/captura.jpg" alt="Captura de YT Player Pro" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title">YT Player Pro</h3>
+                            <div class="card-description">🎬 YT Player Pro<br>Reproduce YouTube a tu manera — rápido, limpio y sin distracciones.<br><br>YT Player Pro es un reproductor de YouTube ligero para Android, pensado para ir directo al grano: buscas, le das al play, y listo.<br><br>✨ Características<br>🔍 Búsqueda instantánea<br>Escribe lo que quieras ver y tócalo para reproducirlo al momento — sin anuncios de YouTube de por medio.<br><br>🎧 Reproducción en segundo plano<br>Sigue sonando aunque minimices la app, cambies a otra o apagues la pantalla. Notificación con controles de play/pausa incluida.<br><br>📱 Pantalla completa automática<br>Gira el móvil a horizontal mientras hay un vídeo en marcha y pasa a pantalla completa al instante. Vuelve a vertical para salir.<br><br>🎯 Recomendaciones<br>Al terminar (o mientras ves) un vídeo, te sugerimos otros relacionados para seguir descubriendo contenido sin volver a buscar.<br><br>📤 Compartir en un toque<br>Manda el enlace por Telegram, WhatsApp o la app que prefieras — o cópialo directo al portapapeles.<br><br>⚡ Streaming real<br>Nada se descarga ni se guarda en tu dispositivo: todo se reproduce en directo.</div>
+                        </div>
+                        <a href="android/YT Player Pro/YT%20Player%20Pro.apk" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'YT Player Pro', 'platform': 'android'});">
+                            Descargar YT Player Pro (Android)
                         </a>
                     </div>
                 </article>
@@ -736,7 +904,80 @@
             if (event.target === modal) {
                 cerrarModal();
             }
+            // Cerrar el desplegable de búsqueda si se hace clic fuera
+            if (!event.target.closest('.search-container')) {
+                var dropdown = document.getElementById('searchResultsDropdown');
+                if (dropdown) dropdown.style.display = 'none';
+            }
         }
+
+        // Script para el buscador desplegable buscando en todo el contenido (nombre y descripción)
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const dropdown = document.getElementById('searchResultsDropdown');
+
+            if (searchInput && dropdown) {
+                const appCards = document.querySelectorAll('.app-card');
+                const appsData = [];
+
+                appCards.forEach(card => {
+                    const originalName = card.querySelector('.card-title').textContent;
+                    const descText = card.querySelector('.card-description').textContent;
+                    const searchableText = (originalName + ' ' + descText).toLowerCase();
+                    const platform = card.getAttribute('data-platform');
+                    const cardId = card.id;
+                    
+                    appsData.push({ 
+                        searchableText: searchableText, 
+                        originalName: originalName, 
+                        platform: platform, 
+                        cardId: cardId 
+                    });
+                });
+
+                searchInput.addEventListener('input', function(e) {
+                    const term = e.target.value.toLowerCase().trim();
+                    dropdown.innerHTML = '';
+
+                    if (term === '') {
+                        dropdown.style.display = 'none';
+                        return;
+                    }
+
+                    const filtered = appsData.filter(app => app.searchableText.includes(term));
+
+                    if (filtered.length > 0) {
+                        filtered.forEach(app => {
+                            const item = document.createElement('a');
+                            item.href = '#' + app.cardId;
+                            item.className = 'search-result-item';
+                            item.innerHTML = `
+                                <span class="search-result-name">${app.originalName}</span>
+                                <span class="search-result-plat">${app.platform.toUpperCase()}</span>
+                            `;
+                            item.addEventListener('click', function() {
+                                dropdown.style.display = 'none';
+                                searchInput.value = '';
+                            });
+                            dropdown.appendChild(item);
+                        });
+                        dropdown.style.display = 'block';
+                    } else {
+                        const noRes = document.createElement('div');
+                        noRes.className = 'search-no-results';
+                        noRes.textContent = 'No se encontraron aplicaciones';
+                        dropdown.appendChild(noRes);
+                        dropdown.style.display = 'block';
+                    }
+                });
+
+                searchInput.addEventListener('focus', function() {
+                    if (searchInput.value.trim() !== '') {
+                        dropdown.style.display = 'block';
+                    }
+                });
+            }
+        });
 
         // Función para detectar AdBlock
         function detectAdBlock() {
