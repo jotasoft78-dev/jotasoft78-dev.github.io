@@ -1,0 +1,10 @@
+Autoliberador PSP V6 JotaSoft es una herramienta interactiva diseñada para automatizar el proceso de preparación, descarga y configuración de archivos necesarios para liberar cualquier modelo de consola PlayStation Portable (PSP FAT, Slim, 3000, GO y Street).
+
+Funcionalidades principales
+Detección inteligente de modelo y firmware: Guía al usuario mediante menús interactivos según la versión de firmware actual (inferior a 6.61 o 6.61) y el modelo específico de la consola, incluyendo la comprobación de placas malditas (DataCodes).
+
+Gestión y descarga automatizada: Se conecta de forma remota para descargar los componentes necesarios directamente en la estructura de carpetas correcta de la tarjeta de memoria, incluyendo archivos de actualización oficial, herramientas de Custom Firmware (PRO-C), parches de recuperación en español y fuentes del sistema.
+
+Descompresión integrada: Automatiza la extracción de archivos comprimidos divididos (como paquetes .rar de actualizaciones para PSP estándar y PSP GO) utilizando la librería rarfile y limpiando los archivos temporales de forma automática tras el proceso.
+
+Asistente paso a paso: Muestra instrucciones detalladas en pantalla sobre cómo proceder en la consola (ejecución de PROUpdate, FastRecovery o CIPL_Flasher) dependiendo de si la liberación de la consola será permanente o temporal.
