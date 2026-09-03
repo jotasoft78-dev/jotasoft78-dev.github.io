@@ -1,0 +1,29 @@
+IPTV Pro (Windows)
+IPTV Pro es un reproductor de televisión IPTV para Windows, ligero y con una interfaz moderna, pensado para disfrutar de tus listas de canales M3U/M3U8 con la mejor calidad de imagen y sonido.
+
+✨ Características principales
+📡 Carga flexible de listas
+Importa tu lista de canales fácilmente, ya sea mediante un enlace URL o desde un archivo local M3U/M3U8. La aplicación recuerda tu configuración para que no tengas que repetirla cada vez que la abres.
+
+🗂️ Organización por categorías
+Los canales se agrupan automáticamente por categorías con un elegante carrusel de chips deslizante, permitiéndote navegar entre géneros y grupos con un solo clic.
+
+🔍 Buscador instantáneo
+Encuentra cualquier canal al momento gracias al buscador en tiempo real integrado en la pantalla principal.
+
+⭐ Favoritos personalizados
+Marca tus canales preferidos con un solo toque y accede a ellos rápidamente desde su propia categoría dedicada.
+
+🎬 Reproducción de alto rendimiento
+Motor de vídeo basado en VLC, compatible con múltiples formatos de streaming (HLS, MPEG-TS y radio), ofreciendo una reproducción fluida y estable.
+
+⏯️ Controles intuitivos
+Navega entre canales sin salir del reproductor gracias a los botones de canal anterior/siguiente, con overlay minimalista que no interrumpe la experiencia de visualización.
+
+🖥️ Diseño cuidado y adaptado a Windows
+Interfaz oscura moderna, limpia y responsive, con iconografía propia y una experiencia de usuario fluida en cualquier resolución de pantalla.
+
+🔄 Actualización de listas
+Refresca tu lista de canales cuando quieras con un solo clic, manteniendo siempre el contenido al día.
+
+💡 IPTV Pro es una herramienta de reproducción: tú decides qué listas de canales cargar según tus propias fuentes.
