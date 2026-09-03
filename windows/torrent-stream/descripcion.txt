@@ -1,0 +1,25 @@
+🌟 Torrent-Stream Suite: Solución Integral de Streaming P2P
+⚡ Transmisión Secuencial en Tiempo Real: Permite reproducir contenidos multimedia directamente desde archivos .torrent y enlaces magnéticos (magnet links) sin necesidad de esperar a que la descarga se complete por completo.
+
+🧩 Extensión de Navegador Integrada: Facilita la gestión, control y visualización de flujos multimedia de manera fluida directamente desde el navegador web basado en Chromium.
+
+⚙️ Servidor Local Node.js / WebTorrent: Actúa como el núcleo de procesamiento robusto, optimizado para gestionar las conexiones de la red P2P y servir los búferes de vídeo de alta eficiencia al cliente.
+
+🏛️ Arquitectura del Sistema
+Entorno de Servidor: Ejecución local basada en Node.js que procesa los metadatos de los torrents y administra de forma inteligente el ancho de banda y las conexiones de pares (peers).
+
+Compatibilidad de Clientes: Diseñado para integrarse perfectamente con reproductores multimedia compatibles y interfaces web mediante flujos HTTP locales.
+
+Optimización de Recursos: Algoritmos de descarga secuencial orientados a priorizar las piezas iniciales del archivo de vídeo para garantizar un inicio de reproducción inmediato (instant-on).
+
+🛠️ Guía Completa de Instalación y Uso del Plugin y Servidor
+📥 Descarga e Instalación de Node.js: Accede al sitio web oficial de Node.js, descarga la versión LTS recomendada para tu sistema operativo y ejecuta el instalador asegurándote de marcar la opción para incluir el gestor de paquetes (npm) en las variables de entorno del sistema.
+
+💻 Verificación del Entorno: Abre una nueva terminal o consola de comandos y verifica que la instalación se haya completado correctamente ejecutando node -v para comprobar la versión del entorno y npm -v para la del gestor de paquetes.
+📦 Instalación de Dependencias del Servidor: Abre la terminal en el directorio raíz del servidor Node.js y ejecuta el comando de instalación de paquetes (npm install) para preparar todas las librerías necesarias del motor WebTorrent.
+
+🚀 Inicio del Servidor Local: Arranca el servidor local ejecutando el script correspondiente en Node.js (por ejemplo, npm start o el comando de inicio configurado) para mantener la pasarela de streaming activa en segundo plano.
+
+🌐 Carga del Plugin en Google Chrome: Abre tu navegador Google Chrome, dirígete a la sección de gestión de extensiones (chrome://extensions/), activa el interruptor de Modo de desarrollador situado en la esquina superior derecha y haz clic en Cargar descomprimida para seleccionar la carpeta del plugin.
+
+▶️ Funcionamiento y Reproducción: Utiliza la interfaz de la extensión o introduce un enlace magnético (magnet link o archivo .torrent) desde el navegador para que el servidor local procese el búfer y comience la reproducción multimedia en streaming de forma secuencial.
