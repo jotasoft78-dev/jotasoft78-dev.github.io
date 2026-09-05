@@ -1,0 +1,36 @@
+# 🎬 Conversor de Vídeo — H264 + AAC universal
+
+**Convierte cualquier vídeo al formato que se reproduce en TODAS partes, sin transcodificar.**
+
+¿Tienes películas o series en 4K/HEVC/DTS que tu Smart TV, tu navegador o tu servidor multimedia se niegan a reproducir sin conversiones eternas? Esta herramienta las deja listas de un solo golpe: vídeo H264 y audio AAC, el combo que prácticamente cualquier dispositivo sabe reproducir de forma nativa (*Direct Play*), sin gastar CPU ni esperar minutos antes de que empiece la reproducción.
+
+## ✨ Características
+- 🖱️ **Arrastra y suelta** el vídeo directamente sobre la ventana — o usa el botón de examinar si lo prefieres.
+- 🎯 **Compatibilidad universal**: convierte a H264 + AAC, el estándar que reproducen navegadores, Smart TVs, móviles, consolas y prácticamente cualquier app de streaming sin pestañear.
+- 📐 **Resolución a tu gusto**: baja a 1080p o 720p, o mantén la resolución original.
+- 🎚️ **Control total de la calidad**: ajusta el CRF/QP para el equilibrio perfecto entre tamaño y nitidez.
+- 🔊 **Audio flexible**: estéreo AAC (compatible incluso en navegador) o 5.1 AAC para sonido envolvente en TVs y apps nativas.
+- ⚡ **Codificación por GPU opcional**: acelera la conversión con tu tarjeta AMD o NVIDIA cuando la velocidad importa más que exprimir cada byte.
+- 📝 **Subtítulos de texto incluidos**: copia automáticamente los subtítulos SRT/ASS si el vídeo los trae.
+- 📊 **Progreso en tiempo real**: barra de progreso, tiempo restante y velocidad de conversión mientras trabaja.
+- 🛑 **Cancelación limpia**: para el proceso en cualquier momento sin dejar archivos a medias ni corruptos.
+- 🧠 **Recuerda tu configuración de FFmpeg**: la localiza una vez (junto al programa, en el PATH, o donde tú le indiques) y no vuelve a preguntar.
+
+---
+
+## 🤔 ¿Por qué convertir en vez de dejarlo en su calidad original?
+Si tu reproductor no sabe leer HEVC de 10 bits o audio DTS/AC3 de forma nativa (como pasa en la mayoría de navegadores), tu servidor multimedia tiene que **transcodificar sobre la marcha cada vez que le das a play** — consumiendo CPU/GPU, tardando en arrancar, y a menudo bajando igualmente la calidad a algo parecido a esto. Conviértelo tú una sola vez, y disfruta de arranque instantáneo siempre.
+
+---
+
+## 💻 Requisitos
+- Windows con **.NET 8** instalado.
+- **FFmpeg** (no incluido).
+
+---
+
+## 🚀 Cómo usarlo
+1. 📂 Arrastra el vídeo a la ventana (o pulsa "Examinar…").
+2. ⚙️ Ajusta resolución, calidad, audio y codificador a tu gusto.
+3. 📁 Elige dónde guardar el resultado.
+4. ▶️ Pulsa "Convertir" y listo.
