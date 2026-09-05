@@ -1,0 +1,28 @@
+🎯 OverlayReticula
+
+Una retícula personalizada para tus partidas, ligera y sin complicaciones.
+
+🖼️ Tu imagen, tu mira
+Usa cualquier PNG, JPG o BMP como retícula central. Cambia de imagen cuando quieras, sin reiniciar el programa.
+
+🪟 Compatible con ventana y pantalla completa sin bordes
+Se superpone limpiamente sobre el juego sin interferir con los clics ni el control del ratón.
+
+🖱️ Click-through total
+La ventana es completamente transparente a los clics: todo pasa directo al juego, como si el overlay no existiera.
+
+⌨️ Atajos rápidos
+
+F8 — Mostrar / ocultar
+F9 — Siguiente imagen
+F7 — Imagen anterior
+F10 — Salir
+
+📌 Siempre visible
+Se mantiene por encima del juego automáticamente, incluso si la ventana pierde el foco.
+
+🔒 Seguro y no invasivo
+No inyecta código en el juego, no modifica archivos ni memoria. Es una simple ventana de Windows, igual que un overlay de Discord u OBS.
+
+🗂️ Gestión sencilla de imágenes
+Icono en la bandeja del sistema para elegir imagen, abrir la carpeta o recargar la lista al instante.
