@@ -17,7 +17,7 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Generar sitemap.xml con anclajes de aplicaciones
+      - name: Generar sitemap.xml solo con index y anclajes
         shell: bash
         run: |
           python3 <<'PY'
@@ -28,22 +28,17 @@ jobs:
           BASE_URL = "https://jotasoft78-dev.github.io"
           index_path = Path("index.html")
 
+          # Siempre incluimos la raíz
           urls = [BASE_URL + "/"]
 
           if index_path.exists():
               html_content = index_path.read_text(encoding="utf-8")
-              # Busca las tarjetas de aplicaciones que contienen los IDs de los anclajes
-              # Ejemplo: <article class="app-card" id="mediainfo-jotasoft78" data-platform="...">
+              # Extrae los IDs de las tarjetas de aplicaciones (que generan los anclajes con #)
               matches = re.findall(r'<article[^>]+id="([^"]+)"', html_content)
               for app_id in matches:
                   urls.append(f"{BASE_URL}/#{app_id}")
 
-          # Añadir también páginas estáticas esenciales si existen físicamente
-          for path in Path(".").rglob("*.html"):
-              rel = path.as_posix()
-              if rel not in ["index.html", "404.html"] and not any(p.startswith(".") for p in path.parts):
-                  urls.append(f"{BASE_URL}/{rel}")
-
+          # Ordenamos y filtramos duplicados
           urls = sorted(set(urls))
 
           lines = [
@@ -63,7 +58,7 @@ jobs:
               encoding="utf-8"
           )
 
-          print(f"Sitemap generado con éxito con {len(urls)} URLs.")
+          print(f"Sitemap generado con éxito con {len(urls)} URLs (incluyendo raíz y anclajes).")
           PY
 
       - name: Guardar sitemap.xml
@@ -77,6 +72,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No hay cambios en sitemap.xml"
           else
-            git commit -m "Actualizar sitemap.xml con enlaces y anclajes de apps"
+            git commit -m "Actualizar sitemap.xml solo con index y anclajes de aplicaciones"
             git push origin HEAD:main
           fi
