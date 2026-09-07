@@ -1180,7 +1180,7 @@
                     if (filtered.length > 0) {
                         filtered.forEach(app => {
                             const item = document.createElement('a');
-                            item.href = app.cardId;
+                            item.href = 'javascript:void(0)';
                             item.className = 'search-result-item';
                             item.innerHTML = `
                                 <span class="search-result-name">${app.originalName}</span>
