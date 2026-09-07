@@ -1,4 +1,4 @@
-name: Generar web JotaSoft78
+name: Generar sitemap
 
 on:
   push:
@@ -10,43 +10,83 @@ permissions:
   contents: write
 
 jobs:
-  generar-web:
+  sitemap:
     runs-on: ubuntu-latest
 
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-
-      - name: Ejecutar generador
+      - name: Generar sitemap.xml
+        shell: bash
         run: |
-          python generar.py
+          python3 <<'PY'
+          from pathlib import Path
+          from urllib.parse import quote
 
-      - name: Comprobar archivos generados
-        run: |
-          echo "=== index.html ==="
-          ls -lh index.html
+          BASE_URL = "https://jotasoft78-dev.github.io"
 
-          echo "=== urls.txt ==="
-          ls -lh urls.txt
+          exclude_dirs = {
+              ".git",
+              ".github",
+              "node_modules",
+              "vendor"
+          }
 
-          echo "=== Contenido urls.txt ==="
-          cat urls.txt
+          urls = []
 
-      - name: Guardar cambios
+          for path in Path(".").rglob("*.html"):
+
+              if set(path.parts) & exclude_dirs:
+                  continue
+
+              if path.name.lower() == "404.html":
+                  continue
+
+              rel = path.as_posix()
+
+              if rel == "index.html":
+                  url = BASE_URL + "/"
+              elif rel.endswith("/index.html"):
+                  url = BASE_URL + "/" + rel[:-10]
+              else:
+                  url = BASE_URL + "/" + rel
+
+              urls.append(url)
+
+          urls = sorted(set(urls))
+
+          lines = [
+              '<?xml version="1.0" encoding="UTF-8"?>',
+              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+          ]
+
+          for url in urls:
+              lines.append("  <url>")
+              lines.append(f"    <loc>{quote(url, safe=':/')}</loc>")
+              lines.append("  </url>")
+
+          lines.append("</urlset>")
+
+          Path("sitemap.xml").write_text(
+              "\n".join(lines) + "\n",
+              encoding="utf-8"
+          )
+
+          print(f"Sitemap generado con {len(urls)} URLs")
+          PY
+
+      - name: Guardar sitemap.xml
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add index.html urls.txt
+          git add sitemap.xml
 
           if git diff --cached --quiet; then
-            echo "No hay cambios que guardar."
+            echo "No hay cambios en sitemap.xml"
           else
-            git commit -m "Actualizar web y listado de programas"
-            git push
+            git commit -m "Actualizar sitemap.xml"
+            git push origin HEAD:main
           fi
