@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Metaetiquetas SEO y Open Graph -->
     <title>JotaSoft78 | Repositorio Oficial de Software</title>
     <meta name="description" content="Repositorio oficial de aplicaciones para Windows y Android desarrolladas por JotaSoft78. Descarga herramientas y utilidades optimizadas.">
     <meta name="keywords" content="JotaSoft78, software, aplicaciones, windows, android, descargas, utilidades">
@@ -71,7 +70,6 @@
             margin: 0 auto;
         }
 
-        /* Estilos del Menú de Navegación y Buscador Desplegable Global */
         .nav-controls {
             position: sticky;
             top: 0;
@@ -147,7 +145,6 @@
             font-size: 0.9rem;
         }
 
-        /* Recuadro desplegable de resultados del buscador */
         .search-results-dropdown {
             position: absolute;
             top: calc(100% + 5px);
@@ -440,7 +437,6 @@
             color: #86efac;
         }
 
-        /* Estilos de la Ventana Modal */
         .image-modal {
             display: none;
             position: fixed;
@@ -470,7 +466,6 @@
             to { transform: scale(1); opacity: 1; }
         }
 
-        /* Estilos para el popup de adblock */
         #adblock-overlay {
             position: fixed;
             top: 0;
@@ -552,7 +547,6 @@
             color: #ff6600;
         }
 
-        /* Ocultar contenido cuando se detecta adblock */
         body.adblock-detected header,
         body.adblock-detected .nav-controls,
         body.adblock-detected .main-container,
@@ -560,7 +554,6 @@
             display: none !important;
         }
 
-        /* Mostrar el popup cuando se detecta adblock */
         body.adblock-detected #adblock-overlay {
             display: flex !important;
         }
@@ -599,19 +592,16 @@
             }
         }
     </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B1MDZQB239"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-B1MDZQB239');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1MDZQB239"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B1MDZQB239');
+    </script>
 </head>
 <body>
 
-    <!-- Popup de adblock -->
     <div id="adblock-overlay">
         <div id="adblock-popup">
             <div class="adblock-header">
@@ -638,23 +628,21 @@
     <header>
         <h1>JotaSoft78</h1>
         <div class="header-banner">
-            <!--PUBLICIDAD-->
-		        <iframe
-            title="Publicidad"
-            src="iframe.html"
-            width="728"
-            height="90"
-            style="border:0; overflow:hidden;"
-            scrolling="no"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
-        </iframe>
+            <iframe
+                title="Publicidad"
+                src="iframe.html"
+                width="728"
+                height="90"
+                style="border:0; overflow:hidden;"
+                scrolling="no"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
+            </iframe>
         </div>
         <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>20</strong> aplicaciones disponibles.</p>
     </header>
 
-    <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
     <nav class="nav-controls">
         <div class="nav-buttons">
             <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">8</span></a>
@@ -1098,7 +1086,6 @@
 
     </main>
 
-    <!-- Ventana Modal para las imágenes -->
     <div id="imageModal" class="image-modal" onclick="cerrarModal()">
         <img class="modal-content" id="modalImage">
     </div>
@@ -1135,14 +1122,12 @@
             if (event.target === modal) {
                 cerrarModal();
             }
-            // Cerrar el desplegable de búsqueda si se hace clic fuera
             if (!event.target.closest('.search-container')) {
                 var dropdown = document.getElementById('searchResultsDropdown');
                 if (dropdown) dropdown.style.display = 'none';
             }
         }
 
-        // Script para el buscador desplegable buscando en todo el contenido (nombre y descripción)
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('searchInput');
             const dropdown = document.getElementById('searchResultsDropdown');
@@ -1210,9 +1195,6 @@
             }
         });
 
-        // Función para detectar AdBlock
-        // Función para compartir una app: usa el selector nativo del móvil (Web Share API)
-        // y, si no está disponible (la mayoría de navegadores de escritorio), copia el enlace directo.
         function compartirApp(nombreApp, cardId, botonEl) {
           const url = window.location.origin + window.location.pathname + '#' + cardId;
           const datosCompartir = {
