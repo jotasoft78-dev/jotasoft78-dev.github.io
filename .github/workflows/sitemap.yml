@@ -17,42 +17,32 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Generar sitemap.xml
+      - name: Generar sitemap.xml con anclajes de aplicaciones
         shell: bash
         run: |
           python3 <<'PY'
+          import re
           from pathlib import Path
           from urllib.parse import quote
 
           BASE_URL = "https://jotasoft78-dev.github.io"
+          index_path = Path("index.html")
 
-          exclude_dirs = {
-              ".git",
-              ".github",
-              "node_modules",
-              "vendor"
-          }
+          urls = [BASE_URL + "/"]
 
-          urls = []
+          if index_path.exists():
+              html_content = index_path.read_text(encoding="utf-8")
+              # Busca las tarjetas de aplicaciones que contienen los IDs de los anclajes
+              # Ejemplo: <article class="app-card" id="mediainfo-jotasoft78" data-platform="...">
+              matches = re.findall(r'<article[^>]+id="([^"]+)"', html_content)
+              for app_id in matches:
+                  urls.append(f"{BASE_URL}/#{app_id}")
 
+          # Añadir también páginas estáticas esenciales si existen físicamente
           for path in Path(".").rglob("*.html"):
-
-              if set(path.parts) & exclude_dirs:
-                  continue
-
-              if path.name.lower() == "404.html":
-                  continue
-
               rel = path.as_posix()
-
-              if rel == "index.html":
-                  url = BASE_URL + "/"
-              elif rel.endswith("/index.html"):
-                  url = BASE_URL + "/" + rel[:-10]
-              else:
-                  url = BASE_URL + "/" + rel
-
-              urls.append(url)
+              if rel not in ["index.html", "404.html"] and not any(p.startswith(".") for p in path.parts):
+                  urls.append(f"{BASE_URL}/{rel}")
 
           urls = sorted(set(urls))
 
@@ -63,7 +53,7 @@ jobs:
 
           for url in urls:
               lines.append("  <url>")
-              lines.append(f"    <loc>{quote(url, safe=':/')}</loc>")
+              lines.append(f"    <loc>{quote(url, safe=':/#')}</loc>")
               lines.append("  </url>")
 
           lines.append("</urlset>")
@@ -73,7 +63,7 @@ jobs:
               encoding="utf-8"
           )
 
-          print(f"Sitemap generado con {len(urls)} URLs")
+          print(f"Sitemap generado con éxito con {len(urls)} URLs.")
           PY
 
       - name: Guardar sitemap.xml
@@ -87,6 +77,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No hay cambios en sitemap.xml"
           else
-            git commit -m "Actualizar sitemap.xml"
+            git commit -m "Actualizar sitemap.xml con enlaces y anclajes de apps"
             git push origin HEAD:main
           fi
