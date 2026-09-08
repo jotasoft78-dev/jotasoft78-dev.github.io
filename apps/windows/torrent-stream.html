@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>torrent-stream para Windows | Descarga gratis en JotaSoft78</title>
+    <meta name="description" content="🌟 Torrent-Stream Suite: Solución Integral de Streaming P2P ⚡ Transmisión Secuencial en Tiempo Real: Permite reproducir contenidos multimedia...">
+    <link rel="canonical" href="https://jotasoft78-dev.github.io/apps/windows/torrent-stream.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="torrent-stream para Windows | Descarga gratis en JotaSoft78">
+    <meta property="og:description" content="🌟 Torrent-Stream Suite: Solución Integral de Streaming P2P ⚡ Transmisión Secuencial en Tiempo Real: Permite reproducir contenidos multimedia...">
+    <meta property="og:url" content="https://jotasoft78-dev.github.io/apps/windows/torrent-stream.html">
+    <meta property="og:site_name" content="JotaSoft78">
+    <meta property="og:image" content="https://jotasoft78-dev.github.io/windows/torrent-stream/captura.jpg">
+    <meta name="twitter:image" content="https://jotasoft78-dev.github.io/windows/torrent-stream/captura.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="torrent-stream para Windows | Descarga gratis en JotaSoft78">
+    <meta name="twitter:description" content="🌟 Torrent-Stream Suite: Solución Integral de Streaming P2P ⚡ Transmisión Secuencial en Tiempo Real: Permite reproducir contenidos multimedia...">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "torrent-stream",
+      "operatingSystem": "Windows",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "\ud83c\udf1f Torrent-Stream Suite: Soluci\u00f3n Integral de Streaming P2P \u26a1 Transmisi\u00f3n Secuencial en Tiempo Real: Permite reproducir contenidos multimedia...",
+      "url": "https://jotasoft78-dev.github.io/apps/windows/torrent-stream.html",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #131b2e;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --body-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--body-font);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 5rem 2rem 3rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg-color) 70%);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 1.5rem 0;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .header-banner {
+            margin: 0 auto 1.5rem auto;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Estilos del Menú de Navegación y Buscador Desplegable Global */
+        .nav-controls {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background-color: #1e293b;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s, border-color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn:hover {
+            background-color: #334155;
+            border-color: rgba(37, 99, 235, 0.4);
+        }
+
+        .search-container {
+            position: relative;
+            flex-grow: 1;
+            max-width: 350px;
+        }
+
+        .search-input {
+            width: 100%;
+            background-color: #131b2e;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Recuadro desplegable de resultados del buscador */
+        .search-results-dropdown {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            right: 0;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            z-index: 200;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-result-item {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-item:hover {
+            background-color: #1e293b;
+        }
+
+        .search-result-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .search-result-plat {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .search-no-results {
+            padding: 1rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            width: 100%;
+        }
+
+        .platform-section {
+            margin-bottom: 4rem;
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .platform-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-primary);
+            letter-spacing: 0.5px;
+        }
+        
+        .platform-icon {
+            font-size: 2rem;
+        }
+
+        .platform-count-badge {
+            background-color: rgba(37, 99, 235, 0.15);
+            color: #93c5fd;
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.2rem 0.75rem;
+            border-radius: 999px;
+            letter-spacing: normal;
+        }
+
+        .nav-btn-count {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            padding: 0.1rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .apps-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .app-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+            scroll-margin-top: 100px;
+        }
+
+        .app-card:hover {
+            border-color: rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .card-image-container {
+            width: 320px;
+            min-width: 320px;
+            background-color: #05070b;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 1.5rem;
+        }
+
+        .card-image-container img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .card-image-container img:hover {
+            opacity: 0.85;
+        }
+        
+        .card-image-container.no-image::before {
+            content: '📸';
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .card-body {
+            padding: 2.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .card-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            color: #ffffff;
+        }
+
+        .card-title-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .card-title-link:hover {
+            text-decoration: underline;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .spoiler-container {
+            margin: 1.25rem 0;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .spoiler-btn {
+            background-color: #1e293b;
+            color: var(--text-primary);
+            border: none;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.2s;
+        }
+
+        .spoiler-btn::after {
+            content: '▼';
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+
+        .spoiler-btn.active::after {
+            transform: rotate(180deg);
+        }
+
+        .spoiler-btn:hover {
+            background-color: #334155;
+        }
+
+        .spoiler-content {
+            display: none;
+            padding: 1rem;
+            background-color: #080c14;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 250px;
+            overflow-y: auto;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent);
+            color: white;
+            text-align: center;
+            padding: 0.85rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s ease;
+            align-self: flex-start;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background-color: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.85rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .share-btn:hover {
+            background-color: #1e293b;
+            border-color: rgba(37, 99, 235, 0.4);
+            color: var(--text-primary);
+        }
+
+        .share-btn.copied {
+            background-color: rgba(34, 197, 94, 0.15);
+            border-color: rgba(34, 197, 94, 0.5);
+            color: #86efac;
+        }
+
+        /* Estilos de la Ventana Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            animation: modalScale 0.2s ease-in-out;
+        }
+
+        @keyframes modalScale {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Estilos para el popup de adblock */
+        #adblock-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+
+        #adblock-popup {
+            background: #1a1a1a;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            border: 2px solid #ff6600;
+            text-align: center;
+            color: white;
+        }
+
+        .adblock-header {
+            background: #ff6600;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .adblock-content {
+            padding: 30px;
+        }
+
+        .adblock-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ff6600;
+        }
+
+        .adblock-message {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .adblock-button {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-weight: bold;
+        }
+
+        .adblock-button:hover {
+            background: #e65c00;
+            transform: translateY(-2px);
+        }
+
+        .adblock-instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background: #2a2a2a;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .adblock-instructions h3 {
+            margin-top: 0;
+            color: #ff6600;
+        }
+
+        /* Ocultar contenido cuando se detecta adblock */
+        body.adblock-detected header,
+        body.adblock-detected .nav-controls,
+        body.adblock-detected .main-container,
+        body.adblock-detected footer {
+            display: none !important;
+        }
+
+        /* Mostrar el popup cuando se detecta adblock */
+        body.adblock-detected #adblock-overlay {
+            display: flex !important;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .app-card {
+                flex-direction: column;
+            }
+            .card-image-container {
+                width: 100%;
+                min-width: 100%;
+                height: 260px;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .card-body {
+                padding: 1.5rem;
+            }
+            header h1 { font-size: 2.25rem; }
+            .download-btn { width: 100%; }
+            .nav-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-container {
+                max-width: 100%;
+            }
+        }
+    
+        .app-page-wrap { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .breadcrumb { margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .breadcrumb a { color: var(--text-secondary); }
+        .app-page-wrap h1 { font-size: 2rem; margin-bottom: 1rem; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="app-page-wrap">
+        <nav class="breadcrumb" aria-label="Miga de pan">
+            <a href="../../index.html">Inicio</a> &rsaquo; torrent-stream
+        </nav>
+        <article>
+            <h1>torrent-stream para Windows</h1>
+            <img src="../../windows/torrent-stream/captura.jpg" alt="Captura de pantalla de torrent-stream en Windows" loading="lazy" style="max-width:100%;border-radius:12px;">
+            <div class="card-description">🌟 Torrent-Stream Suite: Solución Integral de Streaming P2P<br>⚡ Transmisión Secuencial en Tiempo Real: Permite reproducir contenidos multimedia directamente desde archivos .torrent y enlaces magnéticos (magnet links) sin necesidad de esperar a que la descarga se complete por completo.<br><br>🧩 Extensión de Navegador Integrada: Facilita la gestión, control y visualización de flujos multimedia de manera fluida directamente desde el navegador web basado en Chromium.<br><br>⚙️ Servidor Local Node.js / WebTorrent: Actúa como el núcleo de procesamiento robusto, optimizado para gestionar las conexiones de la red P2P y servir los búferes de vídeo de alta eficiencia al cliente.<br><br>🏛️ Arquitectura del Sistema<br>Entorno de Servidor: Ejecución local basada en Node.js que procesa los metadatos de los torrents y administra de forma inteligente el ancho de banda y las conexiones de pares (peers).<br><br>Compatibilidad de Clientes: Diseñado para integrarse perfectamente con reproductores multimedia compatibles y interfaces web mediante flujos HTTP locales.<br><br>Optimización de Recursos: Algoritmos de descarga secuencial orientados a priorizar las piezas iniciales del archivo de vídeo para garantizar un inicio de reproducción inmediato (instant-on).<br><br>🛠️ Guía Completa de Instalación y Uso del Plugin y Servidor<br>📥 Descarga e Instalación de Node.js: Accede al sitio web oficial de Node.js, descarga la versión LTS recomendada para tu sistema operativo y ejecuta el instalador asegurándote de marcar la opción para incluir el gestor de paquetes (npm) en las variables de entorno del sistema.<br><br>💻 Verificación del Entorno: Abre una nueva terminal o consola de comandos y verifica que la instalación se haya completado correctamente ejecutando node -v para comprobar la versión del entorno y npm -v para la del gestor de paquetes.<br>📦 Instalación de Dependencias del Servidor: Abre la terminal en el directorio raíz del servidor Node.js y ejecuta el comando de instalación de paquetes (npm install) para preparar todas las librerías necesarias del motor WebTorrent.<br><br>🚀 Inicio del Servidor Local: Arranca el servidor local ejecutando el script correspondiente en Node.js (por ejemplo, npm start o el comando de inicio configurado) para mantener la pasarela de streaming activa en segundo plano.<br><br>🌐 Carga del Plugin en Google Chrome: Abre tu navegador Google Chrome, dirígete a la sección de gestión de extensiones (chrome://extensions/), activa el interruptor de Modo de desarrollador situado en la esquina superior derecha y haz clic en Cargar descomprimida para seleccionar la carpeta del plugin.<br><br>▶️ Funcionamiento y Reproducción: Utiliza la interfaz de la extensión o introduce un enlace magnético (magnet link o archivo .torrent) desde el navegador para que el servidor local procese el búfer y comience la reproducción multimedia en streaming de forma secuencial.</div>
+            <p>
+                <a href="../../windows/torrent-stream/torrent-stream.zip" class="download-btn" download>
+                    Descargar torrent-stream (Windows)
+                </a>
+            </p>
+        </article>
+    </div>
+</body>
+</html>
