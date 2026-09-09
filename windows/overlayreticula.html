@@ -35,6 +35,15 @@
       }
     }
     </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RWH4FNTL6S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RWH4FNTL6S');
+</script>
 
     <style>
         :root {
@@ -587,6 +596,7 @@
         body.adblock-detected header,
         body.adblock-detected .nav-controls,
         body.adblock-detected .main-container,
+        body.adblock-detected .app-page-wrap,
         body.adblock-detected footer {
             display: none !important;
         }
@@ -639,6 +649,31 @@
     </style>
 </head>
 <body>
+    
+    <!-- Popup de adblock -->
+    <div id="adblock-overlay">
+        <div id="adblock-popup">
+            <div class="adblock-header">
+                <h2>AdBlocker Detected</h2>
+            </div>
+            <div class="adblock-content">
+                <div class="adblock-icon">⚠️</div>
+                <div class="adblock-message">
+                    <p>We have detected that you are using an adblocker. Our service is funded through advertisements.</p>
+                    <p>Please disable your adblocker to access JotaSoft78.</p>
+                </div>
+                <button class="adblock-button" id="reload-button">I've disabled AdBlocker</button>
+
+                <div class="adblock-instructions">
+                    <h3>How to disable adblocker:</h3>
+                    <p>1. Click on the adblocker icon in your browser</p>
+                    <p>2. Select "Pause on this site" or similar option</p>
+                    <p>3. Refresh the page to continue</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="app-page-wrap">
         <nav class="breadcrumb" aria-label="Miga de pan">
             <a href="../index.html">Inicio</a> &rsaquo; OverlayReticula
@@ -651,7 +686,7 @@
             <img src="../windows/OverlayReticula/captura.jpg" alt="Captura de pantalla de OverlayReticula en Windows" loading="lazy" style="max-width:100%;border-radius:12px;">
             <div class="card-description">🎯 <strong>OverlayReticula</strong><br><br>Una retícula personalizada para tus partidas, ligera y sin complicaciones.<br><br>🖼️ Tu imagen, tu mira<br>Usa cualquier PNG, JPG o BMP como retícula central. Cambia de imagen cuando quieras, sin reiniciar el programa.<br><br>🪟 Compatible con ventana y pantalla completa sin bordes<br>Se superpone limpiamente sobre el juego sin interferir con los clics ni el control del ratón.<br><br>🖱️ Click-through total<br>La ventana es completamente transparente a los clics: todo pasa directo al juego, como si el overlay no existiera.<br><br>⌨️ Atajos rápidos<br><br>F8 — Mostrar / ocultar<br>F9 — Siguiente imagen<br>F7 — Imagen anterior<br>F10 — Salir<br><br>📌 Siempre visible<br>Se mantiene por encima del juego automáticamente, incluso si la ventana pierde el foco.<br><br>🔒 Seguro y no invasivo<br>No inyecta código en el juego, no modifica archivos ni memoria. Es una simple ventana de <strong>Windows</strong>, igual que un overlay de Discord u OBS.<br><br>🗂️ Gestión sencilla de imágenes<br>Icono en la bandeja del sistema para elegir imagen, abrir la carpeta o recargar la lista al instante.</div>
 
-            <h3>Descargar OverlayReticula gratis para Windows</h3>
+            <h2>Descargar OverlayReticula gratis para Windows</h2>
             <p>
                 <a href="../windows/OverlayReticula/OverlayReticula.rar" class="download-btn" download>
                     Descargar OverlayReticula (Windows)
@@ -659,5 +694,61 @@
             </p>
         </article>
     </div>
+
+    <script>
+        function detectAdBlock() {
+          return new Promise((resolve) => {
+            fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', {
+              method: 'HEAD',
+              mode: 'no-cors',
+              cache: 'no-store'
+            }).catch(() => {
+              resolve(true);
+            });
+
+            setTimeout(() => {
+              const ad = document.createElement('div');
+              ad.innerHTML = '&nbsp;';
+              ad.className = 'ad-container adsbox advertisement ad-banner ad-unit';
+              ad.style.position = 'absolute';
+              ad.style.left = '-9999px';
+              ad.style.top = '-9999px';
+              ad.style.height = '1px';
+              ad.style.width = '1px';
+              document.body.appendChild(ad);
+
+              setTimeout(() => {
+                const isBlocked = ad.offsetHeight === 0 ||
+                                  ad.offsetWidth === 0 ||
+                                  getComputedStyle(ad).display === 'none' ||
+                                  getComputedStyle(ad).visibility === 'hidden' ||
+                                  ad.offsetParent === null;
+
+                document.body.removeChild(ad);
+                resolve(isBlocked);
+              }, 100);
+            }, 100);
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          detectAdBlock().then((isBlocked) => {
+            if (isBlocked) {
+              document.body.classList.add('adblock-detected');
+
+              document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+              });
+            }
+          });
+
+          var reloadBtn = document.getElementById('reload-button');
+          if (reloadBtn) {
+            reloadBtn.addEventListener('click', function() {
+              location.reload(true);
+            });
+          }
+        });
+</script>
 </body>
 </html>

@@ -35,6 +35,15 @@
       }
     }
     </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RWH4FNTL6S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RWH4FNTL6S');
+</script>
 
     <style>
         :root {
@@ -587,6 +596,7 @@
         body.adblock-detected header,
         body.adblock-detected .nav-controls,
         body.adblock-detected .main-container,
+        body.adblock-detected .app-page-wrap,
         body.adblock-detected footer {
             display: none !important;
         }
@@ -639,6 +649,31 @@
     </style>
 </head>
 <body>
+    
+    <!-- Popup de adblock -->
+    <div id="adblock-overlay">
+        <div id="adblock-popup">
+            <div class="adblock-header">
+                <h2>AdBlocker Detected</h2>
+            </div>
+            <div class="adblock-content">
+                <div class="adblock-icon">⚠️</div>
+                <div class="adblock-message">
+                    <p>We have detected that you are using an adblocker. Our service is funded through advertisements.</p>
+                    <p>Please disable your adblocker to access JotaSoft78.</p>
+                </div>
+                <button class="adblock-button" id="reload-button">I've disabled AdBlocker</button>
+
+                <div class="adblock-instructions">
+                    <h3>How to disable adblocker:</h3>
+                    <p>1. Click on the adblocker icon in your browser</p>
+                    <p>2. Select "Pause on this site" or similar option</p>
+                    <p>3. Refresh the page to continue</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="app-page-wrap">
         <nav class="breadcrumb" aria-label="Miga de pan">
             <a href="../index.html">Inicio</a> &rsaquo; IPTVProWin
@@ -651,7 +686,7 @@
             <img src="../windows/IPTVProWin/captura.jpg" alt="Captura de pantalla de IPTVProWin en Windows" loading="lazy" style="max-width:100%;border-radius:12px;">
             <div class="card-description">IPTV Pro (<strong>Windows</strong>)<br>IPTV Pro es un reproductor de televisión IPTV para Windows, ligero y con una interfaz moderna, pensado para disfrutar de tus listas de canales M3U/M3U8 con la mejor calidad de imagen y sonido.<br><br>✨ Características principales<br>📡 Carga flexible de listas<br>Importa tu lista de canales fácilmente, ya sea mediante un enlace URL o desde un archivo local M3U/M3U8. La aplicación recuerda tu configuración para que no tengas que repetirla cada vez que la abres.<br><br>🗂️ Organización por categorías<br>Los canales se agrupan automáticamente por categorías con un elegante carrusel de chips deslizante, permitiéndote navegar entre géneros y grupos con un solo clic.<br><br>🔍 Buscador instantáneo<br>Encuentra cualquier canal al momento gracias al buscador en tiempo real integrado en la pantalla principal.<br><br>⭐ Favoritos personalizados<br>Marca tus canales preferidos con un solo toque y accede a ellos rápidamente desde su propia categoría dedicada.<br><br>🎬 Reproducción de alto rendimiento<br>Motor de vídeo basado en VLC, compatible con múltiples formatos de streaming (HLS, MPEG-TS y radio), ofreciendo una reproducción fluida y estable.<br><br>⏯️ Controles intuitivos<br>Navega entre canales sin salir del reproductor gracias a los botones de canal anterior/siguiente, con overlay minimalista que no interrumpe la experiencia de visualización.<br><br>🖥️ Diseño cuidado y adaptado a Windows<br>Interfaz oscura moderna, limpia y responsive, con iconografía propia y una experiencia de usuario fluida en cualquier resolución de pantalla.<br><br>🔄 Actualización de listas<br>Refresca tu lista de canales cuando quieras con un solo clic, manteniendo siempre el contenido al día.<br><br>💡 IPTV Pro es una herramienta de reproducción: tú decides qué listas de canales cargar según tus propias fuentes.</div>
 
-            <h3>Descargar IPTVProWin gratis para Windows</h3>
+            <h2>Descargar IPTVProWin gratis para Windows</h2>
             <p>
                 <a href="../windows/IPTVProWin/IPTVProWin.rar" class="download-btn" download>
                     Descargar IPTVProWin (Windows)
@@ -659,5 +694,61 @@
             </p>
         </article>
     </div>
+
+    <script>
+        function detectAdBlock() {
+          return new Promise((resolve) => {
+            fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', {
+              method: 'HEAD',
+              mode: 'no-cors',
+              cache: 'no-store'
+            }).catch(() => {
+              resolve(true);
+            });
+
+            setTimeout(() => {
+              const ad = document.createElement('div');
+              ad.innerHTML = '&nbsp;';
+              ad.className = 'ad-container adsbox advertisement ad-banner ad-unit';
+              ad.style.position = 'absolute';
+              ad.style.left = '-9999px';
+              ad.style.top = '-9999px';
+              ad.style.height = '1px';
+              ad.style.width = '1px';
+              document.body.appendChild(ad);
+
+              setTimeout(() => {
+                const isBlocked = ad.offsetHeight === 0 ||
+                                  ad.offsetWidth === 0 ||
+                                  getComputedStyle(ad).display === 'none' ||
+                                  getComputedStyle(ad).visibility === 'hidden' ||
+                                  ad.offsetParent === null;
+
+                document.body.removeChild(ad);
+                resolve(isBlocked);
+              }, 100);
+            }, 100);
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          detectAdBlock().then((isBlocked) => {
+            if (isBlocked) {
+              document.body.classList.add('adblock-detected');
+
+              document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+              });
+            }
+          });
+
+          var reloadBtn = document.getElementById('reload-button');
+          if (reloadBtn) {
+            reloadBtn.addEventListener('click', function() {
+              location.reload(true);
+            });
+          }
+        });
+</script>
 </body>
 </html>

@@ -35,6 +35,15 @@
       }
     }
     </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RWH4FNTL6S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RWH4FNTL6S');
+</script>
 
     <style>
         :root {
@@ -587,6 +596,7 @@
         body.adblock-detected header,
         body.adblock-detected .nav-controls,
         body.adblock-detected .main-container,
+        body.adblock-detected .app-page-wrap,
         body.adblock-detected footer {
             display: none !important;
         }
@@ -639,6 +649,31 @@
     </style>
 </head>
 <body>
+    
+    <!-- Popup de adblock -->
+    <div id="adblock-overlay">
+        <div id="adblock-popup">
+            <div class="adblock-header">
+                <h2>AdBlocker Detected</h2>
+            </div>
+            <div class="adblock-content">
+                <div class="adblock-icon">⚠️</div>
+                <div class="adblock-message">
+                    <p>We have detected that you are using an adblocker. Our service is funded through advertisements.</p>
+                    <p>Please disable your adblocker to access JotaSoft78.</p>
+                </div>
+                <button class="adblock-button" id="reload-button">I've disabled AdBlocker</button>
+
+                <div class="adblock-instructions">
+                    <h3>How to disable adblocker:</h3>
+                    <p>1. Click on the adblocker icon in your browser</p>
+                    <p>2. Select "Pause on this site" or similar option</p>
+                    <p>3. Refresh the page to continue</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="app-page-wrap">
         <nav class="breadcrumb" aria-label="Miga de pan">
             <a href="../index.html">Inicio</a> &rsaquo; Sudoku Pro
@@ -651,7 +686,7 @@
             <img src="../android/Sudoku Pro/captura.jpg" alt="Captura de pantalla de Sudoku Pro en Android" loading="lazy" style="max-width:100%;border-radius:12px;">
             <div class="card-description">🧩 Sudoku Clásico 🧩<br><br>¡Ejercita tu mente con el clásico juego de lógica que nunca pasa de moda! 🧠✨<br><br>🔢 Números, lógica y mucha diversión en un diseño simple y sin distracciones.<br><br>Características:<br>🎯 Múltiples niveles de dificultad<br>⏱️ Cronómetro para superar tus propios récords<br>✏️ Modo de notas para anotar posibles números<br>🔄 Deshacer movimientos con un solo toque<br>💡 Pistas cuando te quedes atascado<br>🌙 Interfaz limpia, cómoda para jugar en cualquier momento<br>📴 Juega sin conexión, donde y cuando quieras<br>🏆 Pon a prueba tu paciencia y concentración<br><br>Perfecto para relajarte en el metro 🚇, hacer una pausa en el trabajo ☕ o desconectar antes de dormir 😴.<br><br>¡Descárgalo y demuestra que puedes resolver cualquier tablero! 🧩🔥</div>
 
-            <h3>Descargar Sudoku Pro gratis para Android</h3>
+            <h2>Descargar Sudoku Pro gratis para Android</h2>
             <p>
                 <a href="../android/Sudoku Pro/Sudoku%20Pro.apk" class="download-btn" download>
                     Descargar Sudoku Pro (Android)
@@ -659,5 +694,61 @@
             </p>
         </article>
     </div>
+
+    <script>
+        function detectAdBlock() {
+          return new Promise((resolve) => {
+            fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', {
+              method: 'HEAD',
+              mode: 'no-cors',
+              cache: 'no-store'
+            }).catch(() => {
+              resolve(true);
+            });
+
+            setTimeout(() => {
+              const ad = document.createElement('div');
+              ad.innerHTML = '&nbsp;';
+              ad.className = 'ad-container adsbox advertisement ad-banner ad-unit';
+              ad.style.position = 'absolute';
+              ad.style.left = '-9999px';
+              ad.style.top = '-9999px';
+              ad.style.height = '1px';
+              ad.style.width = '1px';
+              document.body.appendChild(ad);
+
+              setTimeout(() => {
+                const isBlocked = ad.offsetHeight === 0 ||
+                                  ad.offsetWidth === 0 ||
+                                  getComputedStyle(ad).display === 'none' ||
+                                  getComputedStyle(ad).visibility === 'hidden' ||
+                                  ad.offsetParent === null;
+
+                document.body.removeChild(ad);
+                resolve(isBlocked);
+              }, 100);
+            }, 100);
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          detectAdBlock().then((isBlocked) => {
+            if (isBlocked) {
+              document.body.classList.add('adblock-detected');
+
+              document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+              });
+            }
+          });
+
+          var reloadBtn = document.getElementById('reload-button');
+          if (reloadBtn) {
+            reloadBtn.addEventListener('click', function() {
+              location.reload(true);
+            });
+          }
+        });
+</script>
 </body>
 </html>

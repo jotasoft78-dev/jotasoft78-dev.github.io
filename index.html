@@ -565,6 +565,7 @@
         body.adblock-detected header,
         body.adblock-detected .nav-controls,
         body.adblock-detected .main-container,
+        body.adblock-detected .app-page-wrap,
         body.adblock-detected footer {
             display: none !important;
         }
@@ -609,17 +610,18 @@
         }
     </style>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B1MDZQB239"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RWH4FNTL6S"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-B1MDZQB239');
+  gtag('config', 'G-RWH4FNTL6S');
 </script>
 </head>
 <body>
 
+    
     <!-- Popup de adblock -->
     <div id="adblock-overlay">
         <div id="adblock-popup">
@@ -633,7 +635,7 @@
                     <p>Please disable your adblocker to access JotaSoft78.</p>
                 </div>
                 <button class="adblock-button" id="reload-button">I've disabled AdBlocker</button>
-                
+
                 <div class="adblock-instructions">
                     <h3>How to disable adblocker:</h3>
                     <p>1. Click on the adblocker icon in your browser</p>
@@ -1221,7 +1223,6 @@
             }
         });
 
-        // Función para detectar AdBlock
         // Función para compartir una app: usa el selector nativo del móvil (Web Share API)
         // y, si no está disponible (la mayoría de navegadores de escritorio), copia el enlace directo.
         function compartirApp(nombreApp, rutaPagina, botonEl) {
@@ -1255,7 +1256,7 @@
             window.prompt('Copia este enlace:', url);
           }
         }
-
+    
         function detectAdBlock() {
           return new Promise((resolve) => {
             fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', {
@@ -1265,7 +1266,7 @@
             }).catch(() => {
               resolve(true);
             });
-            
+
             setTimeout(() => {
               const ad = document.createElement('div');
               ad.innerHTML = '&nbsp;';
@@ -1276,14 +1277,14 @@
               ad.style.height = '1px';
               ad.style.width = '1px';
               document.body.appendChild(ad);
-              
+
               setTimeout(() => {
-                const isBlocked = ad.offsetHeight === 0 || 
-                                  ad.offsetWidth === 0 || 
+                const isBlocked = ad.offsetHeight === 0 ||
+                                  ad.offsetWidth === 0 ||
                                   getComputedStyle(ad).display === 'none' ||
                                   getComputedStyle(ad).visibility === 'hidden' ||
                                   ad.offsetParent === null;
-                
+
                 document.body.removeChild(ad);
                 resolve(isBlocked);
               }, 100);
@@ -1295,13 +1296,13 @@
           detectAdBlock().then((isBlocked) => {
             if (isBlocked) {
               document.body.classList.add('adblock-detected');
-              
+
               document.addEventListener('contextmenu', function(e) {
                 e.preventDefault();
               });
             }
           });
-          
+
           var reloadBtn = document.getElementById('reload-button');
           if (reloadBtn) {
             reloadBtn.addEventListener('click', function() {
@@ -1309,6 +1310,6 @@
             });
           }
         });
-    </script>
+</script>
 </body>
 </html>

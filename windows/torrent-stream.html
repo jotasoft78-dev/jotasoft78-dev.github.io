@@ -35,6 +35,15 @@
       }
     }
     </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RWH4FNTL6S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RWH4FNTL6S');
+</script>
 
     <style>
         :root {
@@ -587,6 +596,7 @@
         body.adblock-detected header,
         body.adblock-detected .nav-controls,
         body.adblock-detected .main-container,
+        body.adblock-detected .app-page-wrap,
         body.adblock-detected footer {
             display: none !important;
         }
@@ -639,6 +649,31 @@
     </style>
 </head>
 <body>
+    
+    <!-- Popup de adblock -->
+    <div id="adblock-overlay">
+        <div id="adblock-popup">
+            <div class="adblock-header">
+                <h2>AdBlocker Detected</h2>
+            </div>
+            <div class="adblock-content">
+                <div class="adblock-icon">⚠️</div>
+                <div class="adblock-message">
+                    <p>We have detected that you are using an adblocker. Our service is funded through advertisements.</p>
+                    <p>Please disable your adblocker to access JotaSoft78.</p>
+                </div>
+                <button class="adblock-button" id="reload-button">I've disabled AdBlocker</button>
+
+                <div class="adblock-instructions">
+                    <h3>How to disable adblocker:</h3>
+                    <p>1. Click on the adblocker icon in your browser</p>
+                    <p>2. Select "Pause on this site" or similar option</p>
+                    <p>3. Refresh the page to continue</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="app-page-wrap">
         <nav class="breadcrumb" aria-label="Miga de pan">
             <a href="../index.html">Inicio</a> &rsaquo; torrent-stream
@@ -651,7 +686,7 @@
             <img src="../windows/torrent-stream/captura.jpg" alt="Captura de pantalla de torrent-stream en Windows" loading="lazy" style="max-width:100%;border-radius:12px;">
             <div class="card-description">🌟 <strong>Torrent-Stream</strong> Suite: Solución Integral de Streaming P2P<br>⚡ Transmisión Secuencial en Tiempo Real: Permite reproducir contenidos multimedia directamente desde archivos .torrent y enlaces magnéticos (magnet links) sin necesidad de esperar a que la descarga se complete por completo.<br><br>🧩 Extensión de Navegador Integrada: Facilita la gestión, control y visualización de flujos multimedia de manera fluida directamente desde el navegador web basado en Chromium.<br><br>⚙️ Servidor Local Node.js / WebTorrent: Actúa como el núcleo de procesamiento robusto, optimizado para gestionar las conexiones de la red P2P y servir los búferes de vídeo de alta eficiencia al cliente.<br><br>🏛️ Arquitectura del Sistema<br>Entorno de Servidor: Ejecución local basada en Node.js que procesa los metadatos de los torrents y administra de forma inteligente el ancho de banda y las conexiones de pares (peers).<br><br>Compatibilidad de Clientes: Diseñado para integrarse perfectamente con reproductores multimedia compatibles y interfaces web mediante flujos HTTP locales.<br><br>Optimización de Recursos: Algoritmos de descarga secuencial orientados a priorizar las piezas iniciales del archivo de vídeo para garantizar un inicio de reproducción inmediato (instant-on).<br><br>🛠️ Guía Completa de Instalación y Uso del Plugin y Servidor<br>📥 Descarga e Instalación de Node.js: Accede al sitio web oficial de Node.js, descarga la versión LTS recomendada para tu sistema operativo y ejecuta el instalador asegurándote de marcar la opción para incluir el gestor de paquetes (npm) en las variables de entorno del sistema.<br><br>💻 Verificación del Entorno: Abre una nueva terminal o consola de comandos y verifica que la instalación se haya completado correctamente ejecutando node -v para comprobar la versión del entorno y npm -v para la del gestor de paquetes.<br>📦 Instalación de Dependencias del Servidor: Abre la terminal en el directorio raíz del servidor Node.js y ejecuta el comando de instalación de paquetes (npm install) para preparar todas las librerías necesarias del motor WebTorrent.<br><br>🚀 Inicio del Servidor Local: Arranca el servidor local ejecutando el script correspondiente en Node.js (por ejemplo, npm start o el comando de inicio configurado) para mantener la pasarela de streaming activa en segundo plano.<br><br>🌐 Carga del Plugin en Google Chrome: Abre tu navegador Google Chrome, dirígete a la sección de gestión de extensiones (chrome://extensions/), activa el interruptor de Modo de desarrollador situado en la esquina superior derecha y haz clic en Cargar descomprimida para seleccionar la carpeta del plugin.<br><br>▶️ Funcionamiento y Reproducción: Utiliza la interfaz de la extensión o introduce un enlace magnético (magnet link o archivo .torrent) desde el navegador para que el servidor local procese el búfer y comience la reproducción multimedia en streaming de forma secuencial.</div>
 
-            <h3>Descargar torrent-stream gratis para Windows</h3>
+            <h2>Descargar torrent-stream gratis para Windows</h2>
             <p>
                 <a href="../windows/torrent-stream/torrent-stream.zip" class="download-btn" download>
                     Descargar torrent-stream (Windows)
@@ -659,5 +694,61 @@
             </p>
         </article>
     </div>
+
+    <script>
+        function detectAdBlock() {
+          return new Promise((resolve) => {
+            fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', {
+              method: 'HEAD',
+              mode: 'no-cors',
+              cache: 'no-store'
+            }).catch(() => {
+              resolve(true);
+            });
+
+            setTimeout(() => {
+              const ad = document.createElement('div');
+              ad.innerHTML = '&nbsp;';
+              ad.className = 'ad-container adsbox advertisement ad-banner ad-unit';
+              ad.style.position = 'absolute';
+              ad.style.left = '-9999px';
+              ad.style.top = '-9999px';
+              ad.style.height = '1px';
+              ad.style.width = '1px';
+              document.body.appendChild(ad);
+
+              setTimeout(() => {
+                const isBlocked = ad.offsetHeight === 0 ||
+                                  ad.offsetWidth === 0 ||
+                                  getComputedStyle(ad).display === 'none' ||
+                                  getComputedStyle(ad).visibility === 'hidden' ||
+                                  ad.offsetParent === null;
+
+                document.body.removeChild(ad);
+                resolve(isBlocked);
+              }, 100);
+            }, 100);
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          detectAdBlock().then((isBlocked) => {
+            if (isBlocked) {
+              document.body.classList.add('adblock-detected');
+
+              document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+              });
+            }
+          });
+
+          var reloadBtn = document.getElementById('reload-button');
+          if (reloadBtn) {
+            reloadBtn.addEventListener('click', function() {
+              location.reload(true);
+            });
+          }
+        });
+</script>
 </body>
 </html>

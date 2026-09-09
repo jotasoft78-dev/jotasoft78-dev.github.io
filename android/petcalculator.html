@@ -35,6 +35,15 @@
       }
     }
     </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RWH4FNTL6S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RWH4FNTL6S');
+</script>
 
     <style>
         :root {
@@ -587,6 +596,7 @@
         body.adblock-detected header,
         body.adblock-detected .nav-controls,
         body.adblock-detected .main-container,
+        body.adblock-detected .app-page-wrap,
         body.adblock-detected footer {
             display: none !important;
         }
@@ -639,6 +649,31 @@
     </style>
 </head>
 <body>
+    
+    <!-- Popup de adblock -->
+    <div id="adblock-overlay">
+        <div id="adblock-popup">
+            <div class="adblock-header">
+                <h2>AdBlocker Detected</h2>
+            </div>
+            <div class="adblock-content">
+                <div class="adblock-icon">⚠️</div>
+                <div class="adblock-message">
+                    <p>We have detected that you are using an adblocker. Our service is funded through advertisements.</p>
+                    <p>Please disable your adblocker to access JotaSoft78.</p>
+                </div>
+                <button class="adblock-button" id="reload-button">I've disabled AdBlocker</button>
+
+                <div class="adblock-instructions">
+                    <h3>How to disable adblocker:</h3>
+                    <p>1. Click on the adblocker icon in your browser</p>
+                    <p>2. Select "Pause on this site" or similar option</p>
+                    <p>3. Refresh the page to continue</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="app-page-wrap">
         <nav class="breadcrumb" aria-label="Miga de pan">
             <a href="../index.html">Inicio</a> &rsaquo; PetCalculator
@@ -651,7 +686,7 @@
             <img src="../android/PetCalculator/captura.jpg" alt="Captura de pantalla de PetCalculator en Android" loading="lazy" style="max-width:100%;border-radius:12px;">
             <div class="card-description">PET Calculator 🧵<br><br>**Precisión para tu filamento PET.**<br><br>Convierte botellas de plástico en filamento de alta calidad para tu impresora 3D. <br>PET Calculator es la herramienta esencial para calcular el ancho de corte exacto <br>necesario, garantizando un espesor constante y una extrusión sin sorpresas.<br><br>## ¿Por qué usarlo?<br>Cortar tiras de botellas PET a mano suele dar espesores irregulares que arruinan <br>la extrusión. PET Calculator resuelve esto: introduce el **diámetro de tu boquilla** <br>y el **espesor de pared** que buscas, y obtén al instante el **ancho de corte** <br>exacto que necesitas trazar en la botella.<br><br>## Características<br>- ⚡ Cálculo instantáneo y preciso<br>- 🎯 Pensado para reciclaje de botellas PET → filamento 3D<br>- 🌙 Soporte para modo oscuro<br>- 📱 Interfaz simple, sin distracciones<br><br>## Cómo se usa<br>1. Mide el diámetro de la boquilla de tu cortadora de filamento (mm)<br>2. Indica el espesor de pared de la botella que vas a utilizar (mm)<br>3. Pulsa &quot;Calcular ancho&quot; y obtén el corte exacto<br><br>## Tecnologías<br>Kotlin · <strong>Android</strong> View Binding · ConstraintLayout</div>
 
-            <h3>Descargar PetCalculator gratis para Android</h3>
+            <h2>Descargar PetCalculator gratis para Android</h2>
             <p>
                 <a href="../android/PetCalculator/PetCalculator.apk" class="download-btn" download>
                     Descargar PetCalculator (Android)
@@ -659,5 +694,61 @@
             </p>
         </article>
     </div>
+
+    <script>
+        function detectAdBlock() {
+          return new Promise((resolve) => {
+            fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', {
+              method: 'HEAD',
+              mode: 'no-cors',
+              cache: 'no-store'
+            }).catch(() => {
+              resolve(true);
+            });
+
+            setTimeout(() => {
+              const ad = document.createElement('div');
+              ad.innerHTML = '&nbsp;';
+              ad.className = 'ad-container adsbox advertisement ad-banner ad-unit';
+              ad.style.position = 'absolute';
+              ad.style.left = '-9999px';
+              ad.style.top = '-9999px';
+              ad.style.height = '1px';
+              ad.style.width = '1px';
+              document.body.appendChild(ad);
+
+              setTimeout(() => {
+                const isBlocked = ad.offsetHeight === 0 ||
+                                  ad.offsetWidth === 0 ||
+                                  getComputedStyle(ad).display === 'none' ||
+                                  getComputedStyle(ad).visibility === 'hidden' ||
+                                  ad.offsetParent === null;
+
+                document.body.removeChild(ad);
+                resolve(isBlocked);
+              }, 100);
+            }, 100);
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          detectAdBlock().then((isBlocked) => {
+            if (isBlocked) {
+              document.body.classList.add('adblock-detected');
+
+              document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+              });
+            }
+          });
+
+          var reloadBtn = document.getElementById('reload-button');
+          if (reloadBtn) {
+            reloadBtn.addEventListener('click', function() {
+              location.reload(true);
+            });
+          }
+        });
+</script>
 </body>
 </html>
