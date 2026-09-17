@@ -17,7 +17,7 @@ Comparte texto y archivos entre tu móvil y tu PC al instante, sin cables, sin c
 🌐 Cualquier navegador (Chrome, Firefox, Edge...) en el PC — no requiere instalar nada
 
 🚀 Instrucciones de uso
-[hide]
+[spoiler]
 📲 Abre la app QuickSync en tu móvil.
 ▶️ Pulsa "Iniciar servidor".
 🔳 Aparecerá una URL (tipo http://192.168.1.35:8080) junto a un código QR.
@@ -28,4 +28,4 @@ En la página verás:.
 📁 Un selector de archivos para enviar archivos del PC al móvil.
 📃 Una lista de archivos compartidos por el móvil, listos para descargar.
 ⏹️ Cuando termines, pulsa "Detener servidor" en la app (o simplemente ciérrala).
-[/hide]
+[/spoiler]
