@@ -1,0 +1,31 @@
+📱 QuickSync — Portapapeles y archivos rápidos, PC ⇄ Android, sin nube
+
+Comparte texto y archivos entre tu móvil y tu PC al instante, sin cables, sin cuentas y sin que tus datos salgan de tu propia red Wi-Fi.
+
+✨ Características
+
+📋 Portapapeles compartido — copia en el PC, pega en el móvil (y al revés)
+📤 Envío de archivos PC → Móvil — se guardan directamente en Descargas/QuickSync
+📥 Envío de archivos Móvil → PC — descárgalos desde el navegador
+📶 Todo por Wi-Fi local — cero nube, cero servidores externos, cero registro
+🔳 Conexión con código QR — sin escribir IPs a mano
+🔒 Privado por diseño — el tráfico nunca sale de tu router
+
+⚙️ Requisitos
+
+📱 Móvil y 💻 PC conectados a la misma red Wi-Fi
+🌐 Cualquier navegador (Chrome, Firefox, Edge...) en el PC — no requiere instalar nada
+
+🚀 Instrucciones de uso
+[hide]
+📲 Abre la app QuickSync en tu móvil.
+▶️ Pulsa "Iniciar servidor".
+🔳 Aparecerá una URL (tipo http://192.168.1.35:8080) junto a un código QR.
+💻 En el PC, conectado a la misma Wi-Fi, abre esa URL en el navegador (o escanea el QR con el móvil si prefieres compartirla).
+En la página verás:.
+✏️ Un cuadro de texto → escribe o pega algo y pulsa "Enviar al portapapeles del móvil"
+📋 Un botón "Obtener portapapeles del móvil" para traer lo copiado en el teléfono al PC.
+📁 Un selector de archivos para enviar archivos del PC al móvil.
+📃 Una lista de archivos compartidos por el móvil, listos para descargar.
+⏹️ Cuando termines, pulsa "Detener servidor" en la app (o simplemente ciérrala).
+[/hide]
