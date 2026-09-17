@@ -662,13 +662,13 @@
             sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
         </iframe>
         </div>
-        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>21</strong> aplicaciones disponibles.</p>
+        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>22</strong> aplicaciones disponibles.</p>
     </header>
 
     <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
     <nav class="nav-controls">
         <div class="nav-buttons">
-            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">8</span></a>
+            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">9</span></a>
             <a href="#android" class="nav-btn"><span>📱</span> Android <span class="nav-btn-count">13</span></a>
         </div>
         <div class="search-container">
@@ -684,10 +684,30 @@
             <div class="platform-header">
                 <span class="platform-icon">🖥️</span>
                 <h2>Aplicaciones para Windows</h2>
-                <span class="platform-count-badge">8 aplicaciones</span>
+                <span class="platform-count-badge">9 aplicaciones</span>
             </div>
             
             <div class="apps-grid">
+
+                <article class="app-card" id="archiveforge" data-platform="windows" data-page="windows/archiveforge.html">
+                    <div class="card-image-container">
+                        <img src="windows/ArchiveForge/captura.jpg" alt="Captura de ArchiveForge" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title"><a href="windows/archiveforge.html" class="card-title-link">ArchiveForge</a></h3>
+                            <div class="card-description"><strong>ArchiveForge</strong> — Compresión y descompresión de archivos, sin complicaciones<br><br>Un compresor de escritorio rápido, seguro y con todo lo que necesitas en un solo sitio.<br><br>🚀 Compresión ultrarrápida y en paralelo<br>Usa todos los núcleos de tu procesador a la vez para comprimir tus archivos en tiempo récord, sin sacrificar ni un byte de compresión.<br><br>📦 Compresión de alto rendimiento con Brotli<br>Consigue paquetes más pequeños que con los compresores tradicionales, gracias al algoritmo Brotli en su máxima calidad.<br><br>🔓 Descomprime prácticamente cualquier formato<br>No solo tus propios paquetes .jrm: ArchiveForge también descomprime archivos .ZIP, .RAR, .7Z, .TAR y .GZ / .TGZ — sin necesidad de instalar WinRAR, 7-Zip ni ningún otro programa.<br><br>🔒 Protección con contraseña de verdad<br>Cifrado AES-256 real para tus paquetes, con derivación de clave segura (PBKDF2). Tus archivos, solo para quien tú quieras.<br><br>✂️ División en partes<br>Divide tus paquetes en volúmenes del tamaño que elijas (100 MB, 700 MB, 1 GB... o el que tú definas), ideal para compartir archivos grandes.<br><br>🖱️ Arrastrar y soltar<br>Añade archivos o carpetas arrastrándolos directamente a la ventana, sobre el icono del programa, o incluso ábrelos con un doble clic.<br><br>💻 Ligero y sin dependencias raras<br>Una aplicación de escritorio nativa para <strong>Windows</strong>, sin instalaciones complicadas.</div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="windows/ArchiveForge/ArchiveForge.exe" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'ArchiveForge', 'platform': 'windows'});">
+                                Descargar ArchiveForge (Windows)
+                            </a>
+                            <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('ArchiveForge', 'windows/archiveforge.html', this)">
+                                🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
 
                 <article class="app-card" id="autoliberador-v6-6-60-pro-c" data-platform="windows" data-page="windows/autoliberador-v6-6-60-pro-c.html">
                     <div class="card-image-container">

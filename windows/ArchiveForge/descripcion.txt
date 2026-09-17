@@ -1,0 +1,24 @@
+ArchiveForge — Compresión y descompresión de archivos, sin complicaciones
+
+Un compresor de escritorio rápido, seguro y con todo lo que necesitas en un solo sitio.
+
+🚀 Compresión ultrarrápida y en paralelo
+Usa todos los núcleos de tu procesador a la vez para comprimir tus archivos en tiempo récord, sin sacrificar ni un byte de compresión.
+
+📦 Compresión de alto rendimiento con Brotli
+Consigue paquetes más pequeños que con los compresores tradicionales, gracias al algoritmo Brotli en su máxima calidad.
+
+🔓 Descomprime prácticamente cualquier formato
+No solo tus propios paquetes .jrm: ArchiveForge también descomprime archivos .ZIP, .RAR, .7Z, .TAR y .GZ / .TGZ — sin necesidad de instalar WinRAR, 7-Zip ni ningún otro programa.
+
+🔒 Protección con contraseña de verdad
+Cifrado AES-256 real para tus paquetes, con derivación de clave segura (PBKDF2). Tus archivos, solo para quien tú quieras.
+
+✂️ División en partes
+Divide tus paquetes en volúmenes del tamaño que elijas (100 MB, 700 MB, 1 GB... o el que tú definas), ideal para compartir archivos grandes.
+
+🖱️ Arrastrar y soltar
+Añade archivos o carpetas arrastrándolos directamente a la ventana, sobre el icono del programa, o incluso ábrelos con un doble clic.
+
+💻 Ligero y sin dependencias raras
+Una aplicación de escritorio nativa para Windows, sin instalaciones complicadas.
