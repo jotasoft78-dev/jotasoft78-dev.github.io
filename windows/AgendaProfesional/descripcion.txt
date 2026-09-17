@@ -1,0 +1,46 @@
+# 📅 Agenda Profesional
+
+🗓️ **Organiza tus citas, tareas y reuniones de forma sencilla y profesional.**
+
+Agenda Profesional es una aplicación para Windows diseñada para gestionar tus compromisos diarios desde una interfaz clara y cómoda. Permite crear y organizar diferentes tipos de anotaciones, establecer fechas y horas, añadir información adicional y recibir recordatorios cuando llegue el momento.
+
+### ✨ Características principales
+
+📌 **Gestión de eventos**
+Crea fácilmente reuniones, citas, tareas, recordatorios y otros eventos personalizados.
+
+📆 **Calendario organizado**
+Consulta rápidamente tus eventos según la fecha y localiza los días que tienen actividades programadas.
+
+⏰ **Fecha y hora**
+Establece con precisión cuándo debe realizarse cada evento.
+
+🔔 **Recordatorios**
+Activa avisos para no olvidar citas, tareas o compromisos pendientes.
+
+⭐ **Prioridades**
+Clasifica cada anotación con prioridad **baja, media o alta** para identificar rápidamente aquello que requiere mayor atención.
+
+📍 **Lugar**
+Añade la ubicación de una reunión, cita o cualquier otro compromiso.
+
+📝 **Notas y descripción**
+Guarda información adicional asociada a cada evento para tener todos los detalles disponibles.
+
+✅ **Control de tareas**
+Marca los eventos como completados y mantén controladas las tareas pendientes.
+
+💾 **Guardado automático**
+Los eventos se almacenan localmente en el equipo y permanecen disponibles al volver a abrir la aplicación.
+
+🖥️ **Diseñada para Windows**
+Aplicación de escritorio desarrollada con **VB.NET y .NET 8**, sin necesidad de utilizar un navegador para gestionar la agenda.
+
+🔒 **Datos locales**
+La información de la agenda se guarda en el propio equipo del usuario, evitando depender de servicios externos para almacenar los eventos.
+
+### 🚀 Una agenda práctica para el día a día
+
+Desde una sola aplicación puedes mantener organizadas tus **citas, reuniones, tareas y recordatorios**, consultar rápidamente tus próximos compromisos y mantener un seguimiento de lo que ya has completado.
+
+🎯 **Simple · Organizada · Profesional · Local**

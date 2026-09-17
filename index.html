@@ -662,13 +662,13 @@
             sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
         </iframe>
         </div>
-        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>22</strong> aplicaciones disponibles.</p>
+        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>23</strong> aplicaciones disponibles.</p>
     </header>
 
     <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
     <nav class="nav-controls">
         <div class="nav-buttons">
-            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">9</span></a>
+            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">10</span></a>
             <a href="#android" class="nav-btn"><span>📱</span> Android <span class="nav-btn-count">13</span></a>
         </div>
         <div class="search-container">
@@ -684,10 +684,30 @@
             <div class="platform-header">
                 <span class="platform-icon">🖥️</span>
                 <h2>Aplicaciones para Windows</h2>
-                <span class="platform-count-badge">9 aplicaciones</span>
+                <span class="platform-count-badge">10 aplicaciones</span>
             </div>
             
             <div class="apps-grid">
+
+                <article class="app-card" id="agendaprofesional" data-platform="windows" data-page="windows/agendaprofesional.html">
+                    <div class="card-image-container">
+                        <img src="windows/AgendaProfesional/captura.jpg" alt="Captura de AgendaProfesional" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title"><a href="windows/agendaprofesional.html" class="card-title-link">AgendaProfesional</a></h3>
+                            <div class="card-description"># 📅 Agenda Profesional<br><br>🗓️ **Organiza tus citas, tareas y reuniones de forma sencilla y profesional.**<br><br>Agenda Profesional es una aplicación para <strong>Windows</strong> diseñada para gestionar tus compromisos diarios desde una interfaz clara y cómoda. Permite crear y organizar diferentes tipos de anotaciones, establecer fechas y horas, añadir información adicional y recibir recordatorios cuando llegue el momento.<br><br>### ✨ Características principales<br><br>📌 **Gestión de eventos**<br>Crea fácilmente reuniones, citas, tareas, recordatorios y otros eventos personalizados.<br><br>📆 **Calendario organizado**<br>Consulta rápidamente tus eventos según la fecha y localiza los días que tienen actividades programadas.<br><br>⏰ **Fecha y hora**<br>Establece con precisión cuándo debe realizarse cada evento.<br><br>🔔 **Recordatorios**<br>Activa avisos para no olvidar citas, tareas o compromisos pendientes.<br><br>⭐ **Prioridades**<br>Clasifica cada anotación con prioridad **baja, media o alta** para identificar rápidamente aquello que requiere mayor atención.<br><br>📍 **Lugar**<br>Añade la ubicación de una reunión, cita o cualquier otro compromiso.<br><br>📝 **Notas y descripción**<br>Guarda información adicional asociada a cada evento para tener todos los detalles disponibles.<br><br>✅ **Control de tareas**<br>Marca los eventos como completados y mantén controladas las tareas pendientes.<br><br>💾 **Guardado automático**<br>Los eventos se almacenan localmente en el equipo y permanecen disponibles al volver a abrir la aplicación.<br><br>🖥️ **Diseñada para Windows**<br>Aplicación de escritorio desarrollada con **VB.NET y .NET 8**, sin necesidad de utilizar un navegador para gestionar la agenda.<br><br>🔒 **Datos locales**<br>La información de la agenda se guarda en el propio equipo del usuario, evitando depender de servicios externos para almacenar los eventos.<br><br>### 🚀 Una agenda práctica para el día a día<br><br>Desde una sola aplicación puedes mantener organizadas tus **citas, reuniones, tareas y recordatorios**, consultar rápidamente tus próximos compromisos y mantener un seguimiento de lo que ya has completado.<br><br>🎯 **Simple · Organizada · Profesional · Local**</div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="windows/AgendaProfesional/AgendaProfesional.exe" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'AgendaProfesional', 'platform': 'windows'});">
+                                Descargar AgendaProfesional (Windows)
+                            </a>
+                            <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('AgendaProfesional', 'windows/agendaprofesional.html', this)">
+                                🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
 
                 <article class="app-card" id="archiveforge" data-platform="windows" data-page="windows/archiveforge.html">
                     <div class="card-image-container">
