@@ -1,0 +1,27 @@
+📶 Canales Wi-Fi — Encuentra tu canal perfecto
+
+Deja de pelearte con el Wi-Fi lento. Esta app analiza las redes de tus vecinos y te dice exactamente qué canal usar en tu router para tener la mejor señal posible.
+
+✨ ¿Qué hace?
+
+🔍 Escanea las redes cercanas en tiempo real, sin configuración complicada
+
+📊 Mide la congestión de cada canal, combinando cuántas redes lo usan y con qué fuerza
+
+✅ Te recomienda el mejor canal — el menos saturado — para que lo pongas directamente en tu router
+
+🎨 Gráficos de colores (verde, amarillo, rojo) para ver de un vistazo qué canales evitar
+
+📡 Compatible con todo
+2️⃣.4️⃣ 2.4 GHz — el clásico, con recomendación entre los canales 1, 6 y 11 (los únicos que no se pisan entre sí)
+5️⃣ 5 GHz — canales más rápidos y menos saturados en general
+6️⃣ 6 GHz — si tu router y tu móvil lo soportan
+🔒 Privacidad primero
+
+🚫 Sin root — no toca nada del sistema
+📍 El permiso de ubicación se usa únicamente porque Android lo exige para leer redes Wi-Fi cercanas — nunca se guarda ni se comparte
+🔋 Ligera, rápida, sin florituras innecesarias
+
+💡 ¿Para quién es?
+
+Para cualquiera que viva en un piso, un bloque de apartamentos o una oficina donde decenas de redes compiten por el mismo espacio... y quiera dejar de preguntarse por qué el Wi-Fi va lento cuando en realidad el problema es el canal, no el router.
