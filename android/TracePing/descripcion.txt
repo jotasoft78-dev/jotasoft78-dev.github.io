@@ -1,0 +1,49 @@
+TracePing — Ping y traceroute sin root
+========================================
+
+📡 Mide tu conexión, salto a salto
+
+TracePing comprueba la latencia y reconstruye la ruta de red hacia
+cualquier host o dirección IP, directamente desde el móvil. Sin root,
+sin configuración: abre la app, escribe el destino y pulsa iniciar.
+
+----------------------------------------
+
+⚡ Ping en tiempo real
+Envía paquetes ICMP contra el destino y muestra cada respuesta según
+llega: tiempo de ida y vuelta, paquetes perdidos y la media de
+latencia de la sesión.
+
+🛰️ Traceroute salto a salto
+Reconstruye la ruta completa hasta el destino identificando cada
+router intermedio: su dirección IP, su nombre de host cuando está
+disponible y el tiempo de respuesta.
+
+🔓 Funciona sin root
+Usa el binario de ping ya incluido en el sistema, que tiene permiso
+para enviar tráfico ICMP. No hace falta rootear el teléfono ni
+instalar nada adicional.
+
+🎯 30 saltos de alcance máximo
+Suficiente para trazar la ruta hasta prácticamente cualquier destino
+en internet, con parada automática al llegar.
+
+----------------------------------------
+
+🧭 Cómo reconstruye la ruta
+
+Android no permite abrir sockets ICMP en bruto desde una app normal,
+así que TracePing envía un ping de un solo paquete subiendo el TTL de
+uno en uno. Cada router que lo descarta responde desde su propia IP,
+y así aparece cada salto:
+
+  ping -c 1 -t 3 8.8.8.8
+
+  1  192.168.1.1     3 ms
+  2  10.42.0.1       11 ms
+  3  * * *           (sin respuesta)
+  4  8.8.8.8         14 ms
+
+----------------------------------------
+
+TracePing — Ping y traceroute sin root, para Android.
