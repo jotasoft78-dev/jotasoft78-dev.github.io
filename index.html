@@ -662,13 +662,13 @@
             sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
         </iframe>
         </div>
-        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>27</strong> aplicaciones disponibles.</p>
+        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>28</strong> aplicaciones disponibles.</p>
     </header>
 
     <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
     <nav class="nav-controls">
         <div class="nav-buttons">
-            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">10</span></a>
+            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">11</span></a>
             <a href="#android" class="nav-btn"><span>📱</span> Android <span class="nav-btn-count">17</span></a>
         </div>
         <div class="search-container">
@@ -684,7 +684,7 @@
             <div class="platform-header">
                 <span class="platform-icon">🖥️</span>
                 <h2>Aplicaciones para Windows</h2>
-                <span class="platform-count-badge">10 aplicaciones</span>
+                <span class="platform-count-badge">11 aplicaciones</span>
             </div>
             
             <div class="apps-grid">
@@ -848,6 +848,26 @@
                                 Descargar OverlayReticula (Windows)
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('OverlayReticula', 'windows/overlayreticula.html', this)">
+                                🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="app-card" id="startupmonitor" data-platform="windows" data-page="windows/startupmonitor.html">
+                    <div class="card-image-container">
+                        <img src="windows/StartupMonitor/captura.jpg" alt="Captura de StartupMonitor" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title"><a href="windows/startupmonitor.html" class="card-title-link">StartupMonitor</a></h3>
+                            <div class="card-description">⚡ <strong>StartupMonitor</strong><br><br>Controla qué programas arrancan con tu <strong>Windows</strong> — sin complicaciones.<br><br>¿Tu ordenador tarda cada vez más en encenderse? StartupMonitor te enseña, de un vistazo, todo lo que se está lanzando automáticamente al iniciar sesión — y te deja apagarlo con un clic, sin tocar archivos ni desinstalar nada.<br><br>🔍 Detecta todo lo que arranca con Windows<br>Revisa el registro y las carpetas de inicio para mostrarte la lista completa, tanto lo que se activa solo para tu usuario como lo que arranca para todos los usuarios del equipo.<br><br>✅ El mismo estado que el Administrador de tareas<br>Nada de listas que no coinciden con lo que ves en Windows: StartupMonitor lee exactamente la misma información que usa el propio sistema, así que lo que ves aquí es lo que realmente pasa al encender el PC.<br><br>🖱️ Actívalo o desactívalo con un clic<br>Sin líneas de comandos ni editores del registro. Selecciona un programa y decide si quieres que siga arrancando solo o no.<br><br>🪟 Compatible con Windows 7, Windows 10 y Windows 11<br>Ligero, sin instalación complicada, pensado para dejar tu arranque tan limpio como quieras.</div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="windows/StartupMonitor/StartupMonitor.exe" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'StartupMonitor', 'platform': 'windows'});">
+                                Descargar StartupMonitor (Windows)
+                            </a>
+                            <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('StartupMonitor', 'windows/startupmonitor.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
                         </div>

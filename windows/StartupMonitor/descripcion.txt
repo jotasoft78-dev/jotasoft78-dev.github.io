@@ -1,0 +1,17 @@
+⚡ StartupMonitor
+
+Controla qué programas arrancan con tu Windows — sin complicaciones.
+
+¿Tu ordenador tarda cada vez más en encenderse? StartupMonitor te enseña, de un vistazo, todo lo que se está lanzando automáticamente al iniciar sesión — y te deja apagarlo con un clic, sin tocar archivos ni desinstalar nada.
+
+🔍 Detecta todo lo que arranca con Windows
+Revisa el registro y las carpetas de inicio para mostrarte la lista completa, tanto lo que se activa solo para tu usuario como lo que arranca para todos los usuarios del equipo.
+
+✅ El mismo estado que el Administrador de tareas
+Nada de listas que no coinciden con lo que ves en Windows: StartupMonitor lee exactamente la misma información que usa el propio sistema, así que lo que ves aquí es lo que realmente pasa al encender el PC.
+
+🖱️ Actívalo o desactívalo con un clic
+Sin líneas de comandos ni editores del registro. Selecciona un programa y decide si quieres que siga arrancando solo o no.
+
+🪟 Compatible con Windows 7, Windows 10 y Windows 11
+Ligero, sin instalación complicada, pensado para dejar tu arranque tan limpio como quieras.
