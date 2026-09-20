@@ -662,13 +662,13 @@
             sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
         </iframe>
         </div>
-        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>28</strong> aplicaciones disponibles.</p>
+        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>29</strong> aplicaciones disponibles.</p>
     </header>
 
     <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
     <nav class="nav-controls">
         <div class="nav-buttons">
-            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">11</span></a>
+            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">12</span></a>
             <a href="#android" class="nav-btn"><span>📱</span> Android <span class="nav-btn-count">17</span></a>
         </div>
         <div class="search-container">
@@ -684,7 +684,7 @@
             <div class="platform-header">
                 <span class="platform-icon">🖥️</span>
                 <h2>Aplicaciones para Windows</h2>
-                <span class="platform-count-badge">11 aplicaciones</span>
+                <span class="platform-count-badge">12 aplicaciones</span>
             </div>
             
             <div class="apps-grid">
@@ -848,6 +848,26 @@
                                 Descargar OverlayReticula (Windows)
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('OverlayReticula', 'windows/overlayreticula.html', this)">
+                                🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="app-card" id="python-packages-viewer" data-platform="windows" data-page="windows/python-packages-viewer.html">
+                    <div class="card-image-container">
+                        <img src="windows/Python Packages Viewer/captura.jpg" alt="Captura de Python Packages Viewer" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title"><a href="windows/python-packages-viewer.html" class="card-title-link">Python Packages Viewer</a></h3>
+                            <div class="card-description">🔎 <strong>Python Packages Viewer</strong> 🐍<br><br>Una herramienta sencilla y práctica para consultar rápidamente las librerías instaladas en cualquier intérprete de Python.<br><br>Detecta automáticamente Python en el sistema o permite seleccionar manualmente el archivo python.exe. Una vez localizado, muestra todas las librerías instaladas mediante pip, junto con su versión, ofreciendo además un sistema de filtrado para encontrar rápidamente cualquier paquete.<br><br>📦 Características principales:<br><br>🐍 Detección automática de Python.<br>📋 Listado de paquetes instalados mediante pip.<br>🔍 Buscador y filtrado de librerías.<br>📄 Generación de archivos requirements.txt.<br>📋 Copia del listado directamente al portapapeles.<br>⚙️ Compatible con diferentes intérpretes y entornos virtuales.<br>🚫 Opción para excluir pip, setuptools y wheel.<br>🖥️ Interfaz gráfica sencilla y fácil de utilizar.<br><br>Ideal para desarrolladores que necesitan comprobar rápidamente el entorno Python de un equipo, preparar las dependencias de un proyecto o generar un requirements.txt sin utilizar comandos manualmente.<br><br>💻 Compatible con <strong>Windows</strong> y desarrollado con .NET / Windows Forms.</div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="windows/Python Packages Viewer/PythonPackagesViewer.exe" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'Python Packages Viewer', 'platform': 'windows'});">
+                                Descargar Python Packages Viewer (Windows)
+                            </a>
+                            <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Python Packages Viewer', 'windows/python-packages-viewer.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
                         </div>

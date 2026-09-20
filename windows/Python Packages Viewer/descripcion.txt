@@ -1,0 +1,20 @@
+🔎 Python Packages Viewer 🐍
+
+Una herramienta sencilla y práctica para consultar rápidamente las librerías instaladas en cualquier intérprete de Python.
+
+Detecta automáticamente Python en el sistema o permite seleccionar manualmente el archivo python.exe. Una vez localizado, muestra todas las librerías instaladas mediante pip, junto con su versión, ofreciendo además un sistema de filtrado para encontrar rápidamente cualquier paquete.
+
+📦 Características principales:
+
+🐍 Detección automática de Python.
+📋 Listado de paquetes instalados mediante pip.
+🔍 Buscador y filtrado de librerías.
+📄 Generación de archivos requirements.txt.
+📋 Copia del listado directamente al portapapeles.
+⚙️ Compatible con diferentes intérpretes y entornos virtuales.
+🚫 Opción para excluir pip, setuptools y wheel.
+🖥️ Interfaz gráfica sencilla y fácil de utilizar.
+
+Ideal para desarrolladores que necesitan comprobar rápidamente el entorno Python de un equipo, preparar las dependencias de un proyecto o generar un requirements.txt sin utilizar comandos manualmente.
+
+💻 Compatible con Windows y desarrollado con .NET / Windows Forms.
