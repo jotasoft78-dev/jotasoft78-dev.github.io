@@ -1,0 +1,25 @@
+🎬 TikTok Fix
+
+Avanza y retrocede en TikTok con un toque. Una app para Android que abre TikTok en su propio navegador y le añade lo que le falta: botones para saltar 10 segundos adelante o atrás, sin depender de la barra de progreso.
+
+✨ Qué hace
+⏪⏩ Botones -10 s / +10 s en una barra fija abajo del todo, fáciles de pulsar con el pulgar.
+🎚️ Salto ajustable: elige 3, 5, 10, 15 o 30 segundos desde el menú.
+♾️ Scroll infinito: usa la web de escritorio adaptada a tu pantalla, así que no te limita a un par de vídeos como la web móvil.
+🚫 Sin ventanas emergentes: bloquea los pop-ups y las páginas de "descarga la app".
+🙌 Sin el aviso pesado: cierra solo el mensaje de "Disfruta de una experiencia completa en la aplicación".
+🔐 Sesión guardada: inicias sesión una vez y se queda en tu dispositivo.
+🪶 Ligera y sin permisos raros: solo necesita Internet.
+📲 Cómo instalarla
+⬇️ Descarga el archivo APK.
+⚙️ Permite instalar apps de origen desconocido cuando Android te lo pida.
+▶️ Ábrela e inicia sesión con tu cuenta de TikTok.
+📋 Requisitos
+🤖 Android 8.0 o superior
+🌐 Conexión a Internet
+💡 Consejos
+🔑 Para iniciar sesión, usa teléfono, correo o nombre de usuario. Google suele bloquear el acceso "Continuar con Google" dentro de apps con navegador integrado.
+📵 Si algún día necesitas ventanas emergentes para iniciar sesión, puedes permitirlas desde el menú ⋮ y volver a bloquearlas después.
+⚠️ Aviso
+
+TikTok Fix es una app independiente y no oficial. No está afiliada, patrocinada ni respaldada por TikTok ni ByteDance. TikTok es marca de sus respectivos propietarios. La app solo carga tiktok.com en un navegador integrado.
