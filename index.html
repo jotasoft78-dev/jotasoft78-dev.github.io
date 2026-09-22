@@ -662,13 +662,13 @@
             sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
         </iframe>
         </div>
-        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>29</strong> aplicaciones disponibles.</p>
+        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>30</strong> aplicaciones disponibles.</p>
     </header>
 
     <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
     <nav class="nav-controls">
         <div class="nav-buttons">
-            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">12</span></a>
+            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">13</span></a>
             <a href="#android" class="nav-btn"><span>📱</span> Android <span class="nav-btn-count">17</span></a>
         </div>
         <div class="search-container">
@@ -684,7 +684,7 @@
             <div class="platform-header">
                 <span class="platform-icon">🖥️</span>
                 <h2>Aplicaciones para Windows</h2>
-                <span class="platform-count-badge">12 aplicaciones</span>
+                <span class="platform-count-badge">13 aplicaciones</span>
             </div>
             
             <div class="apps-grid">
@@ -763,6 +763,26 @@
                                 Descargar Conversor de video a H246 + AAC (Windows)
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Conversor de video a H246 + AAC', 'windows/conversor-de-video-a-h246-aac.html', this)">
+                                🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="app-card" id="emudrive" data-platform="windows" data-page="windows/emudrive.html">
+                    <div class="card-image-container">
+                        <img src="windows/EmuDrive/captura.jpg" alt="Captura de EmuDrive" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title"><a href="windows/emudrive.html" class="card-title-link">EmuDrive</a></h3>
+                            <div class="card-description">🕹️ <strong>EmuDrive</strong> — Emulador de Sega Mega Drive / Genesis<br><br>Revive tus juegos clásicos de Sega Mega Drive / Genesis directamente en tu PC. MDEMU es un emulador ligero y rápido construido sobre Genesis Plus GX, uno de los núcleos de emulación más precisos y probados que existen, con soporte incluso para Sega CD.<br><br>✨ Características<br>🎮 Compatibilidad real — Carga ROMs comerciales en formato .bin, .md, .gen o .zip, con detección automática del formato.<br>💾 Guardado rápido — 10 slots de guardado (teclas 0–9) más soporte nativo de partidas con pila/SRAM (Sonic 3, Phantasy Star IV...).<br>⏩ Avance rápido — Mantén Tab para acelerar la emulación cuando lo necesites.<br>🖱️ Interfaz sencilla — Barra de botones siempre visible (Guardar, Cargar, ROM, Comandos, Salir) y un menú de pausa navegable con ratón o teclado.<br>📂 Arrastra y suelta — Simplemente arrastra tu ROM sobre la ventana para empezar a jugar.<br>🖥️ Pantalla completa y control total de audio/vídeo (silenciar, recorte de overscan, etc.).<br>🪟 Nativo de <strong>Windows</strong> — Selector de ROM gráfico integrado mediante el diálogo del sistema.<br>⚙️ Bajo el capó<br><br>Un Mega Drive real combina dos CPUs (68000 + Z80), un VDP gráfico y un sintetizador FM — mucho más complejo que una Game Boy. Por eso MDEMU envuelve el núcleo maduro de Genesis Plus GX en lugar de reescribirlo desde cero, ofreciendo compatibilidad real desde el primer día.<br><br>🧩 Requisitos<br><br>Solo Windows 10/11. No necesitas instalar nada adicional: SDL2 y demás dependencias van incluidas.</div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="windows/EmuDrive/EmuDrive.exe" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'EmuDrive', 'platform': 'windows'});">
+                                Descargar EmuDrive (Windows)
+                            </a>
+                            <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('EmuDrive', 'windows/emudrive.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
                         </div>

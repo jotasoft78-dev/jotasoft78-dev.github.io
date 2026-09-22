@@ -1,0 +1,19 @@
+🕹️ EmuDrive — Emulador de Sega Mega Drive / Genesis
+
+Revive tus juegos clásicos de Sega Mega Drive / Genesis directamente en tu PC. MDEMU es un emulador ligero y rápido construido sobre Genesis Plus GX, uno de los núcleos de emulación más precisos y probados que existen, con soporte incluso para Sega CD.
+
+✨ Características
+🎮 Compatibilidad real — Carga ROMs comerciales en formato .bin, .md, .gen o .zip, con detección automática del formato.
+💾 Guardado rápido — 10 slots de guardado (teclas 0–9) más soporte nativo de partidas con pila/SRAM (Sonic 3, Phantasy Star IV...).
+⏩ Avance rápido — Mantén Tab para acelerar la emulación cuando lo necesites.
+🖱️ Interfaz sencilla — Barra de botones siempre visible (Guardar, Cargar, ROM, Comandos, Salir) y un menú de pausa navegable con ratón o teclado.
+📂 Arrastra y suelta — Simplemente arrastra tu ROM sobre la ventana para empezar a jugar.
+🖥️ Pantalla completa y control total de audio/vídeo (silenciar, recorte de overscan, etc.).
+🪟 Nativo de Windows — Selector de ROM gráfico integrado mediante el diálogo del sistema.
+⚙️ Bajo el capó
+
+Un Mega Drive real combina dos CPUs (68000 + Z80), un VDP gráfico y un sintetizador FM — mucho más complejo que una Game Boy. Por eso MDEMU envuelve el núcleo maduro de Genesis Plus GX en lugar de reescribirlo desde cero, ofreciendo compatibilidad real desde el primer día.
+
+🧩 Requisitos
+
+Solo Windows 10/11. No necesitas instalar nada adicional: SDL2 y demás dependencias van incluidas.
