@@ -1,0 +1,31 @@
+🎮 SnesEMU
+
+Tus clásicos de Super Nintendo, en una ventana ligera.
+
+SnesEMU es un reproductor de SNES sencillo para Windows. Elige tu ROM, pulsa jugar y listo, sin instalaciones ni configuraciones raras.
+
+✨ Características
+
+🕹️ Mando o teclado: funciona con cualquier gamepad estándar sin configurar. Con teclado puedes redefinir los 12 botones desde el engranaje.
+
+💾 Guardado rápido: F5 guarda y F9 carga. También hay botones en pantalla para lo mismo.
+
+⏩ Avance rápido: mantén TAB para acelerar el juego y llegar antes a la parte que te interesa.
+
+📂 Arrastra y juega: suelta tu archivo .sfc o .smc en la ventana, o cambia de juego sin cerrar el programa.
+
+🧩 Núcleo bsnes integrado: emulación precisa y fiable. Si prefieres otro núcleo, como Snes9x o Mesen-S, solo tienes que ponerlo junto al programa.
+
+🪶 Ligero y portable: un único ejecutable, sin instalación. Llévalo en una carpeta o en un pendrive.
+
+🚀 Cómo empezar
+
+1️⃣ Abre SnesEMU.
+2️⃣ Elige tu ROM o arrástrala a la ventana.
+3️⃣ ¡A jugar! Flechas para moverte, Z, X, A y S para los botones, Enter para Start.
+
+🪟 Requisitos
+
+Windows de 64 bits y tus propias ROM.
+
+SnesEMU no incluye juegos. SNES y Super Nintendo son marcas de Nintendo; este proyecto no está afiliado a Nintendo.
