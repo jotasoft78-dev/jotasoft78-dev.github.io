@@ -1,0 +1,115 @@
+🎮 CPC 6128 EMU — EMULADOR DE AMSTRAD CPC PARA WINDOWS
+=====================================================
+CPC 6128 Emu es un emulador del Amstrad CPC, el ordenador de 8 bits que triunfó en los años 80 con su monitor en color, su BASIC y una enorme biblioteca de juegos. Arranca igual que el original: la pantalla azul con el "Amstrad 128K Microcomputer (v3)", el BASIC 1.1 y el cursor amarillo esperando órdenes. Desde ahí puedes programar en BASIC como en 1985 o cargar cualquier juego o programa que tengas en disco o cinta.
+
+Todo está pensado para que sea fácil: una sola ventana, una barra con seis botones y cada botón funciona al primer clic. Sin menús escondidos, sin archivos de configuración que editar a mano y sin carpetas desperdigadas por tu ordenador.
+
+
+🚀 LO QUE PUEDES HACER
+
+📂 ABRIR TUS ARCHIVOS
+💾 Discos: .dsk
+📸 Snapshots (partida congelada de otro emulador): .sna
+📼 Cintas: .cdt, .tap y .voc
+🔌 Cartuchos: .cpr
+💿 Listas de varios discos: .m3u
+🗜 Archivos comprimidos: .zip con cualquiera de los anteriores
+🖱 Tres formas de abrir: botón "Abrir", arrastrar el archivo sobre la ventana o lanzar el programa con el archivo desde la línea de comandos
+🚀 Autoarranque: los discos que arrancan solos se ejecutan al abrirlos
+🧾 Sin archivo: arranca directamente en BASIC para programar y experimentar
+
+⌨ CONTROLES
+⌨ Tu teclado del PC funciona como el teclado del CPC, respetando la posición de cada tecla
+🎹 Teclado virtual en pantalla con un clic (botón "Teclado" o tecla F9)
+🎮 Mandos: la cruceta y el stick izquierdo hacen de joystick del CPC; el botón A es el disparo 1 y el B el disparo 2
+🕹 Modo cursores-joystick: pulsa Insert y las flechas se convierten en las direcciones del joystick
+
+💾 GUARDAR Y CARGAR PARTIDA
+💾 Guardar estado en cualquier momento (F5 o botón "Guardar")
+📥 Cargar estado y volver exactamente a donde lo dejaste (F6 o botón "Cargar")
+🗂 Un estado guardado por cada archivo, sin que se pisen entre sí
+
+🖥 PANTALLA Y ORDENADOR A TU GUSTO
+🖥 Monitor en color, de fósforo verde o en blanco y negro
+🧠 Modelo CPC 6128, CPC 464 o CPC 664
+📊 Memoria de 64, 128, 192 o 576 KB
+🌍 Idioma del CPC: español, inglés o francés
+✂ Recorte de bordes opcional
+📊 Barra de estado del núcleo: al cargar, siempre o nunca
+🔧 Todos los ajustes están en el botón "Ajustes": un clic cambia al siguiente valor y clic derecho al anterior
+
+⚡ VELOCIDAD Y COMODIDAD
+⚡ Turbo: mantén F8 y el emulador acelera
+📼 Las cintas se cargan a máxima velocidad automáticamente, sin esperar minutos
+🔄 Reinicio rápido con F7 o con el botón "Reiniciar"
+⏸ Pausa con la tecla Pausa
+💿 Varios discos: cambia de disco con F3 y F4 si abres una lista .m3u
+🛠 Velocidad de carga de cinta, sonido de disquetera y autoarranque configurables
+
+
+⌨ ATAJOS DE TECLADO
+[spoiler]
+F5 ............ Guardar estado
+F6 ............ Cargar estado
+F7 ............ Reiniciar
+F8 ............ Turbo (mantener pulsada)
+F9 ............ Teclado virtual
+F10 ........... Menú del núcleo del emulador
+F3 / F4 ....... Disco anterior / siguiente (listas .m3u)
+Pausa ......... Pausar o reanudar
+Inicio ........ Cinta: play
+Fin ........... Cinta: stop
+RePág ......... Cinta: rebobinar
+Insert ........ Cursores como joystick
+Retroceso ..... Tecla DEL del CPC
+Supr .......... Tecla CLR del CPC
+Alt ........... Tecla COPY del CPC
+[/spoiler]
+
+💡 CONSEJOS
+💡 Si un juego no responde al teclado, es posible que arranque configurado para joystick. Entra en el menú de configuración del propio juego, cambia el control del jugador a "Teclado" y, si te lo pide, define tus teclas. Es exactamente lo mismo que había que hacer en el CPC original.
+💡 Algunos menús de juegos son sensibles al tiempo que mantienes pulsada una tecla. Si el cursor salta de más o no se mueve, pulsa con calma, medio segundo entre pulsaciones.
+💡 Para guardar la partida antes de un tramo difícil, pulsa F5. Si sale mal, F6 y vuelves atrás.
+
+
+❓ PREGUNTAS FRECUENTES
+
+❓ ¿Incluye juegos?
+No. El emulador no trae ningún juego ni programa: usa tus propios archivos.
+
+❓ ¿Hace falta instalar algo?
+No. Es un único .exe. Solo necesitas un Windows de 64 bits.
+
+❓ ¿Dónde se guardan mis partidas y ajustes?
+En la carpeta %APPDATA%\cpc6128emu de tu usuario de Windows: los ajustes en opciones.cfg y las partidas guardadas en la subcarpeta "estados".
+
+❓ ¿Puedo jugar solo con el teclado?
+Sí. Mira el consejo de arriba sobre juegos configurados para joystick.
+
+❓ ¿Puedo usar un mando?
+Sí, los mandos reconocidos por Windows funcionan como joystick del CPC.
+
+❓ ¿Cómo cambio el monitor a verde?
+Botón "Ajustes", fila "Monitor": un clic cambia al siguiente valor.
+
+❓ ¿Cómo restablezco todo?
+Cierra el programa y borra la carpeta %APPDATA%\cpc6128emu.
+
+
+📋 REQUISITOS
+✅ Windows de 64 bits
+✅ Tus propios archivos de juegos o programas (.dsk, .sna, .cdt, etc.)
+✅ Ratón y teclado (mando opcional)
+
+
+ℹ CRÉDITOS Y LICENCIA
+La emulación se basa en Caprice32 (núcleo libretro "cap32"), software libre con licencia GPL-2.0. Amstrad y CPC son marcas de sus respectivos propietarios. Este proyecto no tiene ninguna relación con ellos.
+
+
+🏷 ETIQUETAS
+amstrad, cpc, cpc6128, cpc464, emulador, retro, 8 bits, windows, dsk, basic, retrogaming, juegos clásicos
+
+
+🖼 IMAGEN
+Archivo: cpc6128emu_imagen_web.png (1200 x 630 px)
+Texto alternativo sugerido: "CPC 6128 Emu: emulador de Amstrad CPC mostrando el arranque en BASIC 1.1"
