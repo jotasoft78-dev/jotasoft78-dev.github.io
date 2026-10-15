@@ -871,13 +871,29 @@
           document.getElementById('aviso-overlay').style.display = 'none';
         }
 
+        function avisoGracias(texto, ok) {
+          var g = document.getElementById('aviso-gracias');
+          g.textContent = texto;
+          g.style.color = ok ? '#86efac' : '#fca5a5';
+          g.style.display = 'block';
+          if (ok) setTimeout(cerrarAviso, 1800);
+        }
+
+        function avisoPorCorreo(asunto, cuerpo) {
+          window.location.href = 'mailto:' + AVISO_EMAIL +
+            '?subject=' + encodeURIComponent(asunto) +
+            '&body=' + encodeURIComponent(cuerpo);
+        }
+
         function enviarAviso() {
           var tipo = document.getElementById('aviso-tipo').value;
           var detalle = document.getElementById('aviso-detalle').value.trim();
+          var boton = document.querySelector('#aviso-box .aviso-enviar');
           if (!detalle) {
             document.getElementById('aviso-error').style.display = 'block';
             return;
           }
+          document.getElementById('aviso-error').style.display = 'none';
 
           if (typeof gtag === 'function') {
             gtag('event', 'report_problem', {
@@ -887,22 +903,58 @@
             });
           }
 
-          if (AVISO_EMAIL) {
-            var url = window.location.origin + '/' + avisoActual.pagina;
-            var asunto = '[JotaSoft78] ' + tipo + ' - ' + avisoActual.app;
+          if (!AVISO_EMAIL) {
+            avisoGracias('¡Gracias por avisar!', true);
+            return;
+          }
+
+          var url = window.location.origin + '/' + avisoActual.pagina;
+          var asunto = '[JotaSoft78] ' + tipo + ' - ' + avisoActual.app;
+          var navegador = navigator.userAgent;
+
+          boton.disabled = true;
+          boton.textContent = 'Enviando...';
+
+          // Envío real por correo desde la web (servicio FormSubmit), sin necesitar
+          // que el visitante tenga un programa de correo configurado.
+          fetch('https://formsubmit.co/ajax/' + AVISO_EMAIL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              _subject: asunto,
+              _captcha: 'false',
+              _template: 'table',
+              Aplicacion: avisoActual.app,
+              Plataforma: avisoActual.plataforma,
+              Pagina: url,
+              Tipo_de_problema: tipo,
+              Descripcion: detalle,
+              Navegador: navegador
+            })
+          })
+          .then(function(r) { return r.json(); })
+          .then(function(d) {
+            if (d && (d.success === true || d.success === 'true')) {
+              avisoGracias('¡Gracias! Tu aviso se ha enviado.', true);
+            } else {
+              throw new Error('fallo');
+            }
+          })
+          .catch(function() {
+            // Plan B: abrir el correo del usuario con el aviso redactado
             var cuerpo = 'Aplicación: ' + avisoActual.app + '\n' +
                          'Plataforma: ' + avisoActual.plataforma + '\n' +
                          'Página: ' + url + '\n' +
                          'Tipo de problema: ' + tipo + '\n\n' +
                          'Descripción:\n' + detalle + '\n\n' +
-                         '---\nNavegador: ' + navigator.userAgent;
-            window.location.href = 'mailto:' + AVISO_EMAIL +
-              '?subject=' + encodeURIComponent(asunto) +
-              '&body=' + encodeURIComponent(cuerpo);
-          }
-
-          document.getElementById('aviso-gracias').style.display = 'block';
-          setTimeout(cerrarAviso, 1200);
+                         '---\nNavegador: ' + navegador;
+            avisoPorCorreo(asunto, cuerpo);
+            avisoGracias('No se pudo enviar automáticamente; se abrirá tu programa de correo.', false);
+          })
+          .finally(function() {
+            boton.disabled = false;
+            boton.textContent = 'Enviar aviso';
+          });
         }
 
         document.addEventListener('keydown', function(e) {
