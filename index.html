@@ -449,6 +449,75 @@
             color: #86efac;
         }
 
+        /* Botón de aviso de problemas (campanita) */
+        .report-btn:hover {
+            background-color: rgba(245, 158, 11, 0.12);
+            border-color: rgba(245, 158, 11, 0.5);
+            color: #fbbf24;
+        }
+
+        /* Ventana de aviso de problemas */
+        #aviso-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1100;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        #aviso-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            width: 100%;
+            max-width: 480px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            animation: modalScale 0.2s ease-in-out;
+        }
+
+        #aviso-box h2 { margin: 0 0 0.25rem 0; font-size: 1.25rem; color: #fff; }
+        #aviso-box .aviso-app { margin: 0 0 1rem 0; color: var(--text-secondary); font-size: 0.9rem; }
+        #aviso-box label { display: block; margin: 0.75rem 0 0.35rem 0; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); }
+
+        #aviso-box select,
+        #aviso-box textarea {
+            width: 100%;
+            background: var(--bg-color);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.7rem 0.8rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        #aviso-box textarea { min-height: 110px; resize: vertical; }
+        #aviso-box select:focus,
+        #aviso-box textarea:focus { outline: none; border-color: var(--accent); }
+
+        #aviso-error { display: none; color: #fca5a5; font-size: 0.85rem; margin-top: 0.5rem; }
+        #aviso-gracias { display: none; color: #86efac; font-size: 0.95rem; margin: 1rem 0 0 0; }
+
+        .aviso-acciones { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1.25rem; }
+        .aviso-acciones button {
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.7rem 1.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: var(--text-secondary);
+        }
+        .aviso-acciones button.aviso-enviar { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .aviso-acciones button.aviso-enviar:hover { background: var(--accent-hover); }
+
         /* Estilos de la Ventana Modal */
         .image-modal {
             display: none;
@@ -705,6 +774,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('AgendaProfesional', 'windows/agendaprofesional.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="AgendaProfesional" data-page="windows/agendaprofesional.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -724,6 +796,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('ArchiveForge', 'windows/archiveforge.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="ArchiveForge" data-page="windows/archiveforge.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -745,6 +820,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Autoliberador V6_6.60_Pro-C', 'windows/autoliberador-v6-6-60-pro-c.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Autoliberador V6_6.60_Pro-C" data-page="windows/autoliberador-v6-6-60-pro-c.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -765,6 +843,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Conversor de video a H246 + AAC', 'windows/conversor-de-video-a-h246-aac.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Conversor de video a H246 + AAC" data-page="windows/conversor-de-video-a-h246-aac.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -784,6 +865,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('EmuDrive', 'windows/emudrive.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="EmuDrive" data-page="windows/emudrive.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -810,6 +894,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Emulador Amstrad CPC 6128K', 'windows/emulador-amstrad-cpc-6128k.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Emulador Amstrad CPC 6128K" data-page="windows/emulador-amstrad-cpc-6128k.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -829,6 +916,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('GbEmu', 'windows/gbemu.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="GbEmu" data-page="windows/gbemu.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -850,6 +940,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('IPTVProWin', 'windows/iptvprowin.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="IPTVProWin" data-page="windows/iptvprowin.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -869,6 +962,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('KmsActivator', 'windows/kmsactivator.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="KmsActivator" data-page="windows/kmsactivator.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -895,6 +991,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('MediaInfo JotaSoft78', 'windows/mediainfo-jotasoft78.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="MediaInfo JotaSoft78" data-page="windows/mediainfo-jotasoft78.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -914,6 +1013,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('OverlayReticula', 'windows/overlayreticula.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="OverlayReticula" data-page="windows/overlayreticula.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -935,6 +1037,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Python Packages Viewer', 'windows/python-packages-viewer.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Python Packages Viewer" data-page="windows/python-packages-viewer.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -954,6 +1059,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('SnesEMU', 'windows/snesemu.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="SnesEMU" data-page="windows/snesemu.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -975,6 +1083,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('StartupMonitor', 'windows/startupmonitor.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="StartupMonitor" data-page="windows/startupmonitor.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -995,6 +1106,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('torrent-stream', 'windows/torrent-stream.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="torrent-stream" data-page="windows/torrent-stream.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1014,6 +1128,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('YTDownloader', 'windows/ytdownloader.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="YTDownloader" data-page="windows/ytdownloader.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -1046,6 +1163,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Calculadora de magnitudes electricas', 'android/calculadora-de-magnitudes-electricas.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Calculadora de magnitudes electricas" data-page="android/calculadora-de-magnitudes-electricas.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1065,6 +1185,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Calculadora distancia engranajes', 'android/calculadora-distancia-engranajes.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Calculadora distancia engranajes" data-page="android/calculadora-distancia-engranajes.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -1086,6 +1209,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Calculadora modulo de engranaje', 'android/calculadora-modulo-de-engranaje.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Calculadora modulo de engranaje" data-page="android/calculadora-modulo-de-engranaje.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1105,6 +1231,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Canales WI-FI', 'android/canales-wi-fi.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Canales WI-FI" data-page="android/canales-wi-fi.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -1126,6 +1255,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Candy Match World', 'android/candy-match-world.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Candy Match World" data-page="android/candy-match-world.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1145,6 +1277,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Flash Android', 'android/flash-android.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Flash Android" data-page="android/flash-android.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -1166,6 +1301,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('IPTV Pro', 'android/iptv-pro.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="IPTV Pro" data-page="android/iptv-pro.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1186,6 +1324,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('PetCalculator', 'android/petcalculator.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="PetCalculator" data-page="android/petcalculator.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1205,6 +1346,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('QrScanner', 'android/qrscanner.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="QrScanner" data-page="android/qrscanner.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -1231,6 +1375,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('QuickSync', 'android/quicksync.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="QuickSync" data-page="android/quicksync.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1250,6 +1397,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Recetas Mambo', 'android/recetas-mambo.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Recetas Mambo" data-page="android/recetas-mambo.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -1271,6 +1421,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Resistor', 'android/resistor.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Resistor" data-page="android/resistor.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1290,6 +1443,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('Sudoku Pro', 'android/sudoku-pro.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Sudoku Pro" data-page="android/sudoku-pro.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -1311,6 +1467,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('TikTok Fix', 'android/tiktok-fix.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="TikTok Fix" data-page="android/tiktok-fix.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1330,6 +1489,9 @@
                             </a>
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('TracePing', 'android/traceping.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="TracePing" data-page="android/traceping.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
                     </div>
@@ -1351,6 +1513,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('YT Downloader', 'android/yt-downloader.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="YT Downloader" data-page="android/yt-downloader.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1371,6 +1536,9 @@
                             <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('YT Player Pro', 'android/yt-player-pro.html', this)">
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="YT Player Pro" data-page="android/yt-player-pro.html" data-platform="Android" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -1383,6 +1551,35 @@
     <div id="imageModal" class="image-modal" onclick="cerrarModal()">
         <img class="modal-content" id="modalImage">
     </div>
+
+    
+    <!-- Ventana de aviso de problemas -->
+    <div id="aviso-overlay" onclick="if(event.target===this)cerrarAviso()">
+        <div id="aviso-box" role="dialog" aria-modal="true" aria-labelledby="aviso-titulo">
+            <h2 id="aviso-titulo">🔔 Avisar de un problema</h2>
+            <p class="aviso-app" id="aviso-app"></p>
+
+            <label for="aviso-tipo">¿Qué ocurre?</label>
+            <select id="aviso-tipo">
+                <option>La descarga no funciona</option>
+                <option>El archivo está dañado o no se abre</option>
+                <option>La aplicación no se instala</option>
+                <option>La aplicación falla o se cierra</option>
+                <option>Otro problema</option>
+            </select>
+
+            <label for="aviso-detalle">Cuéntanos más</label>
+            <textarea id="aviso-detalle" placeholder="Describe el problema: qué hacías, qué mensaje te sale, tu versión de Windows/Android..."></textarea>
+            <div id="aviso-error">Por favor, describe brevemente el problema.</div>
+            <p id="aviso-gracias">¡Gracias por avisar!</p>
+
+            <div class="aviso-acciones">
+                <button type="button" onclick="cerrarAviso()">Cancelar</button>
+                <button type="button" class="aviso-enviar" onclick="enviarAviso()">Enviar aviso</button>
+            </div>
+        </div>
+    </div>
+
 
     <footer>
         <p>&copy; 2026 JotaSoft78 - Todos los derechos reservados.</p>
@@ -1579,6 +1776,65 @@
               location.reload(true);
             });
           }
+        });
+
+        var AVISO_EMAIL = "juaqui@gmail.com";
+        var avisoActual = {};
+
+        function avisarProblema(btn) {
+          avisoActual = {
+            app: btn.getAttribute('data-app'),
+            pagina: btn.getAttribute('data-page'),
+            plataforma: btn.getAttribute('data-platform')
+          };
+          document.getElementById('aviso-app').textContent = avisoActual.app + ' (' + avisoActual.plataforma + ')';
+          document.getElementById('aviso-detalle').value = '';
+          document.getElementById('aviso-error').style.display = 'none';
+          document.getElementById('aviso-gracias').style.display = 'none';
+          document.getElementById('aviso-overlay').style.display = 'flex';
+          document.getElementById('aviso-detalle').focus();
+        }
+
+        function cerrarAviso() {
+          document.getElementById('aviso-overlay').style.display = 'none';
+        }
+
+        function enviarAviso() {
+          var tipo = document.getElementById('aviso-tipo').value;
+          var detalle = document.getElementById('aviso-detalle').value.trim();
+          if (!detalle) {
+            document.getElementById('aviso-error').style.display = 'block';
+            return;
+          }
+
+          if (typeof gtag === 'function') {
+            gtag('event', 'report_problem', {
+              app_name: avisoActual.app,
+              platform: avisoActual.plataforma,
+              problem_type: tipo
+            });
+          }
+
+          if (AVISO_EMAIL) {
+            var url = window.location.origin + '/' + avisoActual.pagina;
+            var asunto = '[JotaSoft78] ' + tipo + ' - ' + avisoActual.app;
+            var cuerpo = 'Aplicación: ' + avisoActual.app + '\n' +
+                         'Plataforma: ' + avisoActual.plataforma + '\n' +
+                         'Página: ' + url + '\n' +
+                         'Tipo de problema: ' + tipo + '\n\n' +
+                         'Descripción:\n' + detalle + '\n\n' +
+                         '---\nNavegador: ' + navigator.userAgent;
+            window.location.href = 'mailto:' + AVISO_EMAIL +
+              '?subject=' + encodeURIComponent(asunto) +
+              '&body=' + encodeURIComponent(cuerpo);
+          }
+
+          document.getElementById('aviso-gracias').style.display = 'block';
+          setTimeout(cerrarAviso, 1200);
+        }
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') cerrarAviso();
         });
 </script>
 </body>
