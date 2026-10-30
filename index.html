@@ -6,8 +6,8 @@
     
     <!-- Metaetiquetas SEO y Open Graph -->
     <title>JotaSoft78 | Repositorio Oficial de Software</title>
-    <meta name="description" content="Repositorio oficial de aplicaciones para Windows y Android desarrolladas por JotaSoft78. Descarga herramientas y utilidades optimizadas.">
-    <meta name="keywords" content="JotaSoft78, software, aplicaciones, windows, android, descargas, utilidades">
+    <meta name="description" content="Repositorio oficial de aplicaciones para Windows, Android y juegos para consolas (PSP, PS4, etc.) desarrolladas por JotaSoft78.">
+    <meta name="keywords" content="JotaSoft78, software, aplicaciones, windows, android, consolas, PSP, PS4, descargas, utilidades">
     <meta name="author" content="JotaSoft78">
     
     <meta property="og:title" content="JotaSoft78 | Repositorio de Software">
@@ -653,6 +653,125 @@
             font-size: 0.85rem;
         }
 
+        .consola-subseccion {
+            margin-bottom: 3rem;
+        }
+
+        .consola-subheader {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .consola-subheader h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        /* Dropdown de consolas en la nav */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-btn {
+            background-color: #1e293b;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-dropdown-btn:hover,
+        .nav-dropdown-btn.open {
+            background-color: #334155;
+            border-color: rgba(37, 99, 235, 0.4);
+        }
+
+        .nav-dropdown-arrow {
+            font-size: 0.65rem;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .nav-dropdown-btn.open .nav-dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 200px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            z-index: 300;
+            animation: dropdownIn 0.15s ease;
+        }
+
+        .nav-dropdown-menu.open {
+            display: block;
+        }
+
+        @keyframes dropdownIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-dropdown-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.15s;
+        }
+
+        .nav-dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .nav-dropdown-item:hover {
+            background-color: #1e293b;
+        }
+
+        .nav-dropdown-item-left {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-dropdown-item-count {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            padding: 0.1rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
         @media (max-width: 768px) {
             .app-card {
                 flex-direction: column;
@@ -731,7 +850,7 @@
             sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
         </iframe>
         </div>
-        <p>Repositorio oficial de aplicaciones para Windows y Android. Actualmente con <strong>33</strong> aplicaciones disponibles.</p>
+        <p>Repositorio oficial de aplicaciones para Windows, Android y juegos para consolas. Actualmente con <strong>35</strong> entradas disponibles.</p>
     </header>
 
     <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
@@ -739,6 +858,17 @@
         <div class="nav-buttons">
             <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">16</span></a>
             <a href="#android" class="nav-btn"><span>📱</span> Android <span class="nav-btn-count">17</span></a>
+            <div class="nav-dropdown" id="navDropdownConsolas">
+                <button type="button" class="nav-dropdown-btn" onclick="toggleDropdownConsolas(this)" aria-haspopup="true" aria-expanded="false">
+                    <span>🕹️</span> Consolas <span class="nav-btn-count">2</span><span class="nav-dropdown-arrow">▼</span>
+                </button>
+                <div class="nav-dropdown-menu" id="menuDropdownConsolas">
+                <a href="#consola-ps4" class="nav-dropdown-item" onclick="cerrarDropdownConsolas()">
+                    <span class="nav-dropdown-item-left"><span>🎮</span> PS4</span>
+                    <span class="nav-dropdown-item-count">2</span>
+                </a>
+                </div>
+            </div>
         </div>
         <div class="search-container">
             <span class="search-icon">🔍</span>
@@ -1545,6 +1675,75 @@
             </div>
         </section>
 
+        <section id="consolas" class="platform-section">
+            <div class="platform-header">
+                <span class="platform-icon">🕹️</span>
+                <h2>Consolas</h2>
+                <span class="platform-count-badge">2 juegos</span>
+            </div>
+
+            <div id="consola-ps4" class="consola-subseccion">
+                <div class="consola-subheader">
+                    <span class="platform-icon">🎮</span>
+                    <h3>PS4</h3>
+                    <span class="platform-count-badge">2 juegos</span>
+                </div>
+                <div class="apps-grid">
+
+                <article class="app-card" id="iptv-ps4" data-platform="PS4" data-page="consolas/PS4/iptv-ps4.html">
+                    <div class="card-image-container">
+                        <img src="consolas/PS4/iptv-ps4/captura.jpg" alt="Captura de iptv-ps4" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4 class="card-title"><a href="consolas/PS4/iptv-ps4.html" class="card-title-link">iptv-ps4</a></h4>
+                            <div class="card-description">📺 IPTV Player para <strong>PS4</strong> — reproduce tus listas M3U directamente desde la consola, sin necesidad de ordenador ni dispositivos adicionales.<br><br>🎯 ¿Qué puedes hacer?<br>• Ver canales de televisión en directo desde cualquier lista M3U/M3U8<br>• Navegar por los canales con el mando de PS4<br>• Compatibilidad con streams en SD, HD y Full HD<br>• Soporte para listas con cientos de canales<br><br>⚙️ Requisitos<br>• PS4 con firmware compatible (jailbreak)<br>• Lista M3U válida con canales activos<br>• Conexión a Internet estable<br><br>📦 Instalación<br>1. Descarga el archivo .pkg<br>2. Instálalo desde el gestor de paquetes de tu PS4<br>3. Abre la app, introduce la URL de tu lista M3U y listo<br><br>⚠️ Esta aplicación es un homebrew. Requiere PS4 con exploit activo para poder instalarla. No está disponible en PlayStation Store.</div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="consolas/PS4/iptv-ps4/IV0000-IPTV00001_00-IPTVPROPS4000000.pkg" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'iptv-ps4', 'platform': 'PS4'});">
+                                Descargar iptv-ps4 (PS4)
+                            </a>
+                            <button type="button" class="share-btn" title="Compartir" onclick="compartirApp('iptv-ps4', 'consolas/PS4/iptv-ps4.html', this)">
+                                🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema" data-app="iptv-ps4" data-page="consolas/PS4/iptv-ps4.html" data-platform="PS4" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="app-card" id="psxemu-ps4" data-platform="PS4" data-page="consolas/PS4/psxemu-ps4.html">
+                    <div class="card-image-container">
+                        <img src="consolas/PS4/psxemu-ps4/captura.jpg" alt="Captura de psxemu-ps4" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4 class="card-title"><a href="consolas/PS4/psxemu-ps4.html" class="card-title-link">psxemu-ps4</a></h4>
+                            <div class="card-description">PSXEmu <strong>PS4</strong> 🎮💿<br>Emulador nativo de PlayStation 1 para PS4 con jailbreak, traducido desde el PSXEmu original en VB.NET a C puro. Núcleo completo conectado a un frontend libretro sobre SDL2 y OpenOrbis. El .pkg se genera en la nube con GitHub Actions: sin instalar compiladores ni toolchains en tu PC.<br><br>🧠 Núcleo de emulación<br>Componente	Detalle<br>⚙️ CPU	MIPS R3000A 33 MHz — juego de instrucciones completo<br>📐 GTE	Coprocesador de geometría 3D (transformaciones, perspectiva, iluminación)<br>🖥️ GPU	Renderizado por software — polígonos, sprites, efectos especiales<br>🔊 SPU	24 canales de audio + CD-ROM XA + envolvente ADSR<br>💿 CD-ROM	LibCrypt · archivos .sbi · audio XA · multisesión<br>📹 MDEC	Decodificador de vídeo FMV<br>🔄 DMA	7 canales de acceso directo a memoria<br>⏱️ Timers	3 temporizadores del sistema<br>🕹️ SIO	Mando digital DualShock + tarjeta de memoria (puerto 1)<br>💿 Formatos de disco admitidos<br>.cue / .bin · .iso · .img · .pbp · .m3u (multidisco — un .cue por línea)<br><br>💾 Compatibilidad con PSXEmu PC<br>Tarjeta de memoria — formato estándar 128 KB (Tarjeta1.mcr), intercambiable directamente con la versión de Windows.<br>Save states — mismo formato y nombre de archivo (&lt;juego&gt;.slot1.state). Copia del PC a la PS4 y viceversa sin conversión.<br>🎮 Controles<br>
+            <div class="spoiler-container">
+                <button type="button" class="spoiler-btn" onclick="toggleSpoiler(this)">Ver contenido oculto (.reg)</button>
+                <div class="spoiler-content"><br>Botón	Contexto	Acción<br>Cruceta / Stick izq.	Explorador	Moverse<br>Cruz / Círculo	Explorador	Abrir / carpeta superior<br>Triángulo	Explorador	Arrancar BIOS sin disco<br>Cuadrado	Explorador	Cambiar unidad (USB / interna)<br>L1 / R1	Explorador	Página arriba / abajo<br>Options	Explorador	Salir<br>Cruceta / XOLS / L1 R1 L2 R2 L3	En juego	Mando PS1<br>R3	En juego	Turbo (activar / desactivar)<br>Options	En juego	Start<br>Panel táctil	En juego	Select<br>Panel táctil + Options	En juego	Menú del emulador</div>
+            </div>
+        <br>📋 Menú en juego<br>Guardar / cargar estado · Reiniciar · Cambio de disco · Turbo · Filtro de imagen · Formato de pantalla · Ciclos por instrucción · Salto de imagen · Abrir otro archivo<br><br>📦 Compilación en la nube<br>Sube el proyecto a un repositorio privado de GitHub.<br>Pestaña Actions → Compilar PS4 → Run workflow.<br>Descarga el artefacto: UP0001-PSXE00001_00-PSXEMU0000000000.pkg.<br>Sin MSYS2, sin WSL, sin OpenOrbis local. El workflow descarga el toolchain, compila con clang y genera el .pkg listo para instalar.<br><br>🔒 Requisitos<br>PS4 con jailbreak (GoldHEN u otro homebrew habilitado). Una PS4 de stock no instala paquetes propios.<br>BIOS de PS1 — scph1001.bin o similar (512 KB) en /data/psxemu/system/. Sin BIOS no arranca.<br>Tus propios discos en /data/psxemu/juegos/ o en USB.<br><br>📁 Rutas en la PS4<br>/data/psxemu/system/     ← BIOS<br>/data/psxemu/juegos/     ← .cue/.bin, .iso, .img, .pbp, .m3u<br>/data/psxemu/saves/      ← Tarjeta1.mcr<br>/data/psxemu/estados/    ← save states<br>/data/psxemu/logs/       ← psxemu.log (fps, audio, debug)<br>⚖️ Licencia<br>Código de autor propio en fase Beta. No incluye BIOS ni juegos — necesitas los tuyos propios.</div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="consolas/PS4/psxemu-ps4/UP0001-PSXE00001_00-PSXEMU0000000000.pkg" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'psxemu-ps4', 'platform': 'PS4'});">
+                                Descargar psxemu-ps4 (PS4)
+                            </a>
+                            <button type="button" class="share-btn" title="Compartir" onclick="compartirApp('psxemu-ps4', 'consolas/PS4/psxemu-ps4.html', this)">
+                                🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema" data-app="psxemu-ps4" data-page="consolas/PS4/psxemu-ps4.html" data-platform="PS4" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Ventana Modal para las imágenes -->
@@ -1723,6 +1922,26 @@
             window.prompt('Copia este enlace:', url);
           }
         }
+        function toggleDropdownConsolas(btn) {
+            var menu = document.getElementById('menuDropdownConsolas');
+            var open = menu.classList.toggle('open');
+            btn.classList.toggle('open', open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        function cerrarDropdownConsolas() {
+            var menu = document.getElementById('menuDropdownConsolas');
+            var btn = document.querySelector('.nav-dropdown-btn');
+            if (menu) { menu.classList.remove('open'); }
+            if (btn)  { btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+        }
+
+        // Cerrar el dropdown si se hace clic fuera
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#navDropdownConsolas')) {
+                cerrarDropdownConsolas();
+            }
+        });
     
         function detectAdBlock() {
           return new Promise((resolve) => {

@@ -1,0 +1,19 @@
+📺 IPTV Player para PS4 — reproduce tus listas M3U directamente desde la consola, sin necesidad de ordenador ni dispositivos adicionales.
+
+🎯 ¿Qué puedes hacer?
+• Ver canales de televisión en directo desde cualquier lista M3U/M3U8
+• Navegar por los canales con el mando de PS4
+• Compatibilidad con streams en SD, HD y Full HD
+• Soporte para listas con cientos de canales
+
+⚙️ Requisitos
+• PS4 con firmware compatible (jailbreak)
+• Lista M3U válida con canales activos
+• Conexión a Internet estable
+
+📦 Instalación
+1. Descarga el archivo .pkg
+2. Instálalo desde el gestor de paquetes de tu PS4
+3. Abre la app, introduce la URL de tu lista M3U y listo
+
+⚠️ Esta aplicación es un homebrew. Requiere PS4 con exploit activo para poder instalarla. No está disponible en PlayStation Store.

@@ -684,6 +684,125 @@
             font-size: 0.85rem;
         }
 
+        .consola-subseccion {
+            margin-bottom: 3rem;
+        }
+
+        .consola-subheader {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .consola-subheader h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        /* Dropdown de consolas en la nav */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-btn {
+            background-color: #1e293b;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-dropdown-btn:hover,
+        .nav-dropdown-btn.open {
+            background-color: #334155;
+            border-color: rgba(37, 99, 235, 0.4);
+        }
+
+        .nav-dropdown-arrow {
+            font-size: 0.65rem;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .nav-dropdown-btn.open .nav-dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 200px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            z-index: 300;
+            animation: dropdownIn 0.15s ease;
+        }
+
+        .nav-dropdown-menu.open {
+            display: block;
+        }
+
+        @keyframes dropdownIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-dropdown-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.15s;
+        }
+
+        .nav-dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .nav-dropdown-item:hover {
+            background-color: #1e293b;
+        }
+
+        .nav-dropdown-item-left {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-dropdown-item-count {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            padding: 0.1rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
         @media (max-width: 768px) {
             .app-card {
                 flex-direction: column;
@@ -773,7 +892,9 @@
 
     <div class="app-page-wrap">
         <nav class="breadcrumb" aria-label="Miga de pan">
-            <a href="../index.html">Inicio</a> &rsaquo; YTDownloader
+            <a href="../index.html">Inicio</a>
+            
+            &rsaquo; YTDownloader
         </nav>
         <article>
             <h1>YTDownloader para Windows</h1>

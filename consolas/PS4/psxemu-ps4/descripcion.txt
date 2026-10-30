@@ -1,0 +1,56 @@
+PSXEmu PS4 🎮💿
+Emulador nativo de PlayStation 1 para PS4 con jailbreak, traducido desde el PSXEmu original en VB.NET a C puro. Núcleo completo conectado a un frontend libretro sobre SDL2 y OpenOrbis. El .pkg se genera en la nube con GitHub Actions: sin instalar compiladores ni toolchains en tu PC.
+
+🧠 Núcleo de emulación
+Componente	Detalle
+⚙️ CPU	MIPS R3000A 33 MHz — juego de instrucciones completo
+📐 GTE	Coprocesador de geometría 3D (transformaciones, perspectiva, iluminación)
+🖥️ GPU	Renderizado por software — polígonos, sprites, efectos especiales
+🔊 SPU	24 canales de audio + CD-ROM XA + envolvente ADSR
+💿 CD-ROM	LibCrypt · archivos .sbi · audio XA · multisesión
+📹 MDEC	Decodificador de vídeo FMV
+🔄 DMA	7 canales de acceso directo a memoria
+⏱️ Timers	3 temporizadores del sistema
+🕹️ SIO	Mando digital DualShock + tarjeta de memoria (puerto 1)
+💿 Formatos de disco admitidos
+.cue / .bin · .iso · .img · .pbp · .m3u (multidisco — un .cue por línea)
+
+💾 Compatibilidad con PSXEmu PC
+Tarjeta de memoria — formato estándar 128 KB (Tarjeta1.mcr), intercambiable directamente con la versión de Windows.
+Save states — mismo formato y nombre de archivo (<juego>.slot1.state). Copia del PC a la PS4 y viceversa sin conversión.
+🎮 Controles
+[spoiler]
+Botón	Contexto	Acción
+Cruceta / Stick izq.	Explorador	Moverse
+Cruz / Círculo	Explorador	Abrir / carpeta superior
+Triángulo	Explorador	Arrancar BIOS sin disco
+Cuadrado	Explorador	Cambiar unidad (USB / interna)
+L1 / R1	Explorador	Página arriba / abajo
+Options	Explorador	Salir
+Cruceta / XOLS / L1 R1 L2 R2 L3	En juego	Mando PS1
+R3	En juego	Turbo (activar / desactivar)
+Options	En juego	Start
+Panel táctil	En juego	Select
+Panel táctil + Options	En juego	Menú del emulador[/spoiler]
+📋 Menú en juego
+Guardar / cargar estado · Reiniciar · Cambio de disco · Turbo · Filtro de imagen · Formato de pantalla · Ciclos por instrucción · Salto de imagen · Abrir otro archivo
+
+📦 Compilación en la nube
+Sube el proyecto a un repositorio privado de GitHub.
+Pestaña Actions → Compilar PS4 → Run workflow.
+Descarga el artefacto: UP0001-PSXE00001_00-PSXEMU0000000000.pkg.
+Sin MSYS2, sin WSL, sin OpenOrbis local. El workflow descarga el toolchain, compila con clang y genera el .pkg listo para instalar.
+
+🔒 Requisitos
+PS4 con jailbreak (GoldHEN u otro homebrew habilitado). Una PS4 de stock no instala paquetes propios.
+BIOS de PS1 — scph1001.bin o similar (512 KB) en /data/psxemu/system/. Sin BIOS no arranca.
+Tus propios discos en /data/psxemu/juegos/ o en USB.
+
+📁 Rutas en la PS4
+/data/psxemu/system/     ← BIOS
+/data/psxemu/juegos/     ← .cue/.bin, .iso, .img, .pbp, .m3u
+/data/psxemu/saves/      ← Tarjeta1.mcr
+/data/psxemu/estados/    ← save states
+/data/psxemu/logs/       ← psxemu.log (fps, audio, debug)
+⚖️ Licencia
+Código de autor propio en fase Beta. No incluye BIOS ni juegos — necesitas los tuyos propios.
