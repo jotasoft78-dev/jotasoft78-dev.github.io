@@ -1,0 +1,30 @@
+📊 Overlay de Rendimiento
+Mira cómo va tu PC mientras juegas, sin salir del juego. Un overlay pequeño, oscuro y azul que se queda arriba a la derecha de la pantalla, por encima de cualquier ventana, y no interfiere con el ratón.
+
+✨ Qué muestra
+🔥 CPU: temperatura y carga
+🎮 GPU: temperatura y carga
+🧠 RAM: memoria usada, total y porcentaje
+⚡ FPS reales: los fotogramas que se están dibujando en pantalla
+💡 Por qué te va a gustar
+🖱️ No molesta: los clics lo atraviesan, así que no roba el foco ni bloquea nada.
+🪟 Siempre visible: se queda por encima de juegos y aplicaciones en ventana o ventana sin bordes.
+🌑 Diseño limpio: fondo oscuro con detalles azules, que no distrae.
+🚨 Avisos visuales: los valores se ponen en rojo cuando la temperatura llega a 85 °C o la RAM pasa del 90 %.
+🔄 Datos al segundo: se actualiza cada segundo.
+🎯 Funciona con muchos tipos de juegos: mide FPS en DirectX, OpenGL y Vulkan, incluso en apps de streaming como Chiaki.
+📦 Versión portable
+💾 Un solo archivo: no hay instalador.
+🚫 No necesitas .NET: ya va incluido.
+🧳 Llévalo donde quieras: cópialo a otro PC con Windows de 64 bits y ejecútalo.
+🛠️ Requisitos
+🪟 Windows 10 u 11 de 64 bits
+🛡️ Permisos de administrador: necesarios para leer los sensores y los FPS
+🔌 Driver PawnIO (solo para la temperatura de CPU): si no lo tienes, el programa te ofrece instalarlo al arrancar con winget. Si prefieres no instalarlo, la temperatura de CPU aparecerá como N/D y el resto funciona igual.
+🚀 Cómo se usa
+▶️ Abre OverlayRendimiento.exe y acepta el aviso de administrador.
+👀 El overlay aparece arriba a la derecha.
+❌ Para cerrarlo, haz clic derecho en su icono junto al reloj y elige Salir.
+ℹ️ Buenas prácticas
+🎞️ Los FPS pueden oscilar un poco aunque la pantalla no cambie: es el ritmo real de los fotogramas.
+🌡️ Si algún sensor no existe en tu equipo, verás N/D en lugar de un valor inventado.

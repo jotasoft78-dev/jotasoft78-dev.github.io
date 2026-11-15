@@ -855,13 +855,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
         </iframe>
         </div>
-        <p>Repositorio oficial de aplicaciones para Windows, Android y juegos para consolas. Actualmente con <strong>35</strong> entradas disponibles.</p>
+        <p>Repositorio oficial de aplicaciones para Windows, Android y juegos para consolas. Actualmente con <strong>36</strong> entradas disponibles.</p>
     </header>
 
     <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
     <nav class="nav-controls">
         <div class="nav-buttons">
-            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">16</span></a>
+            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">17</span></a>
             <a href="#android" class="nav-btn"><span>📱</span> Android <span class="nav-btn-count">17</span></a>
             <div class="nav-dropdown" id="navDropdownConsolas">
                 <button type="button" class="nav-dropdown-btn" onclick="toggleDropdownConsolas(this)" aria-haspopup="true" aria-expanded="false">
@@ -888,7 +888,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="platform-header">
                 <span class="platform-icon">🖥️</span>
                 <h2>Aplicaciones para Windows</h2>
-                <span class="platform-count-badge">16 aplicaciones</span>
+                <span class="platform-count-badge">17 aplicaciones</span>
             </div>
             
             <div class="apps-grid">
@@ -1127,6 +1127,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
                             <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="MediaInfo JotaSoft78" data-page="windows/mediainfo-jotasoft78.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="app-card" id="overlayrendimiento" data-platform="windows" data-page="windows/overlayrendimiento.html">
+                    <div class="card-image-container">
+                        <img src="windows/OverlayRendimiento/captura.jpg" alt="Captura de OverlayRendimiento" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title"><a href="windows/overlayrendimiento.html" class="card-title-link">OverlayRendimiento</a></h3>
+                            <div class="card-description">📊 Overlay de Rendimiento<br>Mira cómo va tu PC mientras juegas, sin salir del juego. Un overlay pequeño, oscuro y azul que se queda arriba a la derecha de la pantalla, por encima de cualquier ventana, y no interfiere con el ratón.<br><br>✨ Qué muestra<br>🔥 CPU: temperatura y carga<br>🎮 GPU: temperatura y carga<br>🧠 RAM: memoria usada, total y porcentaje<br>⚡ FPS reales: los fotogramas que se están dibujando en pantalla<br>💡 Por qué te va a gustar<br>🖱️ No molesta: los clics lo atraviesan, así que no roba el foco ni bloquea nada.<br>🪟 Siempre visible: se queda por encima de juegos y aplicaciones en ventana o ventana sin bordes.<br>🌑 Diseño limpio: fondo oscuro con detalles azules, que no distrae.<br>🚨 Avisos visuales: los valores se ponen en rojo cuando la temperatura llega a 85 °C o la RAM pasa del 90 %.<br>🔄 Datos al segundo: se actualiza cada segundo.<br>🎯 Funciona con muchos tipos de juegos: mide FPS en DirectX, OpenGL y Vulkan, incluso en apps de streaming como Chiaki.<br>📦 Versión portable<br>💾 Un solo archivo: no hay instalador.<br>🚫 No necesitas .NET: ya va incluido.<br>🧳 Llévalo donde quieras: cópialo a otro PC con <strong>Windows</strong> de 64 bits y ejecútalo.<br>🛠️ Requisitos<br>🪟 Windows 10 u 11 de 64 bits<br>🛡️ Permisos de administrador: necesarios para leer los sensores y los FPS<br>🔌 Driver PawnIO (solo para la temperatura de CPU): si no lo tienes, el programa te ofrece instalarlo al arrancar con winget. Si prefieres no instalarlo, la temperatura de CPU aparecerá como N/D y el resto funciona igual.<br>🚀 Cómo se usa<br>▶️ Abre <strong>OverlayRendimiento</strong>.exe y acepta el aviso de administrador.<br>👀 El overlay aparece arriba a la derecha.<br>❌ Para cerrarlo, haz clic derecho en su icono junto al reloj y elige Salir.<br>ℹ️ Buenas prácticas<br>🎞️ Los FPS pueden oscilar un poco aunque la pantalla no cambie: es el ritmo real de los fotogramas.<br>🌡️ Si algún sensor no existe en tu equipo, verás N/D en lugar de un valor inventado.</div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="windows/OverlayRendimiento/OverlayRendimiento.exe" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'OverlayRendimiento', 'platform': 'windows'});">
+                                Descargar OverlayRendimiento (Windows)
+                            </a>
+                            <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('OverlayRendimiento', 'windows/overlayrendimiento.html', this)">
+                                🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="OverlayRendimiento" data-page="windows/overlayrendimiento.html" data-platform="Windows" onclick="avisarProblema(this)">
                                 🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
