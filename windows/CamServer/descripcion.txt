@@ -1,10 +1,15 @@
-📷 CamServer - Tu webcam en cualquier navegador de la red local
+﻿📷 CamServer - Tu webcam en cualquier navegador, en casa o desde Internet
 
-CamServer es una aplicación gratuita y portable para Windows que convierte la webcam de tu PC en una cámara de vídeo en streaming accesible desde cualquier dispositivo de tu red local: móvil, tablet, otro ordenador o Smart TV. Sin instalación, sin cuentas y sin nubes: tus imágenes no salen de tu red. 🔒
+CamServer es una aplicación gratuita y portable para Windows que convierte la webcam de tu PC en una cámara de vídeo en streaming accesible desde cualquier dispositivo: móvil, tablet, otro ordenador o Smart TV. Sin instalación, sin cuentas y sin nubes de terceros: las imágenes van directamente de tu PC a tu navegador. 🔒
+
+Ahora con acceso protegido: usuario y contraseña, conexión cifrada (HTTPS) y protección contra intentos de acceso por fuerza bruta, para que puedas verla también desde fuera de casa sin instalar nada en el móvil ni en el PC.
 
 ✨ CARACTERÍSTICAS PRINCIPALES
 
 🎥 Streaming MJPEG en tiempo real: compatible con Chrome, Edge, Firefox, Safari y con programas como VLC u OBS.
+🔐 Acceso con usuario y contraseña: la primera vez se genera una contraseña aleatoria segura. Puedes cambiarla cuando quieras desde el menú del icono o editando un archivo de configuración.
+🛡️ HTTPS integrado: todo el tráfico va cifrado. Genera su propio certificado automáticamente, o puedes usar el tuyo.
+🚫 Anti fuerza bruta: tras 5 intentos fallidos, esa dirección IP queda bloqueada 5 minutos.
 📦 Un solo archivo portable: un único CamServer.exe, sin instalar .NET ni nada más. Cópialo a un USB y ejecútalo donde quieras. 💾
 🫥 Funciona en segundo plano: sin ventana ni consola. Vive en la bandeja del sistema, junto al reloj de Windows, con su propio icono de cámara.
 ⚡ Optimizado: usa el modo MJPG nativo de la cámara y codifica cada imagen una sola vez para todos los espectadores. Más dispositivos conectados no suben el consumo de CPU, y si nadie mira, no gasta CPU.
@@ -17,44 +22,69 @@ CamServer es una aplicación gratuita y portable para Windows que convierte la w
 🔴 Grabar vídeo (archivo .avi) con un solo clic
 🎙️ Grabar audio del micrófono (archivo .wav)
 📁 Abrir la carpeta de grabaciones
+🔑 Usuario y contraseña... (se aplica al instante, sin reiniciar)
 🔁 Reiniciar el servidor
 ⏻ Apagar y salir
 Mientras grabas, el icono muestra un punto rojo 🔴. Las grabaciones se guardan en Vídeos\CamServer.
 
-🔗 ENDPOINTS HTTP
+🔗 ENDPOINTS (todos requieren usuario y contraseña)
 
 🏠 /              Página con el vídeo en directo
 📺 /stream        Flujo MJPEG puro (etiquetas <img>, VLC, OBS, domótica...)
 📸 /snapshot.jpg  Última imagen en JPEG
 📊 /status        Estado en JSON (resolución, fps, clientes)
 
-⚙️ CONFIGURACIÓN (parámetros opcionales)
+Para programas externos (VLC, OBS...) usa la dirección con las credenciales, por ejemplo:
+https://usuario:contraseña@tu-dominio:8443/stream
+
+⚙️ CONFIGURACIÓN
+
+Archivo de configuración: %APPDATA%\CamServer\camserver.conf (se crea solo la primera vez):
+
+  user=admin               Usuario
+  password=xxxxxxxxxxxxxxxx  Contraseña (aleatoria la primera vez)
+  https_port=8443          Puerto HTTPS (0 = desactivar HTTPS)
+  cert=C:\ruta\cert.pfx    (opcional) tu propio certificado
+  cert_password=...        (opcional) contraseña de tu certificado
+
+Si dejas usuario o contraseña vacíos, el acceso es libre (no recomendado fuera de tu casa).
+
+Parámetros opcionales de línea de comandos:
 
   --camera 0      Índice de la cámara
   --width 1280    Ancho
   --height 720    Alto
   --fps 25        Fotogramas por segundo
   --quality 75    Calidad JPEG (1-100)
-  --port 8080     Puerto del servidor
+  --port 8080     Puerto HTTP local (solo accesible desde el propio PC cuando HTTPS está activo)
 
 Ejemplo: CamServer.exe --port 9000 --fps 30 --quality 85
 
 🚀 CÓMO USARLO
 
 1️⃣ Ejecuta CamServer.exe. Aparecerá un icono de cámara junto al reloj (puede estar bajo la flecha "^").
-2️⃣ Clic derecho sobre el icono para ver la dirección de tu red, por ejemplo http://192.168.1.50:8080/
-3️⃣ Escribe esa dirección en el navegador de cualquier dispositivo de la misma red. ✅
+2️⃣ Clic derecho sobre el icono → "Usuario y contraseña..." para ver o cambiar tus credenciales.
+3️⃣ En la red local, abre la dirección que muestra el menú, por ejemplo https://192.168.1.50:8443/ e introduce usuario y contraseña. ✅
+
+🌍 VERLA DESDE INTERNET
+
+1️⃣ En tu router, abre el puerto 8443 (TCP) y redirígelo al PC donde corre CamServer.
+2️⃣ Si tu IP pública cambia, crea un dominio gratuito de DNS dinámico (DuckDNS, No-IP...) y configúralo en el router: no hay que instalar nada en el PC.
+3️⃣ Entra desde cualquier navegador con https://tu-dominio:8443/
+4️⃣ La primera vez el navegador avisará de que el certificado no es de confianza: es normal, porque lo genera el propio CamServer. La conexión va cifrada igualmente; acepta la excepción (o instala tu propio certificado con la opción cert=).
+Recomendación: usa una contraseña larga y no la compartas.
 
 📋 REQUISITOS
 
 🪟 Windows 10 u 11 de 64 bits.
 📷 Una webcam conectada (y micrófono si quieres grabar audio 🎙️).
-🛡️ Si el cortafuegos de Windows lo solicita, permite el acceso en redes privadas.
+🛡️ Si el cortafuegos de Windows lo solicita, permite el acceso en redes privadas (y públicas si vas a usarla desde Internet).
 
 ⚠️ NOTAS
 
-- Pensado para red local: el servidor no incluye contraseña ni cifrado (HTTP), por lo que no se recomienda exponerlo a Internet. 🚫🌍
+- El HTTP sin cifrar solo escucha en el propio PC; desde la red solo se entra por HTTPS.
+- Si desactivas HTTPS (https_port=0), el servidor vuelve al modo HTTP sin cifrar en el puerto --port: la contraseña viajaría sin protección, úsalo solo en red local.
 - El vídeo y el audio se graban en archivos independientes.
-- Tamaño de la descarga: unos 108 MB (incluye todo lo necesario). 📥
+- Tamaño de la descarga: unos 82 MB (incluye todo lo necesario). 📥
 
 🧑‍💻 Tecnología: C# / .NET 8, ASP.NET Core (Kestrel), OpenCV y NAudio.
