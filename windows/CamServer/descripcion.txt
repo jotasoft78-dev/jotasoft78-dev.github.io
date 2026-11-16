@@ -1,0 +1,60 @@
+📷 CamServer - Tu webcam en cualquier navegador de la red local
+
+CamServer es una aplicación gratuita y portable para Windows que convierte la webcam de tu PC en una cámara de vídeo en streaming accesible desde cualquier dispositivo de tu red local: móvil, tablet, otro ordenador o Smart TV. Sin instalación, sin cuentas y sin nubes: tus imágenes no salen de tu red. 🔒
+
+✨ CARACTERÍSTICAS PRINCIPALES
+
+🎥 Streaming MJPEG en tiempo real: compatible con Chrome, Edge, Firefox, Safari y con programas como VLC u OBS.
+📦 Un solo archivo portable: un único CamServer.exe, sin instalar .NET ni nada más. Cópialo a un USB y ejecútalo donde quieras. 💾
+🫥 Funciona en segundo plano: sin ventana ni consola. Vive en la bandeja del sistema, junto al reloj de Windows, con su propio icono de cámara.
+⚡ Optimizado: usa el modo MJPG nativo de la cámara y codifica cada imagen una sola vez para todos los espectadores. Más dispositivos conectados no suben el consumo de CPU, y si nadie mira, no gasta CPU.
+🔄 Se recupera solo: si la cámara se desconecta o falla, intenta reabrirla automáticamente.
+🖥️ Página de visualización integrada: vídeo a pantalla completa con resolución, fps y clientes conectados.
+
+🖱️ MENÚ DEL ICONO DE BANDEJA (clic derecho)
+
+🌐 Abrir en el navegador (también con doble clic en el icono)
+🔴 Grabar vídeo (archivo .avi) con un solo clic
+🎙️ Grabar audio del micrófono (archivo .wav)
+📁 Abrir la carpeta de grabaciones
+🔁 Reiniciar el servidor
+⏻ Apagar y salir
+Mientras grabas, el icono muestra un punto rojo 🔴. Las grabaciones se guardan en Vídeos\CamServer.
+
+🔗 ENDPOINTS HTTP
+
+🏠 /              Página con el vídeo en directo
+📺 /stream        Flujo MJPEG puro (etiquetas <img>, VLC, OBS, domótica...)
+📸 /snapshot.jpg  Última imagen en JPEG
+📊 /status        Estado en JSON (resolución, fps, clientes)
+
+⚙️ CONFIGURACIÓN (parámetros opcionales)
+
+  --camera 0      Índice de la cámara
+  --width 1280    Ancho
+  --height 720    Alto
+  --fps 25        Fotogramas por segundo
+  --quality 75    Calidad JPEG (1-100)
+  --port 8080     Puerto del servidor
+
+Ejemplo: CamServer.exe --port 9000 --fps 30 --quality 85
+
+🚀 CÓMO USARLO
+
+1️⃣ Ejecuta CamServer.exe. Aparecerá un icono de cámara junto al reloj (puede estar bajo la flecha "^").
+2️⃣ Clic derecho sobre el icono para ver la dirección de tu red, por ejemplo http://192.168.1.50:8080/
+3️⃣ Escribe esa dirección en el navegador de cualquier dispositivo de la misma red. ✅
+
+📋 REQUISITOS
+
+🪟 Windows 10 u 11 de 64 bits.
+📷 Una webcam conectada (y micrófono si quieres grabar audio 🎙️).
+🛡️ Si el cortafuegos de Windows lo solicita, permite el acceso en redes privadas.
+
+⚠️ NOTAS
+
+- Pensado para red local: el servidor no incluye contraseña ni cifrado (HTTP), por lo que no se recomienda exponerlo a Internet. 🚫🌍
+- El vídeo y el audio se graban en archivos independientes.
+- Tamaño de la descarga: unos 108 MB (incluye todo lo necesario). 📥
+
+🧑‍💻 Tecnología: C# / .NET 8, ASP.NET Core (Kestrel), OpenCV y NAudio.

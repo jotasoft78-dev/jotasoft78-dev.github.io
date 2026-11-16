@@ -855,13 +855,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
         </iframe>
         </div>
-        <p>Repositorio oficial de aplicaciones para Windows, Android y juegos para consolas. Actualmente con <strong>36</strong> entradas disponibles.</p>
+        <p>Repositorio oficial de aplicaciones para Windows, Android y juegos para consolas. Actualmente con <strong>37</strong> entradas disponibles.</p>
     </header>
 
     <!-- Barra de navegación fija con botones de sección y buscador desplegable global -->
     <nav class="nav-controls">
         <div class="nav-buttons">
-            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">17</span></a>
+            <a href="#windows" class="nav-btn"><span>🖥️</span> Windows <span class="nav-btn-count">18</span></a>
             <a href="#android" class="nav-btn"><span>📱</span> Android <span class="nav-btn-count">17</span></a>
             <div class="nav-dropdown" id="navDropdownConsolas">
                 <button type="button" class="nav-dropdown-btn" onclick="toggleDropdownConsolas(this)" aria-haspopup="true" aria-expanded="false">
@@ -888,7 +888,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="platform-header">
                 <span class="platform-icon">🖥️</span>
                 <h2>Aplicaciones para Windows</h2>
-                <span class="platform-count-badge">17 aplicaciones</span>
+                <span class="platform-count-badge">18 aplicaciones</span>
             </div>
             
             <div class="apps-grid">
@@ -956,6 +956,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 🔗 <span class="share-btn-label">Compartir</span>
                             </button>
                             <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="Autoliberador V6_6.60_Pro-C" data-page="windows/autoliberador-v6-6-60-pro-c.html" data-platform="Windows" onclick="avisarProblema(this)">
+                                🔔 <span class="share-btn-label">Avisar</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="app-card" id="camserver" data-platform="windows" data-page="windows/camserver.html">
+                    <div class="card-image-container">
+                        <img src="windows/CamServer/captura.jpg" alt="Captura de CamServer" loading="lazy" onclick="abrirModal(this.src)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title"><a href="windows/camserver.html" class="card-title-link">CamServer</a></h3>
+                            <div class="card-description">📷 <strong>CamServer</strong> - Tu webcam en cualquier navegador de la red local<br><br>CamServer es una aplicación gratuita y portable para <strong>Windows</strong> que convierte la webcam de tu PC en una cámara de vídeo en streaming accesible desde cualquier dispositivo de tu red local: móvil, tablet, otro ordenador o Smart TV. Sin instalación, sin cuentas y sin nubes: tus imágenes no salen de tu red. 🔒<br><br>✨ CARACTERÍSTICAS PRINCIPALES<br><br>🎥 Streaming MJPEG en tiempo real: compatible con Chrome, Edge, Firefox, Safari y con programas como VLC u OBS.<br>📦 Un solo archivo portable: un único CamServer.exe, sin instalar .NET ni nada más. Cópialo a un USB y ejecútalo donde quieras. 💾<br>🫥 Funciona en segundo plano: sin ventana ni consola. Vive en la bandeja del sistema, junto al reloj de Windows, con su propio icono de cámara.<br>⚡ Optimizado: usa el modo MJPG nativo de la cámara y codifica cada imagen una sola vez para todos los espectadores. Más dispositivos conectados no suben el consumo de CPU, y si nadie mira, no gasta CPU.<br>🔄 Se recupera solo: si la cámara se desconecta o falla, intenta reabrirla automáticamente.<br>🖥️ Página de visualización integrada: vídeo a pantalla completa con resolución, fps y clientes conectados.<br><br>🖱️ MENÚ DEL ICONO DE BANDEJA (clic derecho)<br><br>🌐 Abrir en el navegador (también con doble clic en el icono)<br>🔴 Grabar vídeo (archivo .avi) con un solo clic<br>🎙️ Grabar audio del micrófono (archivo .wav)<br>📁 Abrir la carpeta de grabaciones<br>🔁 Reiniciar el servidor<br>⏻ Apagar y salir<br>Mientras grabas, el icono muestra un punto rojo 🔴. Las grabaciones se guardan en Vídeos\CamServer.<br><br>🔗 ENDPOINTS HTTP<br><br>🏠 /              Página con el vídeo en directo<br>📺 /stream        Flujo MJPEG puro (etiquetas &lt;img&gt;, VLC, OBS, domótica...)<br>📸 /snapshot.jpg  Última imagen en JPEG<br>📊 /status        Estado en JSON (resolución, fps, clientes)<br><br>⚙️ CONFIGURACIÓN (parámetros opcionales)<br><br>  --camera 0      Índice de la cámara<br>  --width 1280    Ancho<br>  --height 720    Alto<br>  --fps 25        Fotogramas por segundo<br>  --quality 75    Calidad JPEG (1-100)<br>  --port 8080     Puerto del servidor<br><br>Ejemplo: CamServer.exe --port 9000 --fps 30 --quality 85<br><br>🚀 CÓMO USARLO<br><br>1️⃣ Ejecuta CamServer.exe. Aparecerá un icono de cámara junto al reloj (puede estar bajo la flecha &quot;^&quot;).<br>2️⃣ Clic derecho sobre el icono para ver la dirección de tu red, por ejemplo http://192.168.1.50:8080/<br>3️⃣ Escribe esa dirección en el navegador de cualquier dispositivo de la misma red. ✅<br><br>📋 REQUISITOS<br><br>🪟 Windows 10 u 11 de 64 bits.<br>📷 Una webcam conectada (y micrófono si quieres grabar audio 🎙️).<br>🛡️ Si el cortafuegos de Windows lo solicita, permite el acceso en redes privadas.<br><br>⚠️ NOTAS<br><br>- Pensado para red local: el servidor no incluye contraseña ni cifrado (HTTP), por lo que no se recomienda exponerlo a Internet. 🚫🌍<br>- El vídeo y el audio se graban en archivos independientes.<br>- Tamaño de la descarga: unos 108 MB (incluye todo lo necesario). 📥<br><br>🧑‍💻 Tecnología: C# / .NET 8, ASP.NET Core (Kestrel), OpenCV y NAudio.</div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="windows/CamServer/CamServer.rar" class="download-btn" download onclick="gtag('event', 'download', {'app_name': 'CamServer', 'platform': 'windows'});">
+                                Descargar CamServer (Windows)
+                            </a>
+                            <button type="button" class="share-btn" title="Compartir esta aplicación" onclick="compartirApp('CamServer', 'windows/camserver.html', this)">
+                                🔗 <span class="share-btn-label">Compartir</span>
+                            </button>
+                            <button type="button" class="share-btn report-btn" title="Avisar de un problema con la descarga o la aplicación" data-app="CamServer" data-page="windows/camserver.html" data-platform="Windows" onclick="avisarProblema(this)">
                                 🔔 <span class="share-btn-label">Avisar</span>
                             </button>
                         </div>
