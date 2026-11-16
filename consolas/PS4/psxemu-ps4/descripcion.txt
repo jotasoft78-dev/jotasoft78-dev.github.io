@@ -35,12 +35,6 @@ Panel táctil + Options	En juego	Menú del emulador[/spoiler]
 📋 Menú en juego
 Guardar / cargar estado · Reiniciar · Cambio de disco · Turbo · Filtro de imagen · Formato de pantalla · Ciclos por instrucción · Salto de imagen · Abrir otro archivo
 
-📦 Compilación en la nube
-Sube el proyecto a un repositorio privado de GitHub.
-Pestaña Actions → Compilar PS4 → Run workflow.
-Descarga el artefacto: UP0001-PSXE00001_00-PSXEMU0000000000.pkg.
-Sin MSYS2, sin WSL, sin OpenOrbis local. El workflow descarga el toolchain, compila con clang y genera el .pkg listo para instalar.
-
 🔒 Requisitos
 PS4 con jailbreak (GoldHEN u otro homebrew habilitado). Una PS4 de stock no instala paquetes propios.
 BIOS de PS1 — scph1001.bin o similar (512 KB) en /data/psxemu/system/. Sin BIOS no arranca.
